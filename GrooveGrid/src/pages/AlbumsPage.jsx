@@ -6,7 +6,11 @@ const AlbumsPage = () => {
   // Function to fetch albums from the backend
   const fetchAlbums = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/album`);
+      const baseUrl = import.meta.env.VITE_API_URL.endsWith("/")
+        ? import.meta.env.VITE_API_URL.slice(0, -1)
+        : import.meta.env.VITE_API_URL;
+
+      const response = await fetch(`${baseUrl}/api/album`);
       if (!response.ok) throw new Error("Data fetch failed");
       const data = await response.json();
       setAlbums(data);

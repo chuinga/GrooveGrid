@@ -8,9 +8,12 @@ const AlbumDetails = () => {
   useEffect(() => {
     const fetchAlbum = async () => {
       try {
-        const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/album/${albumId}`
-        );
+        // Ensure there's no extra slash at the end of VITE_API_URL
+        const baseUrl = import.meta.env.VITE_API_URL.endsWith("/")
+          ? import.meta.env.VITE_API_URL.slice(0, -1)
+          : import.meta.env.VITE_API_URL;
+
+        const response = await fetch(`${baseUrl}/api/album/${albumId}`);
         if (!response.ok) throw new Error("Album fetch failed");
         const data = await response.json();
         setAlbum(data);
@@ -31,11 +34,9 @@ const AlbumDetails = () => {
       <p>Release Date: {album.releaseDate}</p>
       <p>Genre: {album.genre}</p>
       <img src={album.coverImageUrl} alt={album.title} />
-      <p>{album.description}</p>
+      <p>Description: {album.description}</p>
       <div>
         <h3>Tracks:</h3>
-        {album.tracks &&
-          album.tracks.map((track, index) => <p key={index}>{track.title}</p>)}
       </div>
     </div>
   );
