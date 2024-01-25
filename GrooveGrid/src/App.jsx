@@ -19,6 +19,8 @@ function App() {
       <Routes>
         <Route path="/albums" element={<AlbumsPage />} />
         <Route path="/albums/:albumId" element={<AlbumDetails />} />
+        <Route path="/songs" element={<SongsPage />} />
+        <Route path="/songs/:songId" element={<SongDetails />} />
       </Routes>
     </>
   );
