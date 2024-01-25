@@ -1,9 +1,14 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
-import Navbar from './components/Navbar';
-import { Routes } from 'react-router-dom';
+import React, { useState } from "react";
+import { Router, Routes, Route } from "react-router-dom";
+// Components
+import Navbar from "./components/Navbar";
+
+// Pages
+import AlbumsPage from "./pages/AlbumsPage";
+import AlbumDetails from "./components/AlbumDetails"; // Detail Page
+
+// Styles
+import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,10 +17,11 @@ function App() {
     <>
       <Navbar />
       <Routes>
-
+        <Route path="/albums" element={<AlbumsPage />} />
+        <Route path="/albums/:albumId" element={<AlbumDetails />} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
