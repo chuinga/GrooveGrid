@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "65b15422d47e2b9bad149888"
+  },
+  "name": "Ólafur Arnalds",
+  "genre": "Indie",
+  "image": "https://f4.bcbits.com/img/0026003860_10.jpg",
+  "albums": [
+    "Island Songs"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b15470d47e2b9bad14988a"
+  },
+  "name": "Ólafur Arnalds",
+  "image": "https://f4.bcbits.com/img/0026003860_10.jpg",
+  "albums": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b161a444abd875319a5de2"
+  },
+  "name": "Ólafur Arnalds",
+  "image": "https://f4.bcbits.com/img/0026003860_10.jpg",
+  "albums": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b22433276c620aac7d1fd4"
+  },
+  "name": "Ólasfur Arnalds",
+  "image": "https://f4.bcbits.com/img/0026003860_10.jpg",
+  "albums": [],
+  "__v": 0
+}]
