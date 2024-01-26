@@ -8,9 +8,12 @@ const ArtistDetails = () => {
   useEffect(() => {
     const fetchArtist = async () => {
       try {
-        const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/artists/${artistId}`
-        );
+        // Ensure there's no extra slash at the end of VITE_API_URL
+        const baseUrl = import.meta.env.VITE_API_URL.endsWith("/")
+          ? import.meta.env.VITE_API_URL.slice(0, -1)
+          : import.meta.env.VITE_API_URL;
+
+        const response = await fetch(`${baseUrl}/api/artists/${artistId}`);
         if (!response.ok) throw new Error("Artist fetch failed");
         const data = await response.json();
         setArtist(data);
@@ -24,23 +27,16 @@ const ArtistDetails = () => {
 
   if (!artist) return <div>Loading...</div>;
 
-  const { name, genre, imageUrl } = artist;
-
   return (
     <div>
       <h1>Artist Details</h1>
-      {artist ? (
-        <>
-          <h2>{artist.name}</h2>
-          <p>Genre: {artist.genre}</p>
-          <img src={artist.imageUrl} alt={`${artist.name} thumbnail`} />
-        </>
-      ) : (
-        <div>Loading...</div>
-      )}
+      <>
+        <h2>{artist.name}</h2>
+        <p>Genre: {artist.genre}</p>
+        <img src={artist.imageUrl} alt={artist.name} />
+      </>
     </div>
   );
-  
 };
 
 export default ArtistDetails;

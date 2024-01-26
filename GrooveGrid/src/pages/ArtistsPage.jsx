@@ -7,13 +7,11 @@ const ArtistsPage = () => {
   // Function to fetch artists from the backend
   const fetchArtists = async () => {
     try {
-      /* const baseUrl= import.meta.env.VITE_API_URL.endsWith("/") 
-        ? import.meta.env.VITE_API_URL.slice(0,-1)
-        : import.meta.env.VITE_API_URL */
+      const baseUrl = import.meta.env.VITE_API_URL.endsWith("/")
+        ? import.meta.env.VITE_API_URL.slice(0, -1)
+        : import.meta.env.VITE_API_URL;
 
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/artists`
-      );
+      const response = await fetch(`${baseUrl}/api/artists`);
       if (!response.ok) throw new Error("Data fetch failed");
       const data = await response.json();
       setArtists(data);
