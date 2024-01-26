@@ -13,6 +13,7 @@ const ArtistDetails = () => {
         );
         if (!response.ok) throw new Error("Artist fetch failed");
         const data = await response.json();
+        console.log(data)
         setArtist(data);
       } catch (error) {
         console.error("Error fetching artist:", error);
@@ -24,15 +25,14 @@ const ArtistDetails = () => {
 
   if (!artist) return <div>Loading...</div>;
 
-  const { name, genre, imageUrl } = artist;
-
+ 
   return (
     <div>
       <h1>Artist Details</h1>
       {artist ? (
         <>
           <h2>{artist.name}</h2>
-          <p>Genre: {artist.genre}</p>
+          <p>Genre: {artist.genre.name}</p>
           <img src={artist.imageUrl} alt={`${artist.name} thumbnail`} />
         </>
       ) : (

@@ -9,10 +9,12 @@ import AlbumsPage from "./pages/AlbumsPage";
 import AlbumDetails from "./components/AlbumDetails"; // Detail Page
 import NotFoundPage from "./pages/NotFoundPage";
 import AboutUs from "./pages/AboutUs";
+import ArtistsDetails from "./components/ArtistsDetails"
 /*import SongsPage from "./pages/SongsPage";
 import SongDetails from "./components/SongDetails"; // Detail Page*/
 // Styles
 import "./App.css";
+import ArtistsPage from "./pages/ArtistsPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,6 +28,8 @@ function App() {
         <Route path="/albums/:albumId" element={<AlbumDetails />} />
         {/*<Route path="/songs" element={<SongsPage />} />
         <Route path="/songs/:songId" element={<SongDetails />} />*/}
+        <Route path="/artists" element={<ArtistsPage />} />
+        <Route path="/artists/:artistId" element={<ArtistsDetails />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
