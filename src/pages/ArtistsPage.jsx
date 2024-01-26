@@ -13,7 +13,7 @@ const ArtistsPage = () => {
 
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/artists`
-        );
+      );
       if (!response.ok) throw new Error("Data fetch failed");
       const data = await response.json();
       setArtists(data);
