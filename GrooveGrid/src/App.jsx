@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import { Router, Routes, Route } from "react-router-dom";
-// Components
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-
-// Pages
-import AlbumsPage from "./pages/AlbumsPage";
-import AlbumDetails from "./components/AlbumDetails"; // Detail Page
-
-// Styles
-import "./App.css";
+import AlbumsPage from "./pages/AlbumsPage.jsx";
+import AlbumDetails from "./components/AlbumDetails.jsx";
+import ArtistsPage from "./pages/ArtistsPage.jsx";
+import ArtistsDetails from "./components/ArtistsDetails.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,8 +15,9 @@ function App() {
       <Routes>
         <Route path="/albums" element={<AlbumsPage />} />
         <Route path="/albums/:albumId" element={<AlbumDetails />} />
-        <Route path="/songs" element={<SongsPage />} />
-        <Route path="/songs/:songId" element={<SongDetails />} />
+        <Route path="/artists" element={<ArtistsPage />} />
+        <Route path="/artists/:artistId" element={<ArtistsDetails />} />
+        {/* Add more routes as needed */}
       </Routes>
     </>
   );

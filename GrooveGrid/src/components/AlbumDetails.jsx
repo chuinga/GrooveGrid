@@ -1,44 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const AlbumDetails = () => {
-  const { albumId } = useParams();
-  const [album, setAlbum] = useState(null);
+const ArtistDetails = () => {
+  const { artistId } = useParams();
+  const [artist, setArtist] = useState(null);
 
   useEffect(() => {
-    const fetchAlbum = async () => {
+    const fetchArtist = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/album/${albumId}`
+          `${import.meta.env.VITE_API_URL}/api/artists/${artistId}`
         );
-        if (!response.ok) throw new Error("Album fetch failed");
+        if (!response.ok) throw new Error("Artist fetch failed");
         const data = await response.json();
-        setAlbum(data);
+        setArtist(data);
       } catch (error) {
-        console.error("Error fetching album:", error);
+        console.error("Error fetching artist:", error);
       }
     };
 
-    fetchAlbum();
-  }, [albumId]);
+    fetchArtist();
+  }, [artistId]);
 
-  if (!album) return <div>Loading...</div>;
+  if (!artist) return <div>Loading...</div>;
 
   return (
     <div>
-      <h2>{album.title}</h2>
-      <p>Artist: {album.artist}</p>
-      <p>Release Date: {album.releaseDate}</p>
-      <p>Genre: {album.genre}</p>
-      <img src={album.coverImageUrl} alt={album.title} />
-      <p>{album.description}</p>
-      <div>
-        <h3>Tracks:</h3>
-        {album.tracks &&
-          album.tracks.map((track, index) => <p key={index}>{track.title}</p>)}
-      </div>
+      <h2>{artist.name}</h2>
+      <p>Genre: {artist.genre}</p>
+      <img src={artist.imageUrl} alt={artist.name} />
+      <p>{artist.bio}</p>
+      {/* Add more details as needed */}
     </div>
   );
 };
 
-export default AlbumDetails;
+export default ArtistDetails;
