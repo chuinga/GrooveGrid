@@ -9,10 +9,10 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import AlbumsPage from "./pages/AlbumsPage";
 import AlbumDetails from "./components/AlbumDetails";
-//import SongsPage from './pages/SongsPage';
 
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+import AboutUs from "./pages/AboutUs";
 import NotFoundPage from "./pages/NotFoundPage";
 
 // Styles
@@ -29,7 +29,8 @@ function App() {
         <Route path="/albums" element={<AlbumsPage />} />
         <Route path="/albums/:albumId" element={<AlbumDetails />} />
         {/* <Route path="/songs" element={<SongsPage />} /> */}
-        {/*<Route path="/songs/:songId" element={<SongDetails />} />*/}
+        {/* <Route path="/songs/:songId" element={<SongDetails />} /> */}
+        {/* <Route path="/about" element={<AboutUs />} /> */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
