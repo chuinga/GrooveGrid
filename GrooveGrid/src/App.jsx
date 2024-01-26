@@ -9,7 +9,6 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import AlbumsPage from "./pages/AlbumsPage";
 import AlbumDetails from "./components/AlbumDetails";
-
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import AboutUs from "./pages/AboutUs";

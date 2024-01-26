@@ -40,7 +40,6 @@ const ArtistDetails = () => {
       )}
     </div>
   );
-  
 };
 
 export default ArtistDetails;
