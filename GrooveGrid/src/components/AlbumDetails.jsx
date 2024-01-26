@@ -8,10 +8,13 @@ const ArtistDetails = () => {
   useEffect(() => {
     const fetchArtist = async () => {
       try {
-        const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/artists/${artistId}`
-        );
-        if (!response.ok) throw new Error("Artist fetch failed");
+        // Ensure there's no extra slash at the end of VITE_API_URL
+        const baseUrl = import.meta.env.VITE_API_URL.endsWith("/")
+          ? import.meta.env.VITE_API_URL.slice(0, -1)
+          : import.meta.env.VITE_API_URL;
+
+        const response = await fetch(`${baseUrl}/api/album/${albumId}`);
+        if (!response.ok) throw new Error("Album fetch failed");
         const data = await response.json();
         setArtist(data);
       } catch (error) {
@@ -24,13 +27,18 @@ const ArtistDetails = () => {
 
   if (!artist) return <div>Loading...</div>;
 
+  // To format the Release Date
+  const formattedReleaseDate = new Date(album.releaseDate).toLocaleDateString();
+
   return (
     <div>
-      <h2>{artist.name}</h2>
-      <p>Genre: {artist.genre}</p>
-      <img src={artist.imageUrl} alt={artist.name} />
-      <p>{artist.bio}</p>
-      {/* Add more details as needed */}
+      <h2>{album.title.name}</h2> {console.log(album)}
+      <p>Artist: {album.artist.name}</p>
+      <p>Release Date: {formattedReleaseDate}</p>
+      <p>Genre: {album.genre.name}</p>
+      <img src={album.coverImageUrl} alt={album.title.name} />
+      <p>Description: {album.description}</p>
+      <div></div>
     </div>
   );
 };
