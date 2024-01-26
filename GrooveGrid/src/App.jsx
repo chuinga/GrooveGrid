@@ -4,9 +4,10 @@ import { Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 // Pages
+import HomePage from "./pages/HomePage";
 import AlbumsPage from "./pages/AlbumsPage";
 import AlbumDetails from "./components/AlbumDetails"; // Detail Page
-
+import NotFoundPage from "./pages/NotFoundPage";
 // Styles
 import "./App.css";
 
@@ -17,8 +18,10 @@ function App() {
     <>
       <Navbar />
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/albums" element={<AlbumsPage />} />
         <Route path="/albums/:albumId" element={<AlbumDetails />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

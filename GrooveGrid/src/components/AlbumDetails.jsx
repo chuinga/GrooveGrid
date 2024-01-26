@@ -27,17 +27,18 @@ const AlbumDetails = () => {
 
   if (!album) return <div>Loading...</div>;
 
+  // To format the Release Date
+  const formattedReleaseDate = new Date(album.releaseDate).toLocaleDateString();
+
   return (
     <div>
-      <h2>{album.title}</h2>
-      <p>Artist: {album.artist}</p>
-      <p>Release Date: {album.releaseDate}</p>
-      <p>Genre: {album.genre}</p>
-      <img src={album.coverImageUrl} alt={album.title} />
+      <h2>{album.title.name}</h2> {console.log(album)}
+      <p>Artist: {album.artist.name}</p>
+      <p>Release Date: {formattedReleaseDate}</p>
+      <p>Genre: {album.genre.name}</p>
+      <img src={album.coverImageUrl} alt={album.title.name} />
       <p>Description: {album.description}</p>
-      <div>
-        <h3>Tracks:</h3>
-      </div>
+      <div></div>
     </div>
   );
 };
