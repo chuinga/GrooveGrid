@@ -3,7 +3,7 @@ import AlbumList from "../components/AlbumList";
 
 const AlbumsPage = () => {
   const [albums, setAlbums] = useState([]);
-  // Function to fetch albums from the backend
+  // Function to fetch albums from the backendd
   const fetchAlbums = async () => {
     try {
       const baseUrl = import.meta.env.VITE_API_URL.endsWith("/")
