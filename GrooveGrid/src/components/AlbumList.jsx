@@ -1,16 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ArtistList = ({ artists }) => {
+const AlbumList = ({ albums }) => {
   return (
     <div>
-      {artists.map((artist) => (
-        <div key={artist.id}>
+      {albums.map((album) => (
+        <div key={album._id}>
           <h3>
-            <Link to={`/artists/${artist.id}`}>
-              <img src={artist.imageUrl} alt={`${artist.name} thumbnail`} />
-              {artist.name}
-            </Link>
+            <Link to={`/albums/${album._id}`}>{album.title}</Link>
           </h3>
         </div>
       ))}
@@ -18,4 +15,4 @@ const ArtistList = ({ artists }) => {
   );
 };
 
-export default ArtistList;
+export default AlbumList;
