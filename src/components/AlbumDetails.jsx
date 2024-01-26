@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const AlbumDetails = () => {
-  const { albumId } = useParams();
-  const [album, setAlbum] = useState(null);
+const ArtistDetails = () => {
+  const { artistId } = useParams();
+  const [artist, setArtist] = useState(null);
 
   useEffect(() => {
-    const fetchAlbum = async () => {
+    const fetchArtist = async () => {
       try {
         // Ensure there's no extra slash at the end of VITE_API_URL
         const baseUrl = import.meta.env.VITE_API_URL.endsWith("/")
@@ -16,16 +16,16 @@ const AlbumDetails = () => {
         const response = await fetch(`${baseUrl}/api/album/${albumId}`);
         if (!response.ok) throw new Error("Album fetch failed");
         const data = await response.json();
-        setAlbum(data);
+        setArtist(data);
       } catch (error) {
-        console.error("Error fetching album:", error);
+        console.error("Error fetching artist:", error);
       }
     };
 
-    fetchAlbum();
-  }, [albumId]);
+    fetchArtist();
+  }, [artistId]);
 
-  if (!album) return <div>Loading...</div>;
+  if (!artist) return <div>Loading...</div>;
 
   // To format the Release Date
   const formattedReleaseDate = new Date(album.releaseDate).toLocaleDateString();
@@ -43,4 +43,4 @@ const AlbumDetails = () => {
   );
 };
 
-export default AlbumDetails;
+export default ArtistDetails;
