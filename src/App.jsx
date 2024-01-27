@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 // Pages
 import HomePage from './pages/HomePage';
 import AlbumsPage from './pages/AlbumsPage';
-import AlbumDetails from './components/AlbumDetails'; // Detail Page
+import AlbumDetails from './components/AlbumDetails';
 import NotFoundPage from './pages/NotFoundPage';
 import AboutUs from './pages/AboutUs';
 import ArtistsPage from './pages/ArtistsPage';
@@ -15,9 +15,11 @@ import GenresPage from './pages/GenresPage';
 import GenreDetails from './components/GenreDetails';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import UserProfilePage from './pages/UserProfilePage';
+import IsPrivate from './components/IsPrivate';
 
 /*import SongsPage from "./pages/SongsPage";
-import SongDetails from "./components/SongDetails"; // Detail Page*/
+import SongDetails from "./components/SongDetails"; */
 // Styles
 import './App.css';
 
@@ -35,6 +37,14 @@ function App() {
                 <Route path='/artists/:artistId' element={<ArtistsDetails />} />
                 <Route path='/genre' element={<GenresPage />} />
                 <Route path='/genres/:genreId' element={<GenreDetails />} />
+                <Route
+                    path='/profile'
+                    element={
+                        <IsPrivate>
+                            <UserProfilePage />
+                        </IsPrivate>
+                    }
+                />
                 <Route path='/login' element={<LoginPage />} />
                 <Route path='/signup' element={<SignupPage />} />
                 <Route path='/about' element={<AboutUs />} />

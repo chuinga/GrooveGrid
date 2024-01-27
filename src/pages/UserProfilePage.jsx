@@ -1,24 +1,28 @@
 import { useEffect, useState, useContext } from 'react';
-
 import { AuthContext } from '../context/auth.context';
+import { Link } from 'react-router-dom';
+import ProfileIcon from '../assets/profile-icon.png';
+
+import '../styles/UserProfilePage.css';
 
 // Import the string from the .env with URL of the API/server - http://localhost:5005
 const API_URL = 'http://localhost:5005';
 
 function UserProfilePage() {
     const [userProfile, setUserProfile] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const { user } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState(undefined);
+    const [loading, setLoading] = useState(true);
+
+    const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        const getStudent = async () => {
+        const getUser = async () => {
             const storedToken = localStorage.getItem('authToken');
 
             if (storedToken) {
                 try {
                     const response = await fetch(
-                        `${API_URL}/api/users/${user._id}`,
+                        `${API_URL}/api/profile/${user._id}`,
                         {
                             method: 'GET',
                             headers: {
@@ -28,7 +32,7 @@ function UserProfilePage() {
                     );
 
                     if (!response.ok) {
-                        const errorData = await response.json();
+                        const errorData = response.json();
                         const errorDescription = errorData.message;
                         throw new Error(errorDescription);
                     }
@@ -44,9 +48,28 @@ function UserProfilePage() {
             }
         };
 
-        getStudent();
-    }, [user._id]);
+        getUser();
+    }, [errorMessage, user._id]);
 
-    if (errorMessage) return { errorMessage };
+    if (errorMessage) {
+        return <div>{errorMessage}</div>;
+    }
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    return userProfile ? (
+        <div className='user-profile-page-container'>
+            <img src={ProfileIcon} alt='profile-photo' />
+            <h1>{userProfile.name}</h1>
+
+            <div>
+                <p>
+                    <strong>Email:</strong> {userProfile.email}
+                </p>
+                <Link to='/'>Go Home</Link>
+            </div>
+        </div>
+    ) : null;
 }
 export default UserProfilePage;

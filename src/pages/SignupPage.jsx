@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const API_URL = 'http://localhost:5005';
 
@@ -77,9 +77,6 @@ function SignupPage() {
             </form>
 
             {errorMessage && <p>{errorMessage}</p>}
-
-            <p>Already have an account?</p>
-            <Link to={'/login'}> Log in</Link>
         </div>
     );
 }
