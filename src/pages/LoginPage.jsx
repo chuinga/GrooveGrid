@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
+import { Link } from 'react-router-dom';
 
 const API_URL = 'http://localhost:5005';
 
@@ -74,7 +75,7 @@ function LoginPage() {
             </form>
 
             <p>Don&apos;t have an account yet?</p>
-
+            <Link to='/signup'>Sign up</Link>
             {errorMessage && <p>{errorMessage}</p>}
         </>
     );
