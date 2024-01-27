@@ -1,7 +1,8 @@
 import { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
-import { Link } from 'react-router-dom';
 import ProfileIcon from '../assets/profile-icon.png';
+import PlaylistList from '../components/PlaylistList';
+import { Link } from 'react-router-dom';
 
 import '../styles/UserProfilePage.css';
 
@@ -67,7 +68,11 @@ function UserProfilePage() {
                 <p>
                     <strong>Email:</strong> {userProfile.email}
                 </p>
-                <Link to='/'>Go Home</Link>
+                <div>
+                    <Link to='/playlists'>
+                        <PlaylistList playlists={userProfile.playlists} />
+                    </Link>
+                </div>
             </div>
         </div>
     ) : null;
