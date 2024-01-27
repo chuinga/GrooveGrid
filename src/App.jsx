@@ -22,6 +22,7 @@ import IsPrivate from './components/IsPrivate';
 import SongDetails from "./components/SongDetails"; */
 // Styles
 import './App.css';
+import PlaylistPage from './pages/PlaylistPage';
 
 function App() {
     return (
@@ -45,6 +46,7 @@ function App() {
                         </IsPrivate>
                     }
                 />
+                <Route path='/playlists' element={<PlaylistPage />} />
                 <Route path='/login' element={<LoginPage />} />
                 <Route path='/signup' element={<SignupPage />} />
                 <Route path='/about' element={<AboutUs />} />
