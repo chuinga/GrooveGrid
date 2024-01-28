@@ -1,4 +1,6 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
+
+import '../styles/Playlist.css';
 
 const PlaylistList = ({ playlists }) => {
     if (!playlists) {
@@ -6,8 +8,8 @@ const PlaylistList = ({ playlists }) => {
     }
     return (
         <div>
-            {playlists.map((playlist) => (
-                <div key={playlist._id}>
+            {playlists?.map((playlist) => (
+                <div key={playlist._id} className='playlist-item'>
                     <h3>{playlist.name}</h3>
                     <p>
                         <strong>Artists:</strong>{' '}
@@ -35,6 +37,10 @@ const PlaylistList = ({ playlists }) => {
             ))}
         </div>
     );
+};
+
+PlaylistList.propTypes = {
+    playlists: PropTypes.array,
 };
 
 export default PlaylistList;

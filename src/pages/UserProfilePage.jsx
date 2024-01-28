@@ -1,8 +1,11 @@
 import { useEffect, useState, useContext } from 'react';
-import { AuthContext } from '../context/auth.context';
-import ProfileIcon from '../assets/profile-icon.png';
-import PlaylistList from '../components/PlaylistList';
 import { Link } from 'react-router-dom';
+
+// Contexts
+import { AuthContext } from '../context/auth.context';
+
+// Icons
+import ProfileIcon from '../assets/profile-icon.png';
 
 import '../styles/UserProfilePage.css';
 
@@ -69,9 +72,7 @@ function UserProfilePage() {
                     <strong>Email:</strong> {userProfile.email}
                 </p>
                 <div>
-                    <Link to='/playlists'>
-                        <PlaylistList playlists={userProfile.playlists} />
-                    </Link>
+                    <Link to='/playlists'>Your Playlists</Link>
                 </div>
             </div>
         </div>

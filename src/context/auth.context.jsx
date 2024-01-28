@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 
 const API_URL = 'http://localhost:5005';
 
-const AuthContext = React.createContext();
+const AuthContext = createContext();
 
-function AuthProviderWrapper(props) {
+function AuthProviderWrapper({ children }) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [user, setUser] = useState(null);
@@ -76,7 +76,7 @@ function AuthProviderWrapper(props) {
                 authError,
             }}
         >
-            {props.children}
+            {children}
         </AuthContext.Provider>
     );
 }
