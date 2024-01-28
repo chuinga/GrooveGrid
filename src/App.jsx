@@ -18,8 +18,8 @@ import SignupPage from './pages/SignupPage';
 import UserProfilePage from './pages/UserProfilePage';
 import IsPrivate from './components/IsPrivate';
 
-/*import SongsPage from "./pages/SongsPage";
-import SongDetails from "./components/SongDetails"; */
+import SongsPage from "./pages/SongsPage";
+/* import SongDetails from "./components/SongDetails"; */
 // Styles
 import './App.css';
 import PlaylistPage from './pages/PlaylistPage';
@@ -32,8 +32,8 @@ function App() {
                 <Route path='/' element={<HomePage />} />
                 <Route path='/albums' element={<AlbumsPage />} />
                 <Route path='/albums/:albumId' element={<AlbumDetails />} />
-                {/*<Route path="/songs" element={<SongsPage />} />
-        <Route path="/songs/:songId" element={<SongDetails />} />*/}
+                <Route path="/songs" element={<SongsPage />} />
+                {/* <Route path="/songs/:songId" element={<SongDetails />} /> */}
                 <Route path='/artists' element={<ArtistsPage />} />
                 <Route path='/artists/:artistId' element={<ArtistsDetails />} />
                 <Route path='/genre' element={<GenresPage />} />
