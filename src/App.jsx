@@ -19,9 +19,9 @@ import UserProfilePage from "./pages/UserProfilePage";
 import IsPrivate from "./components/IsPrivate";
 import SongsPage from "./pages/SongsPage";
 import SongDetails from "./components/SongDetails";
+import PlaylistPage from "./pages/PlaylistPage";
 // Styles
 import "./App.css";
-import PlaylistPage from "./pages/PlaylistPage";
 
 function App() {
   return (
