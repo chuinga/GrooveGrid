@@ -16,6 +16,7 @@ const AlbumDetails = () => {
         const response = await fetch(`${baseUrl}/api/album/${albumId}`);
         if (!response.ok) throw new Error("Album fetch failed");
         const data = await response.json();
+        console.log(data);
         setAlbum(data);
       } catch (error) {
         console.error("Error fetching album:", error);
@@ -33,13 +34,11 @@ const AlbumDetails = () => {
   return (
     <div>
       <h2>{album.title.name}</h2>
-      {console.log(album)}
       <p>Artist: {album.artist.name}</p>
       <p>Release Date: {formattedReleaseDate}</p>
       <p>Genre: {album.genre.name}</p>
       <img src={album.coverImageUrl} alt={album.title.name} />
       <p>Description: {album.description}</p>
-      <div></div>
     </div>
   );
 };

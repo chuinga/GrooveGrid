@@ -1,43 +1,44 @@
 .navbar-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1em 1em;
-    gap: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 1em;
+  gap: 2em;
 }
 
 .linksWrapper {
-    display: flex;
-    gap: 2em;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-profile-wrapper {
-    display: flex;
+  display: flex;
 }
 
 .signed-in-buttons {
-    display: flex;
-    gap: 1em;
-    align-items: center;
+  display: flex;
+  gap: 1em;
+  align-items: center;
 }
 
 .signed-out-buttons {
-    display: flex;
-    flex-direction: column;
-    min-width: 4em;
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+  min-width: 4em;
 }
 
 .logo {
-    height: 6em;
-    will-change: filter;
-    transition: filter 300ms;
+  height: 6em;
+  will-change: filter;
+  transition: filter 300ms;
 }
 
 .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }

@@ -10,7 +10,16 @@ const HomePage = () => {
         artists.
       </p>
       <p>
+        <Link to="/genre">Browse Genres</Link>
+      </p>
+      <p>
+        <Link to="/artists">Browse Artists</Link>
+      </p>
+      <p>
         <Link to="/albums">Browse Albums</Link>
+      </p>
+      <p>
+        <Link to="/songs">Browse Songs</Link>
       </p>
     </div>
   );
