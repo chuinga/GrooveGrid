@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { AuthProviderWrapper } from '../src/context/auth.context';
+import { PlaylistsContextProvider } from './context/Playlists.context';
 // Components
 import Navbar from './components/Navbar';
 
@@ -59,7 +60,9 @@ function App() {
 export default function AppWithAuthProvider() {
     return (
         <AuthProviderWrapper>
-            <App />
+            <PlaylistsContextProvider>
+                <App />
+            </PlaylistsContextProvider>
         </AuthProviderWrapper>
     );
 }
