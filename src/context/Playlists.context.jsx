@@ -1,5 +1,6 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { AuthContext } from './auth.context';
 
 export const PlaylistsContext = createContext();
 
@@ -7,13 +8,17 @@ export const PlaylistsContextProvider = ({ children }) => {
     const [playlists, setPlaylists] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    const { user } = useContext(AuthContext);
+
     const fetchPlaylists = async () => {
         try {
             const baseUrl = import.meta.env.VITE_API_URL.endsWith('/')
                 ? import.meta.env.VITE_API_URL.slice(0, -1)
                 : import.meta.env.VITE_API_URL;
 
-            const response = await fetch(`${baseUrl}/api/playlists`);
+            const response = await fetch(
+                `${baseUrl}/api/playlists?userId=${user?.__id}`
+            );
 
             if (!response.ok) {
                 throw new Error('Data fetch failed');
@@ -26,12 +31,43 @@ export const PlaylistsContextProvider = ({ children }) => {
         }
     };
 
+    const fetchPlaylistById = async (playlistId) => {
+        try {
+            const baseUrl = import.meta.env.VITE_API_URL.endsWith('/')
+                ? import.meta.env.VITE_API_URL.slice(0, -1)
+                : import.meta.env.VITE_API_URL;
+
+            const response = await fetch(
+                `${baseUrl}/api/playlists/${playlistId}`
+            );
+
+            if (!response.ok) {
+                throw new Error('Data fetch failed');
+            }
+            setIsLoading(false);
+            const fetchedPlaylist = await response.json();
+            const existingPlaylistIndex = playlists?.findIndex(
+                (item) => item._id === playlistId
+            );
+
+            if (existingPlaylistIndex !== -1) {
+                const updatedPlaylists = [...playlists];
+                updatedPlaylists[existingPlaylistIndex] = fetchedPlaylist;
+                setPlaylists(updatedPlaylists);
+            }
+        } catch (error) {
+            console.error('Error fetching playlists:', error);
+        }
+    };
+
     useEffect(() => {
         fetchPlaylists();
     }, []);
 
     return (
-        <PlaylistsContext.Provider value={{ playlists, isLoading }}>
+        <PlaylistsContext.Provider
+            value={{ fetchPlaylists, fetchPlaylistById, playlists, isLoading }}
+        >
             {children}
         </PlaylistsContext.Provider>
     );
