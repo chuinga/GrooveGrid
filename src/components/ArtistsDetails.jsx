@@ -1,28 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 const ArtistDetails = () => {
   const { artistId } = useParams();
   const [artist, setArtist] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+  const [genres, setGenres] = useState([]);
+  const {storedToken} = useContext(AuthContext)
+
+  const fetchArtist = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/artists/${artistId}`
+      );
+      if (!response.ok) throw new Error("Artist fetch failed");
+      const data = await response.json();
+      console.log(data);
+      setArtist(data);
+      const genreResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/genre`, {headers: {Authorization: `Bearer ${storedToken}`}})
+      if(!response.ok) throw new Error("Date fetch failed")
+      const parsed = await genreResponse.json()
+    setGenres(parsed)
+    } catch (error) {
+      console.error("Error fetching artist:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchArtist = async () => {
-      try {
-        const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/artists/${artistId}`
-        );
-        if (!response.ok) throw new Error("Artist fetch failed");
-        const data = await response.json();
-        console.log(data);
-        setArtist(data);
-      } catch (error) {
-        console.error("Error fetching artist:", error);
-      }
-    };
-
     fetchArtist();
   }, [artistId]);
+
+  const handleInputChange = (e) => {
+    setArtist({
+      ...artist,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   if (!artist) return <div>Loading...</div>;
 
@@ -43,6 +58,42 @@ const ArtistDetails = () => {
             </li>
           ))}
         </ul>
+
+        <button onClick={() => setShowForm(!showForm)}> Update Artist </button>
+        {showForm && (
+          <form>
+            <label>
+              Name:
+              <input
+                type="text"
+                name="name"
+                value={artist.name}
+                onChange={handleInputChange}
+              />
+            </label>
+            <label>
+              Genre:
+              <select onChange={handleInputChange} name="genre" defaultValue={artist.genre.name}>
+                {genres.map(genre => {
+                  return (<option value={genre._id} key={genre._id}>{genre.name}</option>)
+                })}
+              </select>
+            </label>
+            <label>
+              Image:
+              <input
+                type="text"
+                name="image"
+                value={artist.image}
+                onChange={handleInputChange}
+              />
+            </label>
+            {/* add other input fields as needed */}
+            <button type="submit">Create Artist</button>
+          </form>
+
+        )}
+
       </div>
     </div>
   );
