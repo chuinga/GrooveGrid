@@ -16,7 +16,7 @@ const SongDetails = () => {
                 const response = await fetch(`${baseUrl}/api/songs/${songId}`);
                 if (!response.ok) throw new Error('Song fetch failed');
                 const data = await response.json();
-                console.log(data);
+
                 setSong(data);
             } catch (error) {
                 console.error('Error fetching song:', error);

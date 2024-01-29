@@ -7,7 +7,7 @@ import '../styles/Navbar.css';
 
 function Navbar() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-    console.log('🚀 ~ Navbar ~ isLoggedIn:', isLoggedIn);
+
     return (
         <nav className='navbar-main'>
             <div className='linksWrapper'>
