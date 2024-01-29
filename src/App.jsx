@@ -21,6 +21,7 @@ import IsPrivate from './components/IsPrivate';
 import SongsPage from './pages/SongsPage';
 import SongDetails from './components/SongDetails';
 import PlaylistPage from './pages/PlaylistPage';
+import Footer from './components/Footer';
 // Styles
 import './App.css';
 
@@ -52,6 +53,7 @@ function App() {
                 <Route path='/about' element={<AboutUs />} />
                 <Route path='*' element={<NotFoundPage />} />
             </Routes>
+            <Footer />
         </>
     );
 }
