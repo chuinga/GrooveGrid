@@ -1,9 +1,9 @@
-// GenreDetails.jsx
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const GenreDetails = () => {
   const { genreId } = useParams();
+  const navigate = useNavigate();
   const [genre, setGenre] = useState(null);
 
   useEffect(() => {
@@ -23,6 +23,10 @@ const GenreDetails = () => {
     fetchGenreDetails();
   }, [genreId]);
 
+  const navigateToArtist = (artistId) => {
+    navigate(`/artists/${artistId}`);
+  };
+
   if (!genre) return <div>Loading...</div>;
 
   return (
@@ -32,12 +36,12 @@ const GenreDetails = () => {
       {genre &&
         genre.artists.map((artist) => (
           <div key={artist._id}>
-            <h2>{artist.name}</h2>
-            <ul>
-              {artist.albums.map((album) => (
-                <li key={album._id}>{album.title}</li>
-              ))}
-            </ul>
+            <h2
+              onClick={() => navigateToArtist(artist._id)}
+              style={{ cursor: "pointer" }}
+            >
+              {artist.name}
+            </h2>
           </div>
         ))}
     </div>
