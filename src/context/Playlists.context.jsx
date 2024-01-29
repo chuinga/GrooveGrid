@@ -17,7 +17,7 @@ export const PlaylistsContextProvider = ({ children }) => {
                 : import.meta.env.VITE_API_URL;
 
             const response = await fetch(
-                `${baseUrl}/api/playlists?userId=${user?.__id}`
+                `${baseUrl}/api/playlists?userId=${user?._id}`
             );
 
             if (!response.ok) {
@@ -38,7 +38,7 @@ export const PlaylistsContextProvider = ({ children }) => {
                 : import.meta.env.VITE_API_URL;
 
             const response = await fetch(
-                `${baseUrl}/api/playlists/${playlistId}`
+                `${baseUrl}/api/playlists/${playlistId}?userId=${user?._id}`
             );
 
             if (!response.ok) {
@@ -61,8 +61,10 @@ export const PlaylistsContextProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        fetchPlaylists();
-    }, []);
+        if (user?._id) {
+            fetchPlaylists();
+        }
+    }, [user?._id]);
 
     return (
         <PlaylistsContext.Provider

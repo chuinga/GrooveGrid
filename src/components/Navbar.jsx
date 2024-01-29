@@ -7,6 +7,7 @@ import '../styles/Navbar.css';
 
 function Navbar() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+
     return (
         <nav className='navbar-main'>
             <div className='linksWrapper'>
@@ -15,7 +16,7 @@ function Navbar() {
                 </Link>
                 <Link to='/genre'>Genre</Link>
                 <Link to='/artists'>Artists</Link>
-                {/* Conditional rendering of Playlist Link */}
+
                 {isLoggedIn && <Link to='/playlists'>Playlist</Link>}
                 <Link to='/about'>About</Link>
             </div>

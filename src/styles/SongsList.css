@@ -1,0 +1,7 @@
+.songs-list-wrapper {
+    display: grid;
+}
+.song-title-and-artist {
+    display: flex;
+    flex-direction: column;
+}
