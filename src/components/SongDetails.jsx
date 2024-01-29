@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Player from "../assets/Audio-Player.png";
 
 const SongDetails = () => {
   const { songId } = useParams();
@@ -33,7 +34,7 @@ const SongDetails = () => {
       <p>Artist: {song.artist.name}</p>
       <p>Album: {song.album.title}</p>
       <p>Genres: {song.genres.map((genre) => genre.name).join(", ")}</p>
-      {/* Add more song details here as needed */}
+      <img src={Player} alt="Player" />
     </div>
   );
 };
