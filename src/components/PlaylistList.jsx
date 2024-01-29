@@ -47,6 +47,9 @@ const PlaylistList = (props) => {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${storedToken}`,
             },
+            body: JSON.stringify({
+                createdBy: user._id,
+            }),
         })
             .then((response) => {
                 if (!response.ok) {
@@ -101,7 +104,7 @@ const PlaylistList = (props) => {
 
                             <p>
                                 <strong>Artists:</strong>{' '}
-                                {playlist.artists.map((artist) => (
+                                {playlist.artists?.map((artist) => (
                                     <span key={artist._id}>
                                         {artist.name},{' '}
                                     </span>
@@ -109,19 +112,18 @@ const PlaylistList = (props) => {
                             </p>
                             <p>
                                 <strong>Songs:</strong>{' '}
-                                {playlist.songs.map((song) => (
+                                {playlist.songs?.map((song) => (
                                     <span key={song._id}>{song.title}</span>
                                 ))}
                             </p>
                             <p>
                                 <strong>Image:</strong>{' '}
-                                {playlist.artists &&
-                                    playlist.artists.length > 0 && (
-                                        <img
-                                            src={playlist.artists[0].image}
-                                            alt={`${playlist.name} Image`}
-                                        />
-                                    )}
+                                {playlist.artists?.length > 0 && (
+                                    <img
+                                        src={playlist.artists[0].image}
+                                        alt={`${playlist.name} Image`}
+                                    />
+                                )}
                             </p>
                         </div>
                     )}

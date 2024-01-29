@@ -1,56 +1,58 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const AlbumDetails = () => {
-  const { albumId } = useParams();
-  const [album, setAlbum] = useState(null);
+    const { albumId } = useParams();
+    const [album, setAlbum] = useState(null);
 
-  useEffect(() => {
-    const fetchAlbum = async () => {
-      try {
-        // Ensure there's no extra slash at the end of VITE_API_URL
-        const baseUrl = import.meta.env.VITE_API_URL.endsWith("/")
-          ? import.meta.env.VITE_API_URL.slice(0, -1)
-          : import.meta.env.VITE_API_URL;
+    useEffect(() => {
+        const fetchAlbum = async () => {
+            try {
+                // Ensure there's no extra slash at the end of VITE_API_URL
+                const baseUrl = import.meta.env.VITE_API_URL.endsWith('/')
+                    ? import.meta.env.VITE_API_URL.slice(0, -1)
+                    : import.meta.env.VITE_API_URL;
 
-        const response = await fetch(`${baseUrl}/api/album/${albumId}`);
-        if (!response.ok) throw new Error("Album fetch failed");
-        const data = await response.json();
-        console.log(data);
-        setAlbum(data);
-      } catch (error) {
-        console.error("Error fetching album:", error);
-      }
-    };
+                const response = await fetch(`${baseUrl}/api/album/${albumId}`);
+                if (!response.ok) throw new Error('Album fetch failed');
+                const data = await response.json();
 
-    fetchAlbum();
-  }, [albumId]);
+                setAlbum(data);
+            } catch (error) {
+                console.error('Error fetching album:', error);
+            }
+        };
 
-  if (!album) return <div>Loading...</div>;
+        fetchAlbum();
+    }, [albumId]);
 
-  // To format the Release Date
-  const formattedReleaseDate = new Date(album.releaseDate).toLocaleDateString();
+    if (!album) return <div>Loading...</div>;
 
-  return (
-    <div>
-      <h2>{album.title.name}</h2>
-      <p>Artist: {album.artist.name}</p>
-      <p>Release Date: {formattedReleaseDate}</p>
-      <p>Genre: {album.genre.name}</p>
-      <img src={album.coverImageUrl} alt={album.title.name} />
-      <p>Description: {album.description}</p>
-      <div>
-        <h3>Songs in this Album</h3>
-        {album.songs &&
-          album.songs.map((song) => (
-            <div key={song._id}>
-              <p>{song.title}</p>
-              {/* Render other song details as needed */}
+    // To format the Release Date
+    const formattedReleaseDate = new Date(
+        album.releaseDate
+    ).toLocaleDateString();
+
+    return (
+        <div>
+            <h2>{album.title.name}</h2>
+            <p>Artist: {album.artist.name}</p>
+            <p>Release Date: {formattedReleaseDate}</p>
+            <p>Genre: {album.genre.name}</p>
+            <img src={album.coverImageUrl} alt={album.title.name} />
+            <p>Description: {album.description}</p>
+            <div>
+                <h3>Songs in this Album</h3>
+                {album.songs &&
+                    album.songs.map((song) => (
+                        <div key={song._id}>
+                            <p>{song.title}</p>
+                            {/* Render other song details as needed */}
+                        </div>
+                    ))}
             </div>
-          ))}
-      </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default AlbumDetails;
