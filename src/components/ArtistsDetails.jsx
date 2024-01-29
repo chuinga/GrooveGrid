@@ -28,15 +28,21 @@ const ArtistDetails = () => {
   return (
     <div>
       <h1>Artist Details</h1>
-      {artist ? (
-        <>
-          <h2>{artist.name}</h2>
-          <p>Genre: {artist.genre.name}</p>
-          <img src={artist.image} alt={`${artist.name} thumbnail`} />
-        </>
-      ) : (
-        <div>Loading...</div>
-      )}
+      <h2>{artist.name}</h2>
+      <img src={artist.image} alt={`${artist.name} thumbnail`} />
+      <p>Genre: {artist.genre.name}</p>
+      <div>
+        <h3>Albums:</h3>
+        <ul>
+          {artist.albums.map((album) => (
+            <li key={album._id}>
+              {album.title} - Released:{" "}
+              {new Date(album.releaseDate).toLocaleDateString()}
+              {/* More album details here */}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
