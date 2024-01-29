@@ -2,8 +2,8 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
 
-const CreatePlaylist = ({ onSuccess, onError, userId }) => {
-    const { storedToken } = useContext(AuthContext);
+const CreatePlaylist = ({ onSuccess, onError }) => {
+    const { storedToken, user } = useContext(AuthContext);
     const [playlistName, setPlaylistName] = useState('');
 
     const handleCreatePlaylist = async () => {
@@ -18,7 +18,7 @@ const CreatePlaylist = ({ onSuccess, onError, userId }) => {
                     },
                     body: JSON.stringify({
                         name: playlistName,
-                        createdBy: userId,
+                        createdBy: user._id,
                     }),
                 }
             );
