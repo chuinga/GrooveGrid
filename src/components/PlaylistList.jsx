@@ -1,103 +1,140 @@
-import PropTypes from "prop-types";
-import { useContext, useState } from "react";
-import { AuthContext } from "../context/auth.context";
+import PropTypes from 'prop-types';
+import { useContext, useState } from 'react';
 
-import UpdatePlaylist from "./UpdatePlaylist";
-import "../styles/Playlist.css";
+import { AuthContext } from '../context/auth.context';
+import { PlaylistsContext } from '../context/Playlists.context';
 
-const PlaylistList = ({ playlists, playlistId }) => {
-  const [editingPlaylistId, setEditingPlaylistId] = useState(null);
-  const { storedToken } = useContext(AuthContext);
+import UpdatePlaylist from './UpdatePlaylist';
+import CreatePlaylist from './CreatePlaylist';
 
-  const handleEditPlaylist = (playlistId) => {
-    setEditingPlaylistId(playlistId);
-  };
+import '../styles/Playlist.css';
 
-  const handleSuccess = () => {
-    setEditingPlaylistId(null);
-  };
+const PlaylistList = (props) => {
+    const { playlists } = props;
+    const [editingPlaylistId, setEditingPlaylistId] = useState(null);
+    const [creatingPlaylist, setCreatingPlaylist] = useState(false);
 
-  const handleError = () => {
-    setEditingPlaylistId(null);
-  };
+    const { storedToken, user } = useContext(AuthContext);
+    const { fetchPlaylists, fetchPlaylistById } = useContext(PlaylistsContext);
 
-  const handleDelete = async () => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/playlists/${playlistId}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${storedToken}`,
-          },
-        }
-      );
+    const handleEditPlaylist = (playlistId) => {
+        setEditingPlaylistId(playlistId);
+    };
 
-      if (!response.ok) {
-        console.error(`HTTP error! Status: ${response.status}`);
-        return;
-      }
-    } catch (error) {
-      console.error("Error deleting book:", error);
-    }
-  };
+    const handleCreatePlaylist = () => {
+        setCreatingPlaylist(true);
+    };
 
-  return (
-    <div>
-      {playlists?.map((playlist) => (
-        <div key={playlist._id} className="playlist-item">
-          {editingPlaylistId === playlist._id ? (
-            <UpdatePlaylist
-              playlistId={playlist._id}
-              onSuccess={handleSuccess}
-              onError={handleError}
-            />
-          ) : (
-            <div>
-              <h3>{playlist.name}</h3>
-              <button onClick={() => handleEditPlaylist(playlist._id)}>
-                Edit Name
-              </button>
-              <div>
-                {" "}
-                <button onClick={handleDelete}>Delete</button>{" "}
-              </div>
+    const handleSuccess = () => {
+        setCreatingPlaylist(false);
+        fetchPlaylists();
+    };
 
-              <p>
-                <strong>Artists:</strong>{" "}
-                {playlist.artists.map((artist) => (
-                  <span key={artist._id}>{artist.name}, </span>
-                ))}
-              </p>
-              <p>
-                <strong>Songs:</strong>{" "}
-                {playlist.songs.map((song) => (
-                  <span key={song._id}>
-                    {song.title} (Album: {song.album}, Genre:{" "}
-                    {song.genres.join(", ")})
-                  </span>
-                ))}
-              </p>
-              <p>
-                <strong>Image:</strong>{" "}
-                <img
-                  src={playlist.artists[0].image}
-                  alt={`${playlist.name} Image`}
+    const handleEditSuccess = (playlistId) => {
+        setEditingPlaylistId(null);
+        fetchPlaylistById(playlistId);
+    };
+
+    const handleError = () => {
+        setEditingPlaylistId(null);
+        setCreatingPlaylist(false);
+    };
+
+    const handleDelete = (playlistId) => {
+        fetch(`${import.meta.env.VITE_API_URL}/api/playlists/${playlistId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${storedToken}`,
+            },
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    console.error(`HTTP error! Status: ${response.status}`);
+                    return;
+                }
+
+                fetchPlaylists();
+            })
+            .catch((error) => {
+                console.error('Error deleting playlist:', error);
+            });
+    };
+
+    return (
+        <div>
+            {!creatingPlaylist ? (
+                <button onClick={handleCreatePlaylist}>Create Playlist</button>
+            ) : (
+                <CreatePlaylist
+                    userId={user.__id}
+                    onSuccess={handleSuccess}
+                    onError={handleError}
                 />
-              </p>
-            </div>
-          )}
+            )}
+
+            {playlists?.map((playlist) => (
+                <div key={playlist._id} className='playlist-item'>
+                    {editingPlaylistId === playlist._id ? (
+                        <UpdatePlaylist
+                            playlistId={playlist._id}
+                            onSuccess={handleEditSuccess}
+                            onCancel={() => setEditingPlaylistId(null)}
+                            onError={handleError}
+                        />
+                    ) : (
+                        <div>
+                            <h3>{playlist.name}</h3>
+                            <button
+                                onClick={() => handleEditPlaylist(playlist._id)}
+                            >
+                                Edit Name
+                            </button>
+                            <div>
+                                {' '}
+                                <button
+                                    onClick={() => handleDelete(playlist._id)}
+                                >
+                                    Delete
+                                </button>{' '}
+                            </div>
+
+                            <p>
+                                <strong>Artists:</strong>{' '}
+                                {playlist.artists.map((artist) => (
+                                    <span key={artist._id}>
+                                        {artist.name},{' '}
+                                    </span>
+                                ))}
+                            </p>
+                            <p>
+                                <strong>Songs:</strong>{' '}
+                                {playlist.songs.map((song) => (
+                                    <span key={song._id}>{song.title}</span>
+                                ))}
+                            </p>
+                            <p>
+                                <strong>Image:</strong>{' '}
+                                {playlist.artists &&
+                                    playlist.artists.length > 0 && (
+                                        <img
+                                            src={playlist.artists[0].image}
+                                            alt={`${playlist.name} Image`}
+                                        />
+                                    )}
+                            </p>
+                        </div>
+                    )}
+                </div>
+            ))}
         </div>
-      ))}
-    </div>
-  );
+    );
 };
 
 PlaylistList.propTypes = {
-  playlists: PropTypes.array,
-  setPlaylists: PropTypes.func,
-  playlistId: PropTypes.string,
+    playlists: PropTypes.array,
+    setPlaylists: PropTypes.func,
+    playlistId: PropTypes.string,
 };
 
 export default PlaylistList;

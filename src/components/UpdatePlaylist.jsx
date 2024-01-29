@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
 import EditPlaylist from './EditPlaylist';
 
-const UpdatePlaylist = ({ playlistId, onSuccess, onError }) => {
+const UpdatePlaylist = ({ playlistId, onSuccess, onError, onCancel }) => {
     const { storedToken } = useContext(AuthContext);
 
     const handleUpdatePlaylist = async (newPlaylistName) => {
@@ -21,7 +21,7 @@ const UpdatePlaylist = ({ playlistId, onSuccess, onError }) => {
             );
 
             if (response.ok) {
-                onSuccess();
+                onSuccess(playlistId);
             } else {
                 console.error('Error updating playlist name');
                 onError();
@@ -34,7 +34,7 @@ const UpdatePlaylist = ({ playlistId, onSuccess, onError }) => {
 
     return (
         <div>
-            <EditPlaylist onSave={handleUpdatePlaylist} onCancel={() => {}} />
+            <EditPlaylist onSave={handleUpdatePlaylist} onCancel={onCancel} />
         </div>
     );
 };
