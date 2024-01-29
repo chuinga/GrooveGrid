@@ -38,7 +38,6 @@ function LoginPage() {
             }
 
             const responseData = await response.json();
-            console.log('JWT token', responseData.authToken);
 
             storeToken(responseData.authToken);
             authenticateUser();
