@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ArtistDetails = () => {
   const { artistId } = useParams();
@@ -36,7 +37,7 @@ const ArtistDetails = () => {
         <ul>
           {artist.albums.map((album) => (
             <li key={album._id}>
-              {album.title} - Released:{" "}
+              <Link to={`/albums/${album._id}`}>{album.title}</Link> - Released:{" "}
               {new Date(album.releaseDate).toLocaleDateString()}
               {/* More album details here */}
             </li>
