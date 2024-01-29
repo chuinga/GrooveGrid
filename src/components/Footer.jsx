@@ -79,7 +79,7 @@ const Footer = () => {
                             <Link to='https://support.spotify.com/us/article/contact-us/'>Contact</Link>
                         </li>
                         <li>
-                            <Link to= 'https://www.spotify.com/pt-en/privacy>Privacy'> Privacy </Link>
+                            <Link to= 'https://www.spotify.com/pt-en/privacy'> Privacy </Link>
                         </li>
                         <li>
                             <Link to='https://www.lifeatspotify.com/'>Join the band</Link>
