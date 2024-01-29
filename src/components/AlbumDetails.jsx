@@ -39,6 +39,16 @@ const AlbumDetails = () => {
       <p>Genre: {album.genre.name}</p>
       <img src={album.coverImageUrl} alt={album.title.name} />
       <p>Description: {album.description}</p>
+      <div>
+        <h3>Songs in this Album</h3>
+        {album.songs &&
+          album.songs.map((song) => (
+            <div key={song._id}>
+              <p>{song.title}</p>
+              {/* Render other song details as needed */}
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
