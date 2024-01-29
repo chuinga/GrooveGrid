@@ -15,9 +15,9 @@ function AuthProviderWrapper({ children }) {
         localStorage.setItem('authToken', token);
     };
 
-    const authenticateUser = () => {
-        const storedToken = localStorage.getItem('authToken');
+    const storedToken = localStorage.getItem('authToken');
 
+    const authenticateUser = () => {
         if (storedToken) {
             fetch(`${API_URL}/api/auth/verify`, {
                 method: 'GET',
@@ -74,6 +74,7 @@ function AuthProviderWrapper({ children }) {
                 authenticateUser,
                 logOutUser,
                 authError,
+                storedToken,
             }}
         >
             {children}
