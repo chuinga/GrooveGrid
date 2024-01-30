@@ -1,0 +1,13 @@
+.artists-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 2em;
+}
+
+.artists-wrapper img {
+    width: 5em;
+    height: 5em;
+    object-fit: cover;
+    margin-bottom: 1em;
+}

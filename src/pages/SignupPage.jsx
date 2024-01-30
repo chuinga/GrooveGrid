@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+import '../styles/Signup.css';
+
 /* const API_URL = 'http://localhost:5005'; */
 
 function SignupPage() {
@@ -22,14 +24,17 @@ function SignupPage() {
         const requestBody = { email, password, name };
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/signup`, {
-            /* const response = await fetch(`${API_URL}/api/auth/signup`, { */
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(requestBody),
-            });
+            const response = await fetch(
+                `${import.meta.env.VITE_API_URL}/api/auth/signup`,
+                {
+                    /* const response = await fetch(`${API_URL}/api/auth/signup`, { */
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody),
+                }
+            );
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -44,11 +49,11 @@ function SignupPage() {
         }
     };
     return (
-        <div>
-            <form onSubmit={handleSignupSubmit}>
+        <div className='signup-wrapper'>
+            <form onSubmit={handleSignupSubmit} className='form-wrapper'>
                 <h3>Sign Up</h3>
 
-                <label>Email</label>
+                <label className='signup-label'>Email</label>
                 <input
                     type='email'
                     name='email'
@@ -57,7 +62,7 @@ function SignupPage() {
                     autoComplete='off'
                 />
 
-                <label>Password</label>
+                <label className='signup-label'>Password</label>
                 <input
                     type='password'
                     name='password'
@@ -66,7 +71,7 @@ function SignupPage() {
                     autoComplete='off'
                 />
 
-                <label>Name</label>
+                <label className='signup-label'>Name</label>
                 <input
                     type='text'
                     name='name'
