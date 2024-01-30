@@ -18,16 +18,20 @@ function AuthProviderWrapper({ children }) {
         localStorage.setItem('authToken', token);
     };
 
-    // Move the storedToken declaration inside the component
-    const authenticateUser = () => {
-        const storedToken = localStorage.getItem('authToken');
+    // do not touch else will ruin all calls
+    const storedToken = localStorage.getItem('authToken');
 
-        if (storedToken) {
+    const authenticateUser = () => {
+        // Must also exist in here to be able to login/off
+        // correctly.
+        const updatedStoredToken = localStorage.getItem('authToken');
+
+        if (updatedStoredToken) {
             fetch(`${API_URL}/api/auth/verify`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer ${storedToken}`,
+                    Authorization: `Bearer ${updatedStoredToken}`,
                 },
             })
                 .then((response) => {
@@ -58,9 +62,9 @@ function AuthProviderWrapper({ children }) {
         localStorage.removeItem('authToken');
     };
 
-    const logOutUser = async () => {
+    const logOutUser = () => {
         removeToken();
-        await authenticateUser(); // Wait for authenticateUser to complete
+        authenticateUser();
         navigate('/');
     };
 
@@ -75,6 +79,7 @@ function AuthProviderWrapper({ children }) {
                 isLoading,
                 user,
                 storeToken,
+                storedToken,
                 authenticateUser,
                 logOutUser,
                 authError,

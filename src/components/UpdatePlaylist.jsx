@@ -4,7 +4,7 @@ import { AuthContext } from '../context/auth.context';
 import EditPlaylist from './EditPlaylist';
 
 const UpdatePlaylist = ({ playlistId, onSuccess, onError, onCancel }) => {
-    const { storedToken } = useContext(AuthContext);
+    const { storedToken, user } = useContext(AuthContext);
 
     const handleUpdatePlaylist = async (newPlaylistName) => {
         try {
@@ -16,7 +16,10 @@ const UpdatePlaylist = ({ playlistId, onSuccess, onError, onCancel }) => {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${storedToken}`,
                     },
-                    body: JSON.stringify({ name: newPlaylistName }),
+                    body: JSON.stringify({
+                        name: newPlaylistName,
+                        createdBy: user._id,
+                    }),
                 }
             );
 
