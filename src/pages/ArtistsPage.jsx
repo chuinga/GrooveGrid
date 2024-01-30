@@ -8,7 +8,7 @@ const ArtistsPage = () => {
   const [genres, setGenres] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [filteredArtists, setFilteredArtists] = useState([]);
-  const { storedToken } = useContext(AuthContext);
+  const { user, storedToken } = useContext(AuthContext);
 
   const fetchArtists = async () => {
     try {
@@ -23,7 +23,11 @@ const ArtistsPage = () => {
       });
 
       if (!response.ok) throw new Error("Data fetch failed");
-      const data = await response.json();
+      let data = await response.json();
+
+      // Sort the artists alphabetically by name
+      data = data.sort((a, b) => a.name.localeCompare(b.name));
+
       setArtists(data);
       setFilteredArtists(data);
 
@@ -94,7 +98,12 @@ const ArtistsPage = () => {
         onChange={(e) => setSearchInput(e.target.value)}
         placeholder="Search artists..."
       />
-      <CreateArtistForm onCreateArtist={createArtist} genres={genres} />
+
+      {/* Render CreateArtistForm only for logged-in users */}
+      {user && (
+        <CreateArtistForm onCreateArtist={createArtist} genres={genres} />
+      )}
+
       <ArtistList artists={filteredArtists} />
     </div>
   );
