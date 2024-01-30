@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import { Link } from 'react-router-dom';
 
+import '../styles/LoginPage.css';
+
 /* const API_URL = 'http://localhost:5005'; */
 
 function LoginPage() {
@@ -22,14 +24,17 @@ function LoginPage() {
         const requestBody = { email, password };
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
-            //const response = await fetch(`${API_URL}/api/auth/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(requestBody),
-            });
+            const response = await fetch(
+                `${import.meta.env.VITE_API_URL}/api/auth/login`,
+                {
+                    //const response = await fetch(`${API_URL}/api/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody),
+                }
+            );
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -49,11 +54,11 @@ function LoginPage() {
     };
 
     return (
-        <>
-            <form onSubmit={handleLoginSubmit}>
+        <div className='login-page-wrapper'>
+            <form onSubmit={handleLoginSubmit} className='login-form-wrapper'>
                 <h3>Login</h3>
 
-                <label>Email</label>
+                <label className='signup-label'>Email</label>
                 <input
                     type='email'
                     name='email'
@@ -62,7 +67,7 @@ function LoginPage() {
                     autoComplete='off'
                 />
 
-                <label>Password</label>
+                <label className='signup-label'>Password</label>
                 <input
                     type='password'
                     name='password'
@@ -77,7 +82,7 @@ function LoginPage() {
             <p>Don&apos;t have an account yet?</p>
             <Link to='/signup'>Sign up</Link>
             {errorMessage && <p>{errorMessage}</p>}
-        </>
+        </div>
     );
 }
 
