@@ -2,7 +2,7 @@
 import { useState, useEffect, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const API_URL = 'http://localhost:5005';
+/* const API_URL = 'http://localhost:5005'; */
 
 const AuthContext = createContext();
 
@@ -27,7 +27,8 @@ function AuthProviderWrapper({ children }) {
         const updatedStoredToken = localStorage.getItem('authToken');
 
         if (updatedStoredToken) {
-            fetch(`${API_URL}/api/auth/verify`, {
+            fetch(`${import.meta.env.VITE_API_URL}/api/auth/verify`, {
+            /* fetch(`${API_URL}/api/auth/verify`, { */
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
