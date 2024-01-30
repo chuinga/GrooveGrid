@@ -5,7 +5,7 @@ import '../styles/NotFound.css'
 
 const NotFoundPage = () => {
     return (
-        <div>
+        <div className='notFound'>
             <img src={NotFound} alt="404 Not Found" />
             <p>
                 <Link to='/'>Go Home</Link>
