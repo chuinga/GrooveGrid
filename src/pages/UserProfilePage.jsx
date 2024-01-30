@@ -10,7 +10,7 @@ import ProfileIcon from '../assets/profile-icon.png';
 import '../styles/UserProfilePage.css';
 
 // Import the string from the .env with URL of the API/server - http://localhost:5005
-const API_URL = 'http://localhost:5005';
+/* const API_URL = 'http://localhost:5005'; */
 
 function UserProfilePage() {
     const [userProfile, setUserProfile] = useState(null);
@@ -26,7 +26,8 @@ function UserProfilePage() {
             if (storedToken) {
                 try {
                     const response = await fetch(
-                        `${API_URL}/api/profile/${user._id}`,
+                        `${import.meta.env.VITE_API_URL}/api/profile/${user._id}`,
+                        /* `${API_URL}/api/profile/${user._id}`, */
                         {
                             method: 'GET',
                             headers: {
