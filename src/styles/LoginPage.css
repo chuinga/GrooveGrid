@@ -1,12 +1,4 @@
-.signup-wrapper {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-wrapper {
+.login-form-wrapper {
     display: flex;
     flex-direction: column;
     width: 70%;
@@ -17,9 +9,18 @@
     padding-bottom: 1em;
 }
 
+.login-page-wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .signup-label {
     width: 100%;
     color: black;
+    padding: 0.5em;
 }
 
 input {
@@ -30,7 +31,7 @@ input {
     color: black;
 }
 
-.form-wrapper button {
+.login-form-wrapper button {
     background-color: rgb(157 25 24);
     margin-top: 1em;
     border-radius: 0.5em;
