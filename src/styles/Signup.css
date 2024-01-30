@@ -1,0 +1,38 @@
+.signup-wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    background: white;
+    border-radius: 1em;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1em;
+}
+
+.signup-label {
+    width: 100%;
+    color: black;
+}
+
+input {
+    width: 70%;
+    height: 2em;
+    border-radius: 1em;
+    background-color: grey;
+}
+
+.form-wrapper button {
+    margin-top: 1em;
+}
+
+h3 {
+    color: black;
+}

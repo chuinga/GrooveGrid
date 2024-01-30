@@ -14,12 +14,10 @@
 }
 
 a {
-    font-weight: 500;
-    color: #646cff;
     text-decoration: inherit;
 }
 a:hover {
-    color: #535bf2;
+    color: #080717;
 }
 
 body {
@@ -29,11 +27,6 @@ body {
     min-height: 100vh;
 }
 
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
-}
-
 button {
     border-radius: 8px;
     border: 1px solid transparent;
@@ -41,7 +34,8 @@ button {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background: linear-gradient(79deg, rgb(53 46 53) 0%, rgb(157 25 24) 100%);
+
     cursor: pointer;
     transition: border-color 0.25s;
 }
@@ -53,18 +47,17 @@ button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
 
-img {
-    width: 6em;
-    height: 6em;
-}
-
 @media (prefers-color-scheme: light) {
     :root {
         color: #213547;
-        background-color: #ffffff;
+        background: linear-gradient(
+            79deg,
+            rgb(47, 45, 47) 0%,
+            rgb(208, 60, 50) 100%
+        );
     }
     a:hover {
-        color: #747bff;
+        color: #0a0002;
     }
     button {
         background-color: #f9f9f9;
