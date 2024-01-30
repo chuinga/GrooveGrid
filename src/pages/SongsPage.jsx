@@ -3,7 +3,7 @@ import SongsList from '../components/SongList';
 import { AuthContext } from '../context/auth.context';
 
 function SongsPage() {
-    const { storedToken } = useContext(AuthContext);
+    const { storedToken, user } = useContext(AuthContext);
     const [songs, setSongs] = useState([]);
     const [userPlaylists, setUserPlaylists] = useState([]);
 
@@ -27,14 +27,18 @@ function SongsPage() {
                 const baseUrl = import.meta.env.VITE_API_URL.endsWith('/')
                     ? import.meta.env.VITE_API_URL.slice(0, -1)
                     : import.meta.env.VITE_API_URL;
-                const response = await fetch(`${baseUrl}/api/playlists`, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Bearer ${storedToken}`,
-                    },
-                });
+                const response = await fetch(
+                    `${baseUrl}/api/playlists?userId=${user._id}`,
+                    {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: `Bearer ${storedToken}`,
+                        },
+                    }
+                );
                 if (!response.ok) throw new Error('Data fetch failed');
                 const data = await response.json();
+                console.log('data', data);
                 setUserPlaylists(data);
             } catch (error) {
                 console.error({ message: 'Error fetching playlists', error });
@@ -42,8 +46,8 @@ function SongsPage() {
         };
 
         fetchSongs();
-        fetchUserPlaylists();
-    }, [storedToken]);
+        user && fetchUserPlaylists();
+    }, [user, storedToken]);
 
     return (
         <div>
