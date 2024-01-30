@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import Modal from "./ModalComponent"; // Import Modal Component
 
 const ArtistDetails = () => {
   const { artistId } = useParams();
@@ -13,6 +14,11 @@ const ArtistDetails = () => {
     coverImageUrl: "",
     genre: "",
   });
+
+  // State for managing modal visibility
+  const [isAddAlbumModalOpen, setIsAddAlbumModalOpen] = useState(false);
+  const [isDeleteAlbumModalOpen, setIsDeleteAlbumModalOpen] = useState(false);
+  const [selectedAlbumId, setSelectedAlbumId] = useState(null);
 
   useEffect(() => {
     // Fetch artist and genres
@@ -61,6 +67,17 @@ const ArtistDetails = () => {
       ...newAlbum,
       [e.target.name]: e.target.value,
     });
+  };
+
+  // Add ALBUM Modal
+  const openAddAlbumModal = () => setIsAddAlbumModalOpen(true);
+  const closeAddAlbumModal = () => setIsAddAlbumModalOpen(false);
+
+  // DELETE ALBUM Modal
+  const openDeleteAlbumModal = () => setIsDeleteAlbumModalOpen(true);
+  const closeDeleteAlbumModal = () => {
+    setIsDeleteAlbumModalOpen(false);
+    setSelectedAlbumId(null); // Reset the selected album ID when closing the modal
   };
 
   const handleAddAlbum = async (e) => {
@@ -129,7 +146,36 @@ const ArtistDetails = () => {
       console.error("Error adding album:", error);
     }
   };
+  const handleDeleteAlbum = async () => {
+    if (!selectedAlbumId) return;
 
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/album/${selectedAlbumId}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to delete album");
+      }
+      // Update the artist state to remove the deleted album
+      setArtist((prevArtist) => ({
+        ...prevArtist,
+        albums: prevArtist.albums.filter(
+          (album) => album._id !== selectedAlbumId
+        ),
+      }));
+      alert("Album deleted successfully");
+      closeDeleteAlbumModal();
+    } catch (error) {
+      console.error("Error deleting album:", error);
+      alert("Error deleting album");
+    }
+  };
   if (!artist) return <div>Loading...</div>;
 
   return (
@@ -138,54 +184,6 @@ const ArtistDetails = () => {
       <h2>{artist.name}</h2>
       <img src={artist.image} alt={`${artist.name} thumbnail`} />
       <p>Genre: {artist.genre.name}</p>
-
-      {user && (
-        <div>
-          <h2>Add New Album</h2>
-          <form onSubmit={handleAddAlbum}>
-            <input
-              type="text"
-              placeholder="Album Name"
-              name="name"
-              value={newAlbum.name}
-              onChange={handleInputChange}
-            />
-            <input
-              type="date"
-              placeholder="Release Date"
-              name="releaseDate"
-              value={newAlbum.releaseDate}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              placeholder="Cover Image URL"
-              name="coverImageUrl"
-              value={newAlbum.coverImageUrl}
-              onChange={handleInputChange}
-            />
-
-            {/* Genre dropdown field */}
-            <label>
-              Genre:
-              <select
-                name="genre"
-                value={newAlbum.genre}
-                onChange={handleInputChange}
-              >
-                {genres.map((genre) => (
-                  <option value={genre._id} key={genre._id}>
-                    {genre.name}
-                  </option>
-                ))}
-              </select>
-            </label>
-
-            <button type="submit">Add Album</button>
-          </form>
-        </div>
-      )}
-
       <div>
         <h3>Albums:</h3>
         <ul>
@@ -197,6 +195,77 @@ const ArtistDetails = () => {
           ))}
         </ul>
       </div>
+
+      {user && (
+        <>
+          {/* Button to open add album modal */}
+          <button onClick={openAddAlbumModal}>Add New Album</button>
+          <Modal isOpen={isAddAlbumModalOpen} onClose={closeAddAlbumModal}>
+            {/* Add Album Form inside the Modal */}
+            <form onSubmit={handleAddAlbum}>
+              <input
+                type="text"
+                placeholder="Album Name"
+                name="name"
+                value={newAlbum.name}
+                onChange={handleInputChange}
+              />
+              <input
+                type="date"
+                placeholder="Release Date"
+                name="releaseDate"
+                value={newAlbum.releaseDate}
+                onChange={handleInputChange}
+              />
+              <input
+                type="text"
+                placeholder="Cover Image URL"
+                name="coverImageUrl"
+                value={newAlbum.coverImageUrl}
+                onChange={handleInputChange}
+              />
+              {/* Genre dropdown field */}
+              <label>
+                Genre:
+                <select
+                  name="genre"
+                  value={newAlbum.genre}
+                  onChange={handleInputChange}
+                >
+                  {genres.map((genre) => (
+                    <option value={genre._id} key={genre._id}>
+                      {genre.name}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <button type="submit">Add Album</button>
+            </form>
+          </Modal>
+
+          {/* Button to open delete album modal */}
+          <button onClick={openDeleteAlbumModal}>Delete Album</button>
+          <Modal
+            isOpen={isDeleteAlbumModalOpen}
+            onClose={closeDeleteAlbumModal}
+          >
+            <h3>Delete an Album</h3>
+            {/* List albums with an option to select for deletion */}
+            {artist.albums.map((album) => (
+              <div key={album._id}>
+                <p>{album.title}</p>
+                <button onClick={() => setSelectedAlbumId(album._id)}>
+                  Select for Deletion
+                </button>
+              </div>
+            ))}
+            {selectedAlbumId && (
+              <button onClick={handleDeleteAlbum}>Confirm Delete</button>
+            )}
+          </Modal>
+        </>
+      )}
     </div>
   );
 };
