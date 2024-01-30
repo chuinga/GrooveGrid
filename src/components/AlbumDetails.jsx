@@ -109,34 +109,13 @@ const AlbumDetails = () => {
   const handleAddSong = async (e) => {
     e.preventDefault();
     try {
-      // Fetch the artist ObjectId based on the artist's name
-      const artistName = newSong.artist; // Replace with the actual field name from your form
-      const artistResponse = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/artists?name=${artistName}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${storedToken}`,
-          },
-        }
-      );
+      // Assuming the album state has artist information including the ID
+      const artistId = album.artist._id;
 
-      if (!artistResponse.ok) {
-        throw new Error("Failed to fetch artist");
-      }
-
-      const artistData = await artistResponse.json();
-      if (!artistData || artistData.length === 0) {
-        throw new Error("Artist not found");
-      }
-
-      const artistId = artistData[0]._id; // Assuming you get one artist with the provided name
-
-      // Create the songPayload with the artist ObjectId
       const songPayload = {
         ...newSong,
-        artist: artistId, // Use the ObjectId of the artist
-        album: albumId, // Include albumId if necessary for your API
+        artist: artistId, // Directly use the artist ID from the album data
+        album: albumId,
       };
 
       const response = await fetch(
@@ -156,14 +135,12 @@ const AlbumDetails = () => {
       }
 
       const addedSong = await response.json();
-      setAlbum({ ...album, songs: [...album.songs, addedSong] }); // Update local state to include new song
+      setAlbum({ ...album, songs: [...album.songs, addedSong] });
       alert("Song added successfully");
 
-      // Reset the newSong state to clear the input fields
       setNewSong({
         title: "",
-        artist: "",
-        // Reset other fields if present
+        artist: "", // Consider removing this if it's no longer needed
       });
     } catch (error) {
       console.error("Error adding song:", error);
