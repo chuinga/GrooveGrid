@@ -5,25 +5,34 @@ import { AuthContext } from '../context/auth.context';
 import '../styles/SongsList.css';
 
 const SongsList = ({ songs, userPlaylists }) => {
-    const { storedToken } = useContext(AuthContext);
-    const handleAddToPlaylist = async (songId, playlistId) => {
+    const { storedToken, user } = useContext(AuthContext);
+
+    const handleAddToPlaylist = async (song, playlist) => {
         try {
             const baseUrl = import.meta.env.VITE_API_URL.endsWith('/')
                 ? import.meta.env.VITE_API_URL.slice(0, -1)
                 : import.meta.env.VITE_API_URL;
             const response = await fetch(
-                `${baseUrl}/api/playlists/${playlistId}/addsong/${songId}`,
+                `${baseUrl}/api/playlists/${playlist._id}/addsong/${song?._id}`,
                 {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${storedToken}`,
                     },
+                    body: JSON.stringify({
+                        createdBy: user._id,
+                        song: {
+                            title: song?.title,
+                            artist: song?.artist?.name,
+                        },
+                    }),
                 }
             );
 
             if (response.ok) {
                 console.log('Song added to playlist successfully');
+                // fetch SINGULAR playlist info
             } else {
                 console.error('Failed to add song to playlist');
             }
@@ -44,7 +53,7 @@ const SongsList = ({ songs, userPlaylists }) => {
                             <button
                                 key={playlist._id}
                                 onClick={() =>
-                                    handleAddToPlaylist(song._id, playlist._id)
+                                    handleAddToPlaylist(song, playlist)
                                 }
                             >
                                 Add to {playlist.name}
