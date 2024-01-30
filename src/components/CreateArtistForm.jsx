@@ -1,6 +1,3 @@
-
-// 29/01 às 16:41
-
 import React, { useState } from "react";
 
 const CreateArtistForm = ({ onCreateArtist, genres }) => {
@@ -8,7 +5,6 @@ const CreateArtistForm = ({ onCreateArtist, genres }) => {
     name: "",
     genre: "",
     image: "",
-    // add other fields as needed
   });
 
   const handleInputChange = (e) => {
@@ -20,8 +16,13 @@ const CreateArtistForm = ({ onCreateArtist, genres }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Call the function to create a new artist
     onCreateArtist(artistData);
+    // Reset the form fields after successful creation
+    setArtistData({
+      name: "",
+      genre: "",
+      image: "",
+    });
   };
 
   return (
@@ -37,10 +38,16 @@ const CreateArtistForm = ({ onCreateArtist, genres }) => {
       </label>
       <label>
         Genre:
-        <select onChange={handleInputChange} name="genre">
-{genres.map(genre => {
-    return (<option value={genre._id} key={genre._id}>{genre.name}</option>)
-})}
+        <select
+          name="genre"
+          value={artistData.genre}
+          onChange={handleInputChange}
+        >
+          {genres.map((genre) => (
+            <option value={genre._id} key={genre._id}>
+              {genre.name}
+            </option>
+          ))}
         </select>
       </label>
       <label>
@@ -52,7 +59,6 @@ const CreateArtistForm = ({ onCreateArtist, genres }) => {
           onChange={handleInputChange}
         />
       </label>
-      {/* add other input fields as needed */}
       <button type="submit">Create Artist</button>
     </form>
   );
