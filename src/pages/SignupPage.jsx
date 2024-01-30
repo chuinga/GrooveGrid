@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-const API_URL = 'http://localhost:5005';
+/* const API_URL = 'http://localhost:5005'; */
 
 function SignupPage() {
     const [email, setEmail] = useState('');
@@ -22,7 +22,8 @@ function SignupPage() {
         const requestBody = { email, password, name };
 
         try {
-            const response = await fetch(`${API_URL}/api/auth/signup`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/signup`, {
+            /* const response = await fetch(`${API_URL}/api/auth/signup`, { */
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

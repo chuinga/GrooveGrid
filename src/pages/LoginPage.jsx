@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import { Link } from 'react-router-dom';
 
-const API_URL = 'http://localhost:5005';
+/* const API_URL = 'http://localhost:5005'; */
 
 function LoginPage() {
     const [email, setEmail] = useState('');
@@ -22,7 +22,8 @@ function LoginPage() {
         const requestBody = { email, password };
 
         try {
-            const response = await fetch(`${API_URL}/api/auth/login`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
+            //const response = await fetch(`${API_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
