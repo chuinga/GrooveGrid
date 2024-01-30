@@ -1,6 +1,6 @@
-import '../styles/Footer.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import facebookIcon from '../assets/facebookIcon.png';
 import instagramIcon from '../assets/InstagramIcon.png';
 import twitterIcon from '../assets/twitterIcon.png';
@@ -10,9 +10,10 @@ import youtubeIcon from '../assets/youtubeIcon.png';
 import telegramIcon from '../assets/telegramIcon.png';
 import ArrowKeyEnter from '../assets/ArrowKeyEnter.png';
 
+import '../styles/Footer.css';
 
 const Footer = () => {
-    const [isButtonClicked, setButtonClicked] = useState(false);
+    const [setButtonClicked] = useState(false);
     const [nameInput, setNameInput] = useState('');
     const [emailInput, setEmailInput] = useState('');
 
@@ -28,67 +29,37 @@ const Footer = () => {
 
     return (
         <div className='footer'>
-            <div className='news-letter-subscription'>
-                {isButtonClicked ? (
-                    <p>Thank you for signing up!</p>
-                ) : (
-                    <p>Subscribe to receive all the news.</p>
-                )}
-            </div>
             <div className='wrapper'>
-                <div className='inputs-button-wrapper'>
-                    <input
-                        type='text'
-                        placeholder='First Name'
-                        name='name'
-                        autoComplete='false'
-                        value={nameInput}
-                        onChange={(e) => setNameInput(e.target.value)}
-                        className='news-letter-input'
-                    />
-
-                    <div className='email-input-with-button'>
-                        <input
-                            type='text'
-                            placeholder='Email'
-                            name='emailAddress'
-                            autoComplete='false'
-                            value={emailInput}
-                            onChange={(e) => setEmailInput(e.target.value)}
-                            className='news-letter-input'
-                        />
-                        <button
-                            className='submit-news-letter-button'
-                            onClick={handleButtonClick}
-                        >
-                            <img
-                                src={ArrowKeyEnter}
-                                alt='Arrow key enter'
-                                className='arrow-key-enter-image'
-                            />
-                        </button>
-                    </div>
-                </div>
-
                 <div className='footer-lists-wrapper'>
                     <ul className='footer-lists'>
                         <li>
                             <Link to='/about'>About</Link>
                         </li>
                         <li>
-                            <Link to='https://support.spotify.com/us/article/contact-us/'>Contact</Link>
+                            <Link to='https://support.spotify.com/us/article/contact-us/'>
+                                Contact
+                            </Link>
                         </li>
                         <li>
-                            <Link to= 'https://www.spotify.com/pt-en/privacy'> Privacy </Link>
+                            <Link to='https://www.spotify.com/pt-en/privacy'>
+                                {' '}
+                                Privacy{' '}
+                            </Link>
                         </li>
                         <li>
-                            <Link to='https://www.lifeatspotify.com/'>Join the band</Link>
+                            <Link to='https://www.lifeatspotify.com/'>
+                                Join the band
+                            </Link>
                         </li>
                         <li>
-                            <Link to='https://www.spotify.com/pt-en/legal/end-user-agreement/'>Terms & Conditions</Link>
+                            <Link to='https://www.spotify.com/pt-en/legal/end-user-agreement/'>
+                                Terms & Conditions
+                            </Link>
                         </li>
                         <li>
-                            <Link to='https://spotifyforpartners.com/'>Partnerships</Link>
+                            <Link to='https://spotifyforpartners.com/'>
+                                Partnerships
+                            </Link>
                         </li>
                     </ul>{' '}
                 </div>

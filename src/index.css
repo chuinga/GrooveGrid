@@ -8,6 +8,7 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    width: 100vw;
 }
 
 a {
@@ -23,7 +24,7 @@ body {
     min-width: 320px;
     min-height: 100vh;
     background: linear-gradient(79deg, rgb(53 46 53) 0%, rgb(157 25 24) 100%);
-}
+    
 
 button:hover {
     border-color: black;

@@ -6,3 +6,7 @@
 .user-profile-wrapper {
     margin-right: 0.5em;
 }
+
+.user-profile-page-container {
+    height: 24em;
+}

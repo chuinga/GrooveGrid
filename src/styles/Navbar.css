@@ -4,6 +4,7 @@
     justify-content: space-between;
     padding: 1.5em 1em;
     gap: 0.5em;
+    margin-left: 0;
 }
 
 .linksWrapper {
