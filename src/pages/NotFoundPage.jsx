@@ -7,9 +7,9 @@ const NotFoundPage = () => {
     return (
         <div className='notFound'>
             <img src={NotFound} alt="404 Not Found" />
-            <p>
+            <button>
                 <Link to='/'>Go Home</Link>
-            </p>
+            </button>
         </div>
     );
 };
