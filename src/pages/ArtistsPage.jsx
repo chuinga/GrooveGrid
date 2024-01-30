@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-// Components //
 import ArtistList from "../components/ArtistList.jsx";
 import CreateArtistForm from "../components/CreateArtistForm.jsx";
-// Authorization //
 import { AuthContext } from "../context/auth.context.jsx";
 
 const ArtistsPage = () => {
@@ -55,6 +53,14 @@ const ArtistsPage = () => {
   }, [searchInput, artists]);
 
   const createArtist = async (artistData) => {
+    const artistExists = artists.some(
+      (artist) => artist.name.toLowerCase() === artistData.name.toLowerCase()
+    );
+
+    if (artistExists) {
+      alert("Artist with this name already exists!");
+      return;
+    }
     try {
       const baseUrl = import.meta.env.VITE_API_URL.endsWith("/")
         ? import.meta.env.VITE_API_URL.slice(0, -1)
