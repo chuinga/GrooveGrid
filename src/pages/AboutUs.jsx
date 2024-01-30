@@ -9,7 +9,7 @@ import '../styles/AboutUs.css'
 
 function AboutUs() {
     return (
-        <div>
+        <div className='about'>
             <h1>About Us</h1>
 
            
