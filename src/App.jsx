@@ -22,6 +22,7 @@ import SongsPage from './pages/SongsPage';
 import SongDetails from './components/SongDetails';
 import PlaylistPage from './pages/PlaylistPage';
 import Footer from './components/Footer';
+import NewSong from './pages/NewSongPage';
 // Styles
 import './App.css';
 
@@ -44,6 +45,15 @@ function App() {
                     element={
                         <IsPrivate>
                             <UserProfilePage />
+
+                        </IsPrivate>
+                    }
+                />
+                <Route
+                    path='/newsong'
+                    element={
+                        <IsPrivate>
+                            <NewSong />                            
                         </IsPrivate>
                     }
                 />

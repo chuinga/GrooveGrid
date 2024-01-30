@@ -74,6 +74,9 @@ function UserProfilePage() {
                 <div>
                     <Link to='/playlists'>Your Playlists</Link>
                 </div>
+                <div>
+                    <Link to='/newsong'>Create new Song</Link>
+                </div>
             </div>
         </div>
     ) : null;
