@@ -1,0 +1,17 @@
+.albums-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+}
+.image-album-wrapper img {
+    width: 6em;
+    height: 6em;
+}
+.image-album-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 2em;
+    gap: 1em;
+}

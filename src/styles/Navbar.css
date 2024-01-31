@@ -6,7 +6,6 @@
     padding: 1em;
     margin-left: 0;
     width: 100%;
-    gap: 0.5em;
 }
 
 .linksWrapper {
@@ -24,6 +23,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .signed-in-buttons button {
@@ -59,10 +59,9 @@ a {
 }
 
 span {
-    margin-right: 1.8em;
 }
 
-@media screen and (min-width: 601px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     .navbar-main {
         gap: 3em;
     }
@@ -120,7 +119,7 @@ span {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #FF908B;
+    background-color: #ff908b;
     min-width: 120px;
     z-index: 1;
     opacity: 0; /* Initially hide the dropdown */
