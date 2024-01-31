@@ -177,6 +177,7 @@ const ArtistsPage = () => {
                         onClose={() => setIsCreateArtistModalOpen(false)}
                     >
                         <CreateArtistForm
+                            className='create-artist-form'
                             onCreateArtist={handleCreateArtist}
                             genres={genres}
                         />
