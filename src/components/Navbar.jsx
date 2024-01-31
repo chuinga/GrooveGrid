@@ -55,8 +55,18 @@ function Navbar() {
                     
                 </div>
 
-                <Link to='/artists'>Artists</Link>
-
+                {/* Dropdown Menu for Artists */}
+                <div className="dropdown" onMouseEnter={() => setIsDropdown(true)} onMouseLeave={() => setIsDropdown(false)}>
+                    <span className="genre-link">Artists</span>
+                    {isDropdown && (
+                        <div className="dropdown-content">
+                            <Link to='/artists'>All Artists</Link>
+                            <Link to='/albums'>All Albums</Link>
+                            <Link to='/songs'>All Songs</Link>                                                       
+                        </div>
+                    )}                    
+                </div>
+                
                 {isLoggedIn && <Link to='/playlists'>Playlist</Link>}
             </div>
             <div className='user-profile-wrapper'>
