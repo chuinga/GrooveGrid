@@ -27,7 +27,7 @@ const PlaylistList = (props) => {
   const [selectedSongId, setSelectedSongId] = useState(null);
   const [currentPlaylistIdForSong, setCurrentPlaylistIdForSong] =
     useState(null);
-
+  console.log(playlists);
   const handleEditPlaylist = (playlistId) => {
     setCurrentPlaylistId(playlistId);
     setShowEditModal(true);
@@ -186,9 +186,7 @@ const PlaylistList = (props) => {
                   {/* Add a button for each song to open the delete modal */}
                   {playlist.songs?.map((song) => (
                     <div key={song._id}>
-                      <span>
-                        {song.title} - {song.artist.name}
-                      </span>
+                      <span>{song.title}</span>
                       <button
                         onClick={() =>
                           openDeleteSongModal(song._id, playlist._id)

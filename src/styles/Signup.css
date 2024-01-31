@@ -5,6 +5,10 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 2em;
+    min-height: 30em;
+}
+.signup-wrapper button {
+    color: antiquewhite;
 }
 
 .form-wrapper {
