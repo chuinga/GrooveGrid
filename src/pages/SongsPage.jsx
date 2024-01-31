@@ -50,9 +50,11 @@ function SongsPage() {
     }, [user, storedToken]);
 
     return (
-        <div>
+        <div className='songs-page-wrapper'>
             <h1>Songs</h1>
-            <SongsList songs={songs} userPlaylists={userPlaylists} />
+            <div className='songs-wrapper'>
+                <SongsList songs={songs} userPlaylists={userPlaylists} />
+            </div>
         </div>
     );
 }

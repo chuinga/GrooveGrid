@@ -1,10 +1,11 @@
 .navbar-main {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1.5em 1em;
-    gap: 0.5em;
+    justify-content: space-around;
+    padding: 1em;
     margin-left: 0;
+    width: 100%;
+    gap: 0.5em;
 }
 
 .linksWrapper {
@@ -30,6 +31,7 @@
     color: rgb(157 25 24);
     border-radius: 0.5em;
     border-color: antiquewhite;
+    margin-left: 0;
 }
 
 .signed-out-buttons {
@@ -53,4 +55,8 @@
 a {
     font-size: small;
     color: white;
+}
+
+span {
+    margin-right: 1.8em;
 }

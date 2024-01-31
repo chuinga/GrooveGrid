@@ -1,0 +1,14 @@
+.genres-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.genres-links-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.genres-list-wrapper {
+    min-height: 20em;
+}
