@@ -1,13 +1,26 @@
 .artists-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 2em;
+    min-height: 7em;
 }
 
 .artists-wrapper img {
-    width: 5em;
-    height: 5em;
+    width: 7em;
+    height: 7em;
     object-fit: cover;
     margin-bottom: 1em;
+}
+
+.search-bar-and-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 1em;
 }
