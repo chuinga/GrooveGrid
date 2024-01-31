@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 // Contexts
 import { AuthContext } from "../context/auth.context";
@@ -12,6 +12,9 @@ import "../styles/UserProfilePage.css";
 
 function UserProfilePage() {
   const [userProfile, setUserProfile] = useState(null);
+  const [newUsername, setNewUsername] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [loading, setLoading] = useState(true);
 
@@ -54,6 +57,48 @@ function UserProfilePage() {
     getUser();
   }, [errorMessage, user._id]);
 
+  // CHANGE USERNAME
+  const handleUsernameChange = (event) => {
+    setNewUsername(event.target.value);
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const storedToken = localStorage.getItem("authToken");
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/profile/${user._id}/update`, // Adjust the URL according to your API
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${storedToken}`,
+          },
+          body: JSON.stringify({ name: newUsername }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message);
+      }
+
+      const updatedUserProfile = await response.json();
+      setUserProfile(updatedUserProfile);
+      setModalVisible(false);
+      setSuccessMessage("Successfully updated username!");
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  };
+
+  // Function to open the modal
+  const openModal = () => {
+    setModalVisible(true);
+    setSuccessMessage(""); // Reset success message when opening the modal
+  };
+
   if (errorMessage) {
     return <div>{errorMessage}</div>;
   }
@@ -66,13 +111,29 @@ function UserProfilePage() {
       <img src={ProfileIcon} alt="profile-photo" />
       <h1>{userProfile.name}</h1>
 
-      <div>
-        <p>
-          <strong>Email:</strong> {userProfile.email}
-        </p>
-        <div>
-          <Link to="/playlists">Your Playlists</Link>
+      {successMessage && <div>{successMessage}</div>}
+
+      <button onClick={openModal}>Update Username</button>
+
+      {modalVisible && (
+        <div className="modal">
+          <form onSubmit={handleFormSubmit}>
+            <label>
+              New Username:
+              <input
+                type="text"
+                value={newUsername}
+                onChange={handleUsernameChange}
+              />
+            </label>
+            <button type="submit">Update Username</button>
+            <button onClick={() => setModalVisible(false)}>Close</button>
+          </form>
         </div>
+      )}
+
+      <div>
+        <Link to="/playlists">Your Playlists</Link>
       </div>
     </div>
   ) : null;
