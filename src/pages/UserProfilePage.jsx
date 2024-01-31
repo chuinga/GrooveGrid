@@ -1,85 +1,80 @@
-import { useEffect, useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
-
+import { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
 // Contexts
-import { AuthContext } from '../context/auth.context';
-
+import { AuthContext } from "../context/auth.context";
 // Icons
-import ProfileIcon from '../assets/profile-icon.png';
-
-import '../styles/UserProfilePage.css';
+import ProfileIcon from "../assets/profile-icon.png";
+// Import Styles
+import "../styles/UserProfilePage.css";
 
 // Import the string from the .env with URL of the API/server - http://localhost:5005
 /* const API_URL = 'http://localhost:5005'; */
 
 function UserProfilePage() {
-    const [userProfile, setUserProfile] = useState(null);
-    const [errorMessage, setErrorMessage] = useState(undefined);
-    const [loading, setLoading] = useState(true);
+  const [userProfile, setUserProfile] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [loading, setLoading] = useState(true);
 
-    const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-    useEffect(() => {
-        const getUser = async () => {
-            const storedToken = localStorage.getItem('authToken');
+  useEffect(() => {
+    const getUser = async () => {
+      const storedToken = localStorage.getItem("authToken");
 
-            if (storedToken) {
-                try {
-                    const response = await fetch(
-                        `${import.meta.env.VITE_API_URL}/api/profile/${user._id}`,
-                        /* `${API_URL}/api/profile/${user._id}`, */
-                        {
-                            method: 'GET',
-                            headers: {
-                                Authorization: `Bearer ${storedToken}`,
-                            },
-                        }
-                    );
-
-                    if (!response.ok) {
-                        const errorData = response.json();
-                        const errorDescription = errorData.message;
-                        throw new Error(errorDescription);
-                    }
-
-                    const data = await response.json();
-                    setUserProfile(data);
-                    setLoading(false);
-                } catch (error) {
-                    setErrorMessage(error.message);
-                }
-            } else {
-                setErrorMessage(errorMessage);
+      if (storedToken) {
+        try {
+          const response = await fetch(
+            `${import.meta.env.VITE_API_URL}/api/profile/${user._id}`,
+            /* `${API_URL}/api/profile/${user._id}`, */
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${storedToken}`,
+              },
             }
-        };
+          );
 
-        getUser();
-    }, [errorMessage, user._id]);
+          if (!response.ok) {
+            const errorData = response.json();
+            const errorDescription = errorData.message;
+            throw new Error(errorDescription);
+          }
 
-    if (errorMessage) {
-        return <div>{errorMessage}</div>;
-    }
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+          const data = await response.json();
+          setUserProfile(data);
+          setLoading(false);
+        } catch (error) {
+          setErrorMessage(error.message);
+        }
+      } else {
+        setErrorMessage(errorMessage);
+      }
+    };
 
-    return userProfile ? (
-        <div className='user-profile-page-container'>
-            <img src={ProfileIcon} alt='profile-photo' />
-            <h1>{userProfile.name}</h1>
+    getUser();
+  }, [errorMessage, user._id]);
 
-            <div>
-                <p>
-                    <strong>Email:</strong> {userProfile.email}
-                </p>
-                <div>
-                    <Link to='/playlists'>Your Playlists</Link>
-                </div>
-                <div>
-                    <Link to='/newsong'>Create new Song</Link>
-                </div>
-            </div>
+  if (errorMessage) {
+    return <div>{errorMessage}</div>;
+  }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  return userProfile ? (
+    <div className="user-profile-page-container">
+      <img src={ProfileIcon} alt="profile-photo" />
+      <h1>{userProfile.name}</h1>
+
+      <div>
+        <p>
+          <strong>Email:</strong> {userProfile.email}
+        </p>
+        <div>
+          <Link to="/playlists">Your Playlists</Link>
         </div>
-    ) : null;
+      </div>
+    </div>
+  ) : null;
 }
 export default UserProfilePage;

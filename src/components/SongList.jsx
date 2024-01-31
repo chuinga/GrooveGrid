@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-
+import { PlaylistsContext } from "../context/Playlists.context"; // Import PlaylistsContext
+// Import Styles
 import "../styles/SongsList.css";
 
 const SongsList = ({ songs, userPlaylists }) => {
   const { storedToken, user } = useContext(AuthContext);
+  const { refreshPlaylist } = useContext(PlaylistsContext); // Use refreshPlaylist from context
+  const [successMessage, setSuccessMessage] = useState(""); // State to store success message
 
   const handleAddToPlaylist = async (song, playlist) => {
     try {
@@ -31,8 +34,12 @@ const SongsList = ({ songs, userPlaylists }) => {
       );
 
       if (response.ok) {
+        setSuccessMessage(
+          `'${song.title}' added to '${playlist.name}' successfully!`
+        );
         console.log("Song added to playlist successfully");
         // fetch SINGULAR playlist info
+        refreshPlaylist(playlist._id); // Refresh the specific playlist
       } else {
         console.error("Failed to add song to playlist");
       }
@@ -42,32 +49,36 @@ const SongsList = ({ songs, userPlaylists }) => {
   };
 
   return (
-    <ul className="songs-list-wrapper">
-      <div></div>
-      {songs.map((song) => (
-        <li key={song._id} className="song-title-and-artist">
-          {song.album && (
-            <img
-              src={song.album.coverImageUrl}
-              alt={`${song.title} album cover`}
-              className="album-image"
-            />
-          )}
-          <span>{song.title}</span>
-          <span>{song.artist.name}</span>
-          <div className="Add-to-playlist-buttons">
-            {userPlaylists.map((playlist) => (
-              <button
-                key={playlist._id}
-                onClick={() => handleAddToPlaylist(song, playlist)}
-              >
-                Add to {playlist.name}
-              </button>
-            ))}
-          </div>
-        </li>
-      ))}
-    </ul>
+    <div>
+      {successMessage && (
+        <div className="success-message">{successMessage}</div>
+      )}
+      <ul className="songs-list-wrapper">
+        {songs.map((song) => (
+          <li key={song._id} className="song-title-and-artist">
+            {song.album && (
+              <img
+                src={song.album.coverImageUrl}
+                alt={`${song.title} album cover`}
+                className="album-image"
+              />
+            )}
+            <span>{song.title}</span>
+            <span>{song.artist.name}</span>
+            <div className="Add-to-playlist-buttons">
+              {userPlaylists.map((playlist) => (
+                <button
+                  key={playlist._id}
+                  onClick={() => handleAddToPlaylist(song, playlist)}
+                >
+                  Add to {playlist.name}
+                </button>
+              ))}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
