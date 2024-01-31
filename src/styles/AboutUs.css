@@ -1,11 +1,11 @@
 
+
  .about {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 20px;
   text-align: justify;
-
 }
 
 .about-member {
@@ -16,7 +16,7 @@
 
 .about-image-container {
   width: 100%;
-  max-width: 400px; /* Adjust the max-width as needed */
+  max-width: 400px; 
   margin-bottom: 15px;
 }
 
@@ -29,18 +29,14 @@
 
 .about-description {
   width: 100%;
-  font-size: 18px; /* Adjust the font size as needed */
+  font-size: 18px; 
+  color: wheat;
 }
 
-
-.about-description p {
-  color: wheat
-}
 .about-links {
   display: flex;
   justify-content: flex-end;
   margin-top: 10px;
-  
 }
 
 .about-links img {
@@ -51,11 +47,12 @@
 
 h1 {
   text-align: center;
+  
 }
 
 h2, h4, h5 {
   margin-bottom: 10px;
-  color:#3498db;
+  color: #3498db;
   font-size: 20px;
 }
 
@@ -63,26 +60,54 @@ h2, h4, h5 {
   color: #3498db;
 }
 
-/* Responsive Media Queries */
+
 @media (min-width: 600px) {
   .about-member {
-      flex-direction: row;
-      align-items: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
   }
 
   .about-image-container {
-      margin-right: 20px;
-      margin-bottom: 0;
+    margin-right: 20px;
+    margin-bottom: 0;
   }
 
   .about-description {
-      margin-left: 20px;
+    margin-left: 20px;
   }
 }
 
 @media (min-width: 900px) {
   .about-member {
-      flex-direction: row;
-      align-items: center;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .about-description {
+    font-size: 26px; 
+  }
+
+  .about-links img {
+    width: 40px; 
+    height: 40px; 
+  }
+
+  h2, h4, h5 {
+    font-size: 28px; /* Further increase font size for larger desktop screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .about-description {
+    font-size: 30px; 
+  }
+
+  .about-links img {
+    width:70px; 
+    height:70px; 
+  }
+
+  h2, h4, h5 {
+    font-size: 35px; /* Further increase font size for larger desktop screens */
   }
 }

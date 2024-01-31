@@ -94,7 +94,7 @@ function AboutUs() {
                     <img className="about-image" src={Victor} alt="Victor's Image" />
                 </div>
                 <div className="about-description">
-                    <h5 className="about-victor">Victor Silva</h5>
+                    <h5 className="about-victor"> Victor Silva</h5>
                     <p>
                         I was born in Brazil but came to Portugal when I was five years old, since then I have lived in Lisbon. I have a background in Management,
                 but I have always been interested in technology, which is why I
