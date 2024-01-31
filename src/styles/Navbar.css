@@ -74,7 +74,7 @@ span {
     min-width: 120px;
     z-index: 1;
     opacity: 0; /* Initially hide the dropdown */
-    transition: opacity 0.3s ease-in-out; /* Add transition for smoother effect */
+    transition: opacity 0.5s ease-in-out; /* Add transition for smoother effect */
 }
 
 .dropdown-content a {
@@ -87,7 +87,7 @@ span {
 /* Show dropdown content on hover */
 .dropdown:hover .dropdown-content {
     display: block;
-    opacity: 1; /* Show the dropdown with fade-in effect */
+    opacity: 0.9; /* Show the dropdown with fade-in effect */
 }
 
 /* Style the genre link */
