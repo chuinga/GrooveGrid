@@ -26,11 +26,11 @@
 }
 
 .image-link:nth-child(1) {
-  background-image: url('../assets/dj-mixer.png');
+  background-image: url("../assets/dj-mixer.png");
 }
 
 .image-link:nth-child(2) {
-  background-image: url('../assets/studio.png');
+  background-image: url("../assets/studio.png");
 }
 
 .image-link:hover {
@@ -39,12 +39,12 @@
 
 @media screen and (max-width: 768px) {
   .image-wrapper {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .image-link {
-      width: 80%;
-      margin: 10px 0;
+    width: 80%;
+    margin: 10px 0;
   }
 }

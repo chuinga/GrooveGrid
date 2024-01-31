@@ -181,17 +181,13 @@ const PlaylistList = (props) => {
                 <button onClick={() => handleDeletePlaylist(playlist._id)}>
                   Delete Playlist
                 </button>
-                <p>
-                  <strong>Artists:</strong>{" "}
-                  {playlist.artists?.map((artist) => (
-                    <span key={artist._id}>{artist.name}, </span>
-                  ))}
-                </p>
+
                 <div>
                   {/* Add a button for each song to open the delete modal */}
                   {playlist.songs?.map((song) => (
                     <div key={song._id}>
                       <span>{song.title}</span>
+                      <span>{song.artist}</span>
                       <button
                         onClick={() =>
                           openDeleteSongModal(song._id, playlist._id)
@@ -202,15 +198,6 @@ const PlaylistList = (props) => {
                     </div>
                   ))}
                 </div>
-                <p>
-                  <strong>Image:</strong>
-                  {playlist.artists?.length > 0 && (
-                    <img
-                      src={playlist.artists[0].image}
-                      alt={`${playlist.name} Image`}
-                    />
-                  )}
-                </p>
               </div>
             </div>
           )}
