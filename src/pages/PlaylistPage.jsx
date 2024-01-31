@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { PlaylistsContext } from "../context/Playlists.context";
-// Import Components
 import PlaylistList from "../components/PlaylistList";
 
 const PlaylistPage = () => {
@@ -10,7 +9,7 @@ const PlaylistPage = () => {
     <div className="playlist-page-wrapper">
       <h5>Playlists</h5>
       {!isLoading ? (
-        <PlaylistList playlists={playlists} />
+        <PlaylistList playlists={playlists} /> 
       ) : (
         <div>LOADING...</div>
       )}

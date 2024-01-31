@@ -1,13 +1,13 @@
-/* eslint-disable react/prop-types */
+
 import { useState, useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
-import { PlaylistsContext } from '../context/Playlists.context'; // Import PlaylistsContext
-// Import Styles
+import { PlaylistsContext } from '../context/Playlists.context'; 
 import '../styles/SongsList.css';
+
 const SongsList = ({ songs, userPlaylists }) => {
     const { storedToken, user } = useContext(AuthContext);
     const { refreshPlaylist } = useContext(PlaylistsContext); // Use refreshPlaylist from context
-    const [successMessage, setSuccessMessage] = useState(''); // State to store success message
+    const [successMessage, setSuccessMessage] = useState(''); 
     const handleAddToPlaylist = async (song, playlist) => {
         try {
             const baseUrl = import.meta.env.VITE_API_URL.endsWith('/')

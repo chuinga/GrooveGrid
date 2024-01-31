@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { AuthContext } from "../context/auth.context"; // Import AuthContext
-import Modal from "./ModalComponent"; // Import Modal Component
+import { AuthContext } from "../context/auth.context"; 
+import Modal from "./ModalComponent"; 
 
 const AlbumDetails = () => {
   const { albumId } = useParams();
@@ -11,10 +11,10 @@ const AlbumDetails = () => {
     releaseDate: "",
   });
   const [newSong, setNewSong] = useState({
-    // Define newSong state
+   
     title: "",
     artist: "",
-    // genres: [], // If you need genres
+   
   });
   const { user, storedToken } = useContext(AuthContext);
 
@@ -85,14 +85,14 @@ const AlbumDetails = () => {
       }
 
       const updatedAlbum = await response.json();
-      // Merge updated fields into the existing album state, preserving the songs array
+  
       setAlbum((prevAlbum) => ({
         ...prevAlbum,
         ...updatedAlbum,
         songs: prevAlbum.songs,
       }));
 
-      alert("Album updated successfully"); // Change to whatever you like
+      alert("Album updated successfully"); 
 
       // Optionally clear the editAlbumData state
       setEditAlbumData({
@@ -140,7 +140,7 @@ const AlbumDetails = () => {
 
       setNewSong({
         title: "",
-        artist: "", // Consider removing this if it's no longer needed
+        artist: "", 
       });
     } catch (error) {
       console.error("Error adding song:", error);
@@ -204,7 +204,7 @@ const AlbumDetails = () => {
           album.songs.map((song) => (
             <div key={song._id}>
               <p>{song.title}</p>
-              {/* Render other song details as needed */}
+           
             </div>
           ))}
       </div>

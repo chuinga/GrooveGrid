@@ -1,8 +1,8 @@
-/* eslint-disable react/prop-types */
+
 import { useState, useEffect, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-/* const API_URL = 'http://localhost:5005'; */
+
 
 const AuthContext = createContext();
 
@@ -22,13 +22,12 @@ function AuthProviderWrapper({ children }) {
     const storedToken = localStorage.getItem('authToken');
 
     const authenticateUser = () => {
-        // Must also exist in here to be able to login/off
-        // correctly.
+        // Must also exist in here to be able to login/off correctly.
         const updatedStoredToken = localStorage.getItem('authToken');
 
         if (updatedStoredToken) {
             fetch(`${import.meta.env.VITE_API_URL}/api/auth/verify`, {
-            /* fetch(`${API_URL}/api/auth/verify`, { */
+         
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

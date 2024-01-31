@@ -13,7 +13,7 @@ function AboutUs() {
         <div className='about'>
             <h1>About Us</h1>
 
-            {/* Josip */}
+            
             <div className="about-member">
                 <div className="about-image-container">
                     <img className="about-image" src={Josip} alt="Josip's Image" />
@@ -39,7 +39,7 @@ function AboutUs() {
                 </div>
             </div>
 
-            {/* Carina */}
+           
            
             <div className="about-member">
                 <div className="about-image-container">
@@ -64,7 +64,7 @@ function AboutUs() {
                 </div>
             </div>
 
-            {/* Miguel */}
+            
             <div className="about-member">
                 <div className="about-image-container">
                     <img className="about-image" src={Miguel} alt="Miguel's Image" />
@@ -88,7 +88,7 @@ function AboutUs() {
                 </div>
             </div>
 
-            {/* Victor */}
+            
             <div className="about-member">
                 <div className="about-image-container">
                     <img className="about-image" src={Victor} alt="Victor's Image" />

@@ -6,8 +6,8 @@ const AlbumList = ({ albums }) => {
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(5, 1fr)", // Creates five columns
-        gap: "20px", // Space between grid items
-        padding: "10px", // Padding around the grid
+        gap: "20px", 
+        padding: "10px", 
       }}
     >
       {Array.isArray(albums) && albums.length > 0 ? (

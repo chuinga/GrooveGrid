@@ -5,7 +5,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         <div className='overlay'>
             <div className='modal'>
                 <button className='closeButton' onClick={onClose}>
-                    &times; {/* Stylish close (×) symbol */}
+                    &times; 
                 </button>
                 {children}
             </div>
