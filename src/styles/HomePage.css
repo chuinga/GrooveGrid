@@ -1,4 +1,5 @@
 .home-page-wrapper p {
     text-align: center;
     margin-right: 1em;
+    min-height: 7em;
 }
