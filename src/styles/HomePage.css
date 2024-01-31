@@ -10,6 +10,20 @@
   margin: 0;
 }
 
+.slick-slide > div {
+  display: flex !important; /* Use flex to center the image */
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* Set a fixed height for each slide */
+}
+/* Style the images within the slides */
+.slick-slide img {
+  max-width: 100%; /* Limit image width to be within the container */
+  max-height: 100%; /* Limit image height to be within the container */
+  object-fit: contain; /* This will make sure the image is fully visible */
+}
+
+/*
 .image-wrapper {
   display: flex;
   justify-content: space-between;
@@ -36,7 +50,7 @@
 .image-link:hover {
   transform: scale(1.1);
 }
-
+*/
 @media screen and (max-width: 768px) {
   .image-wrapper {
     flex-direction: column;
