@@ -7,7 +7,7 @@ const PlaylistPage = () => {
   const { playlists, isLoading } = useContext(PlaylistsContext);
 
   return (
-    <div>
+    <div className="playlist-page-wrapper">
       <h5>Playlists</h5>
       {!isLoading ? (
         <PlaylistList playlists={playlists} />
