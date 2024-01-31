@@ -64,7 +64,7 @@ span {
 
 @media screen and (min-width: 601px) and (max-width: 1024px) {
     .navbar-main {
-        gap: 2em;
+        gap: 3em;
     }
     .logo {
         height: 7em;

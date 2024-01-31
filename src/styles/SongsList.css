@@ -22,3 +22,18 @@
     object-fit: cover;
     margin-bottom: 1em;
 }
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .songs-list-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+    .song-title-and-artist {
+        font-size: medium;
+        justify-content: center;
+    }
+    .songs-list-wrapper button {
+        font-size: small;
+    }
+}
