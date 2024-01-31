@@ -33,7 +33,7 @@ const HomePage = () => {
         <div>
           <div className="image-container">
             <img src={backgroundImg} alt="Background" />
-            <div className="text-overlay">
+            <div className="text-overlay top-left">
               <p>Welcome to GrooveGrid</p>
             </div>
           </div>
@@ -41,24 +41,30 @@ const HomePage = () => {
         <div>
           <div className="image-container">
             <img src={studioImg} alt="Studio" />
-            <div className="text-overlay">
-              <p>Explore the Genres here!</p>
+            <div className="text-overlay top-right">
+              <Link to="/genre" className="overlay-link">
+                <p>Explore the Genres here!</p>
+              </Link>
             </div>
           </div>
         </div>
         <div>
           <div className="image-container">
             <img src={gramophoneImg} alt="Gramophone" />
-            <div className="text-overlay">
-              <p>Explore the Albums here!</p>
+            <div className="text-overlay middle">
+              <Link to="/Albums" className="overlay-link">
+                <p>Explore the Albums here!</p>
+              </Link>
             </div>
           </div>
         </div>
         <div>
           <div className="image-container">
             <img src={djMixerImg} alt="DJ Mixer" />
-            <div className="text-overlay">
-              <p>Explore the Songs here!</p>
+            <div className="text-overlay left">
+              <Link to="/Songs" className="overlay-link">
+                <p>Explore the Songs here!</p>
+              </Link>
             </div>
           </div>
         </div>

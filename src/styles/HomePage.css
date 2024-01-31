@@ -32,19 +32,36 @@
 
 /* Style the text overlay */
 .text-overlay {
-  position: absolute; /* Position the text absolutely within the slide container */
-  top: 50%; /* Vertically center the text */
-  left: 50%; /* Horizontally center the text */
-  transform: translate(-50%, -50%); /* Center the text perfectly */
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Add a background color for better readability */
-  color: #fff; /* Set the text color */
-  padding: 10px; /* Add padding to the text */
-  text-align: center; /* Center align the text */
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+/* Top left */
+.text-overlay.top-left {
+  top: 10%;
+  right: 40%;
+  transform: translate(0, 0);
+}
+/* Top right */
+.text-overlay.top-right {
+  top: 10%;
+  right: 40%;
+  transform: translate(0, 0);
+}
+/* middle */
+.text-overlay.middle {
+  top: 10%;
+  right: 40%;
+  transform: translate(0, 0);
+}
+/* left */
+.text-overlay.left {
+  top: 10%;
+  right: 40%;
+  transform: translate(0, 0);
 }
 
 /* Style the text content */
@@ -52,7 +69,22 @@
   font-size: 24px;
   font-weight: bold;
 }
+.overlay-link {
+  color: #fff; /* Example: White text color */
+  text-decoration: none; /* No underline */
+  display: block; /* Block-level elements fill the overlay */
+  height: 100%; /* Full height of the overlay */
+  width: 100%; /* Full width of the overlay */
 
+  box-sizing: border-box; /* Include padding in width and height */
+}
+
+/* Adjust hover state as needed */
+.overlay-link:hover,
+.overlay-link:focus {
+  text-decoration: underline; /* Example: Underline on hover/focus */
+  color: #ccc; /* Lighter color on hover/focus */
+}
 /* Style the slick-dots */
 .slick-dots {
   position: absolute;
@@ -60,18 +92,56 @@
   width: 100%;
 }
 
-.slick-dots li button {
-  color: red;
-}
-
 @media screen and (max-width: 768px) {
   .slick-slide > div,
   .slick-slide img {
-    flex-direction: column;
-    align-items: center;
     width: 100%;
     height: auto;
-    margin: 10px 0;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
   }
+  .text-overlay {
+    font-size: 16px; /* Smaller font size for mobile */
+    padding: 5px; /* Less padding */
+    /* Adjust position if needed */
+    top: 50%; /* Example: Move it up a bit */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 37%;
+    box-sizing: border-box;
+    /* any additional styling for mobile */
+  }
+  .text-overlay.top-left {
+    top: 40%;
+    right: 50%;
+    transform: translate(-50%, -90%);
+  }
+  .text-overlay.top-right {
+    top: 40%;
+    right: 50%;
+    transform: translate(-90%, -50%);
+  }
+  .text-overlay.middle {
+    top: 40%;
+    right: 50%;
+    transform: translate(-10%, -50%);
+  }
+  .text-overlay.left {
+    top: 40%;
+    right: 50%;
+    transform: translate(+30%, -80%);
+  }
+  .overlay-link {
+    padding: 15px; /* Slightly larger padding for a larger clickable area */
+    font-size: 18px; /* Larger font size for better readability */
+    /* You may also adjust line-height for better text presentation */
+    line-height: 1.5;
+    /* Any additional styling for mobile */
+  }
+}
+
+/* Hover and focus states for larger screens */
+.overlay-link:hover,
+.overlay-link:focus {
+  text-decoration: underline; /* Underline on hover/focus */
+  color: #ccc; /* Lighter color on hover/focus */
 }

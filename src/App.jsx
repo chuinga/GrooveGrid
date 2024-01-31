@@ -23,6 +23,8 @@ import SongsPage from "./pages/SongsPage";
 import PlaylistPage from "./pages/PlaylistPage";
 // Import Styles
 import "./App.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (
