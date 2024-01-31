@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import facebookIcon from '../assets/facebookIcon.png';
@@ -8,25 +7,10 @@ import snapchatIcon from '../assets/snapchatIcon.png';
 import whatsAppIcon from '../assets/whatsAppIcon.png';
 import youtubeIcon from '../assets/youtubeIcon.png';
 import telegramIcon from '../assets/telegramIcon.png';
-import ArrowKeyEnter from '../assets/ArrowKeyEnter.png';
 
 import '../styles/Footer.css';
 
 const Footer = () => {
-    const [setButtonClicked] = useState(false);
-    const [nameInput, setNameInput] = useState('');
-    const [emailInput, setEmailInput] = useState('');
-
-    const handleButtonClick = () => {
-        setButtonClicked(true);
-        setNameInput('');
-        setEmailInput('');
-
-        setTimeout(() => {
-            setButtonClicked(false);
-        }, 5000);
-    };
-
     return (
         <div className='footer'>
             <div className='wrapper'>
