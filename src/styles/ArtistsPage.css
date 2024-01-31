@@ -23,4 +23,65 @@ button {
     margin-left: 2em;
     margin-right: 2em;
     margin-top: 1em;
+    background-color: antiquewhite;
+    color: rgb(152, 19, 19);
+    border-radius: 1em;
+    padding: 0.5em;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    max-height: 80%;
+    overflow-y: auto;
+    border-radius: 8px;
+    position: relative;
+    background-color: antiquewhite;
+}
+
+.closeButton {
+    color: black;
+    position: absolute;
+    top: -35px;
+    right: -50px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.create-artist-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: antiquewhite;
+    padding: 3em;
+}
+.create-artist-form-wrapper label {
+    color: black;
+}
+
+.create-artist-form-wrapper input {
+    margin-bottom: 1em;
+}
+
+.create-artist-form-wrapper button {
+    background-color: antiquewhite;
+    color: rgb(152, 19, 19);
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.create-artist-form-wrapper select {
+    margin-bottom: 1em;
 }
