@@ -124,11 +124,11 @@ span {
     min-width: 120px;
     z-index: 1;
     opacity: 0; /* Initially hide the dropdown */
-    transition: opacity 0.3s ease-in-out; /* Add transition for smoother effect */
+    transition: opacity 0.5s ease-in-out; /* Add transition for smoother effect */
 }
 
 .dropdown-content a {
-    color: #fff;
+    /* color: #fff; */
     padding: 10px;
     display: block;
     text-decoration: none;
@@ -137,7 +137,7 @@ span {
 /* Show dropdown content on hover */
 .dropdown:hover .dropdown-content {
     display: block;
-    opacity: 1; /* Show the dropdown with fade-in effect */
+    opacity: 0.9; /* Show the dropdown with fade-in effect */
 }
 
 /* Style the genre link */
@@ -149,68 +149,3 @@ span {
 .genre-link:hover {
     text-decoration: underline; /* Underline the genre link on hover */
 }
-
-
-/* .navbar-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 1em;
-    margin-left: 0;
-    width: 100%;
-    gap: 0.5em;
-}
-
-.linksWrapper {
-    display: flex;
-    gap: 1em;
-    justify-content: center;
-    align-items: center;
-}
-
-.user-profile-wrapper {
-    display: flex;
-}
-
-.signed-in-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.signed-in-buttons button {
-    margin-top: 0.4em;
-    background-color: antiquewhite;
-    color: rgb(157 25 24);
-    border-radius: 0.5em;
-    border-color: antiquewhite;
-    margin-left: 0;
-}
-
-.signed-out-buttons {
-    display: flex;
-    flex-direction: column;
-    margin: 2px;
-    min-width: 4em;
-}
-
-.logo {
-    height: 5em;
-}
-
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-a {
-    font-size: small;
-    color: white;
-}
-
-span {
-    margin-right: 1.8em;
-}
- */
