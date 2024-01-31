@@ -23,6 +23,10 @@ const PlaylistList = (props) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [currentPlaylistId, setCurrentPlaylistId] = useState(null);
+  const [showDeleteSongModal, setShowDeleteSongModal] = useState(false);
+  const [selectedSongId, setSelectedSongId] = useState(null);
+  const [currentPlaylistIdForSong, setCurrentPlaylistIdForSong] =
+    useState(null);
 
   const handleEditPlaylist = (playlistId) => {
     setCurrentPlaylistId(playlistId);
@@ -61,6 +65,19 @@ const PlaylistList = (props) => {
     fetchPlaylists();
   };
 
+  // Function to handle opening the delete song modal
+  const openDeleteSongModal = (songId, playlistId) => {
+    console.log(
+      "Opening delete song modal with songId:",
+      songId,
+      "and playlistId:",
+      playlistId
+    );
+    setSelectedSongId(songId);
+    setCurrentPlaylistIdForSong(playlistId);
+    setShowDeleteSongModal(true);
+  };
+
   const handleError = () => {
     setEditingPlaylistId(null);
     setCreatingPlaylist(false);
@@ -90,6 +107,39 @@ const PlaylistList = (props) => {
       })
       .catch((error) => {
         console.error("Error deleting playlist:", error);
+      });
+  };
+
+  // Function to handle deleting a song
+  const handleDeleteSong = () => {
+    console.log(
+      "Deleting song with songId:",
+      selectedSongId,
+      "from playlistId:",
+      currentPlaylistIdForSong
+    );
+    fetch(
+      `${
+        import.meta.env.VITE_API_URL
+      }/api/playlists/${currentPlaylistIdForSong}/removesong/${selectedSongId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${storedToken}`,
+        },
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to delete song");
+        }
+        // Refresh the playlist to reflect the changes
+        fetchPlaylistById(currentPlaylistIdForSong);
+        setShowDeleteSongModal(false);
+      })
+      .catch((error) => {
+        console.error("Error deleting song:", error);
       });
   };
 
@@ -137,12 +187,21 @@ const PlaylistList = (props) => {
                     <span key={artist._id}>{artist.name}, </span>
                   ))}
                 </p>
-                <p>
-                  <strong>Songs:</strong>{" "}
+                <div>
+                  {/* Add a button for each song to open the delete modal */}
                   {playlist.songs?.map((song) => (
-                    <span key={song._id}>{song.title}</span>
+                    <div key={song._id}>
+                      <span>{song.title}</span>
+                      <button
+                        onClick={() =>
+                          openDeleteSongModal(song._id, playlist._id)
+                        }
+                      >
+                        Delete Song
+                      </button>
+                    </div>
                   ))}
-                </p>
+                </div>
                 <p>
                   <strong>Image:</strong>
                   {playlist.artists?.length > 0 && (
@@ -168,6 +227,21 @@ const PlaylistList = (props) => {
             <p>Are you sure you want to delete this playlist?</p>
             <button onClick={handleDelete}>Confirm Delete</button>
             <button onClick={() => setShowDeleteModal(false)}>Cancel</button>
+          </div>
+        </Modal>
+      )}
+      {/* Delete Song Modal */}
+      {showDeleteSongModal && (
+        <Modal
+          isOpen={showDeleteSongModal}
+          onClose={() => setShowDeleteSongModal(false)}
+        >
+          <div>
+            <p>Are you sure you want to delete this song from the playlist?</p>
+            <button onClick={handleDeleteSong}>Confirm Delete</button>
+            <button onClick={() => setShowDeleteSongModal(false)}>
+              Cancel
+            </button>
           </div>
         </Modal>
       )}
