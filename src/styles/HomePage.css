@@ -10,12 +10,19 @@
   margin: 0;
 }
 
+/* Style the Slider Container */
+.slick-slider {
+  position: relative; /* Add relative positioning to the slider container */
+}
+
 .slick-slide > div {
   display: flex !important; /* Use flex to center the image */
   justify-content: center;
   align-items: center;
   height: 70vh; /* Set a fixed height for each slide */
+  position: relative; /* Add relative positioning to each slide's container */
 }
+
 /* Style the images within the slides */
 .slick-slide img {
   max-width: 100%; /* Limit image width to be within the container */
@@ -23,42 +30,48 @@
   object-fit: contain; /* This will make sure the image is fully visible */
 }
 
-/*
-.image-wrapper {
-  display: flex;
-  justify-content: space-between;
-  height: 70vh;
+/* Style the text overlay */
+.text-overlay {
+  position: absolute; /* Position the text absolutely within the slide container */
+  top: 50%; /* Vertically center the text */
+  left: 50%; /* Horizontally center the text */
+  transform: translate(-50%, -50%); /* Center the text perfectly */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Add a background color for better readability */
+  color: #fff; /* Set the text color */
+  padding: 10px; /* Add padding to the text */
+  text-align: center; /* Center align the text */
 }
 
-.image-link {
-  flex: 1;
-  height: 90%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: transform 0.8s ease;
+/* Style the text content */
+.text-overlay p {
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.image-link:nth-child(1) {
-  background-image: url("../assets/dj-mixer.png");
+/* Style the slick-dots */
+.slick-dots {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
 }
 
-.image-link:nth-child(2) {
-  background-image: url("../assets/studio.png");
+.slick-dots li button {
+  color: red;
 }
 
-.image-link:hover {
-  transform: scale(1.1);
-}
-*/
 @media screen and (max-width: 768px) {
-  .image-wrapper {
+  .slick-slide > div,
+  .slick-slide img {
     flex-direction: column;
     align-items: center;
-  }
-
-  .image-link {
-    width: 80%;
+    width: 100%;
+    height: auto;
     margin: 10px 0;
+    padding-bottom: 30px;
   }
 }
