@@ -1,4 +1,50 @@
-.home-page-wrapper p {
-    text-align: center;
-    margin-right: 1em;
+.title {
+  margin-bottom: 30px;
+}
+
+.title h1 {
+  margin: 0;
+}
+
+.title p {
+  margin: 0;
+}
+
+.image-wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 70vh;
+}
+
+.image-link {
+  flex: 1;
+  height: 90%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.8s ease;
+}
+
+.image-link:nth-child(1) {
+  background-image: url('../assets/dj-mixer.png');
+}
+
+.image-link:nth-child(2) {
+  background-image: url('../assets/studio.png');
+}
+
+.image-link:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .image-wrapper {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .image-link {
+      width: 80%;
+      margin: 10px 0;
+  }
 }
