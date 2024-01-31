@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import '../styles/Signup.css';
 
-/* const API_URL = 'http://localhost:5005'; */
+
 
 function SignupPage() {
     const [email, setEmail] = useState('');
@@ -27,7 +27,7 @@ function SignupPage() {
             const response = await fetch(
                 `${import.meta.env.VITE_API_URL}/api/auth/signup`,
                 {
-                    /* const response = await fetch(`${API_URL}/api/auth/signup`, { */
+                    
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

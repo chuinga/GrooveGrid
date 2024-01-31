@@ -1,4 +1,4 @@
-// GenrePage.jsx
+
 import { useState, useEffect } from 'react';
 import GenreList from '../components/GenreList';
 

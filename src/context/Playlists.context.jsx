@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext, useContext } from "react";
 import PropTypes from "prop-types";
-// Import Context
+
 import { AuthContext } from "./auth.context";
 
 export const PlaylistsContext = createContext();

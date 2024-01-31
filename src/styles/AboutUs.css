@@ -93,7 +93,7 @@ h2, h4, h5 {
   }
 
   h2, h4, h5 {
-    font-size: 28px; /* Further increase font size for larger desktop screens */
+    font-size: 28px; 
   }
 }
 
@@ -108,6 +108,6 @@ h2, h4, h5 {
   }
 
   h2, h4, h5 {
-    font-size: 35px; /* Further increase font size for larger desktop screens */
+    font-size: 35px; 
   }
 }

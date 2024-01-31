@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
+
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-// Import components
 import EditPlaylist from "./EditPlaylist";
 
 const UpdatePlaylist = ({ playlistId, onSuccess, onError, onCancel }) => {

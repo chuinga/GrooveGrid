@@ -10,6 +10,7 @@ import '../styles/Navbar.css';
 function Navbar() {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     const [genres, setGenres] = useState([]);
+    const [playlistSongs, setPlaylistSongs] = useState([]);
 
     // State to manage visibility of dropdown menu
     const [isDropdown, setIsDropdown] = useState(false);
@@ -29,8 +30,24 @@ function Navbar() {
         }
     };
 
+    const fetchPlaylistSongs = async () => {
+        try {
+            const baseUrl = import.meta.env.VITE_API_URL.endsWith('/')
+                ? import.meta.env.VITE_API_URL.slice(0, -1)
+                : import.meta.env.VITE_API_URL;
+
+            const response = await fetch(`${baseUrl}/api/playlists`);
+            if (!response.ok) throw new Error('Data fetch failed');
+            const data = await response.json();
+            setPlaylistSongs(data);
+        } catch (error) {
+            console.error('Error fetching genres:', error);
+        }
+    };
+
     useEffect(() => {
         fetchGenres();
+        fetchPlaylistSongs();
     }, []);
 
 
@@ -66,8 +83,23 @@ function Navbar() {
                         </div>
                     )}                    
                 </div>
-                
-                {isLoggedIn && <Link to='/playlists'>Playlist</Link>}
+
+
+                {/* Dropdown Menu for Playlist Songs */}
+                {isLoggedIn &&<div className="dropdown" onMouseEnter={() => setIsDropdown(true)} onMouseLeave={() => setIsDropdown(false)}>
+                    <span className="genre-link">Playlist</span>
+                    {isDropdown && (
+                        <div className="dropdown-content">
+                            <Link to='/playlists'>See all</Link>
+                            {playlistSongs.map(genre => (
+                                <Link key={playlistSongs.name} to={`/playlists/${playlistSongs._id}`}>{playlistSongs.name}</Link>                              
+                            ))}                           
+                        </div>
+                    )}
+                    
+                </div>}
+
+                {/* {isLoggedIn && <Link to='/playlists'>Playlist</Link>} */}
             </div>
             <div className='user-profile-wrapper'>
                 {isLoggedIn ? (

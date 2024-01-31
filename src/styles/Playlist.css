@@ -5,7 +5,11 @@
 }
 
 .playlist-page-wrapper {
-    min-height: 25em;
+    min-height: 35em;
+}
+
+.playlist-page-wrapper h5 {
+    color: antiquewhite;
 }
 
 .playlist-page-wrapper button {
