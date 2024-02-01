@@ -94,11 +94,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: antiquewhite;
+    background-color: transparent
     padding: 3em;
 }
 .create-artist-form-wrapper label {
-    color: black;
+    color: antiquewhite;
 }
 
 .create-artist-form-wrapper input {
