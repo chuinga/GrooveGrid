@@ -127,7 +127,7 @@ function Navbar() {
             <img className="downArrow" src={arrowDown} alt="Arrow" />
             {isDropdown && (
               <div className="dropdown-content">
-                <NavLink to="/playlists">See all</NavLink>
+                <NavLink to="/playlists">Your Playlists</NavLink>
                 {playlistSongs.map((genre) => (
                   <NavLink
                     key={playlistSongs.name}
