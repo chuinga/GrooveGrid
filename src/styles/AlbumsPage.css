@@ -20,7 +20,7 @@
 }
 .image-album-wrapper {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 3fr));
   margin-top: 2em;
   gap: 1em;
 }
@@ -31,7 +31,7 @@
   object-fit: cover;
 }
 .image-album-wrapper > div {
-  background-color: white; /* Card background */
+  background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
   border: 1px solid #ccc; /* Border for the card */
   border-radius: 0.5em; /* Rounded corners for the card */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
@@ -48,4 +48,39 @@
 .image-album-wrapper > div:hover {
   transform: translateY(-5px); /* Lift card on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+@media screen and (max-width: 600px) {
+  .search-bar-albums {
+    margin-bottom: 1em;
+    padding: 0.8em;
+    max-width: 90%; /* Slightly reduce max width for better edge spacing */
+  }
+  .image-album-wrapper {
+    grid-template-columns: 1fr; /* Stack images in a single column */
+  }
+  .image-album-wrapper > div {
+    margin-top: 1em;
+    padding: 0.8em; /* Increase padding for better touch interaction */
+  }
+  /* Adjust text sizes for better readability on small screens */
+  .title-albums,
+  .p-albums {
+    font-size: larger; /* Increase font size for titles and paragraphs */
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .search-bar-albums {
+    max-width: 80%; /* Adjust max width for better fit */
+  }
+  .image-album-wrapper {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Display two images per row for more density */
+    gap: 2em; /* Increase gap for better spacing */
+  }
+  .image-album-wrapper > div {
+    padding: 0.8em; /* Adjust padding */
+  }
+  /* Consider adjusting font sizes if necessary */
 }
