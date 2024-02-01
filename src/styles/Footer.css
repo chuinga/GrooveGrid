@@ -1,51 +1,91 @@
+.content-wrap {
+  flex: 1 0 auto; /* This will push the footer down */
+  padding-bottom: 12em; /* Equal to or greater than the height of the footer */
+}
 .footer {
-    background-color: rgb(130, 26, 26);
-    width: 100vw;
-    height: 12em;
-    text-align: center;
-    color: #ecf0f1;
-    font-size: 1.2em;
-    border-top: solid 1px antiquewhite;
-    margin-bottom: 0;
+  position: absolute;
+  background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
+  width: 100%;
+  padding: 1em 0; /* Use padding instead of fixed height */
+  text-align: center;
+  color: #ecf0f1;
+  font-size: 1.2em;
+  border-top: solid 1px antiquewhite;
+  margin-bottom: 0;
+  box-sizing: border-box;
 }
 
 .footer p {
-    text-align: center;
-    color: antiquewhite;
+  text-align: center;
+  color: antiquewhite;
+  margin: 1em 0;
 }
 
 .footer a:hover {
-    color: #c0392b;
+  color: #357abd;
+  text-decoration: none; /* Optional: Removes the underline on hover */
 }
 
 .footer-lists {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    margin: 0;
-    padding: 0;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(120px, 1fr)
+  ); /* More responsive grid */
+  gap: 1em; /* Add gap for better spacing */
+  padding: 0 1em; /* Padding for better edge spacing */
 }
 
 .footer-lists li {
-    font-size: 1em;
-    list-style: none;
+  font-size: 1em;
+  list-style: none;
+  padding: 0.5em 0; /* Add padding for touch targets */
 }
 
 .footer-lists a {
-    color: antiquewhite;
+  color: antiquewhite;
+  display: block; /* Makes the entire area clickable */
 }
 
 .footer-lists-icons {
-    padding: 0;
-    list-style: none;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+  padding: 1em 0; /* More padding for icon list */
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Center icons when fewer */
+  flex-wrap: wrap; /* Wrap icons on smaller screens */
+  gap: 1em; /* Add gaps between icons */
 }
 
 .footer-lists-icons img {
-    width: 2.5em;
-    height: 2.5em;
-    object-fit: cover;
-    border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+.footer-lists-icons img:hover {
+  transform: scale(1.1); /* Enlarge icons slightly on hover */
+}
+.back-to-top-button {
+  background-color: #ecf0f1; /* Contrast color for the button */
+  color: rgb(130, 26, 26); /* Same as footer background for the text */
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.back-to-top-button:hover {
+  background-color: #357abd;
+}
+@media only screen and (max-width: 600px) {
+  .footer-lists {
+    grid-template-columns: 1fr; /* Stack items on smaller screens */
+  }
+
+  .footer-lists-icons {
+    justify-content: space-around; /* Spread icons evenly */
+  }
 }
