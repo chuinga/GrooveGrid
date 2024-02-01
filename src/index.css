@@ -46,7 +46,4 @@ button:focus-visible {
     a:hover {
         color: #0a0002;
     }
-    button {
-        background-color: #f9f9f9;
-    }
 }
