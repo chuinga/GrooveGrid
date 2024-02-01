@@ -97,34 +97,41 @@
 }
 
 .playlist-page-wrapper button {
-  margin-bottom: 1.5em;
+  padding: 10px 20px; /* Sufficient padding for clickable area */
+  background-color: #51637b;
+  color: white; /* Text color for readability */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners for modern look */
+  font-size: 1em; /* Appropriate text size */
+  cursor: pointer; /* Cursor to indicate clickable */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions for interactions */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  margin-bottom: 1.5em; /* Space below button */
 }
 
-.create-playlist-wrapper {
-  padding: 3em;
-}
-
-.create-playlist-wrapper ::placeholder {
-  color: black;
-}
-
-.edit-name-playlist-wrapper {
-  padding: 3em;
-}
-
+/* Placeholder styling for uniform look across input fields */
+.create-playlist-wrapper ::placeholder,
 .edit-name-playlist-wrapper ::placeholder {
-  color: black;
+  color: #bbb; /* Lighter text color for placeholders */
+  opacity: 1; /* Full opacity to ensure visibility */
 }
 
-.delete-playlist-wrapper {
-  padding: 3em;
-}
-.delete-playlist-wrapper p {
-  color: black;
-}
+.create-playlist-wrapper,
+.edit-name-playlist-wrapper,
+.delete-playlist-wrapper,
 .delete-song-from-playlist-wrapper {
-  padding: 3em;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 3em; /* Uniform padding */
+  margin: 1em; /* Uniform margin */
+  color: white; /* Text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow for a subtle 3D effect */
 }
+
+/* Text styling inside wrappers */
+.delete-playlist-wrapper p,
 .delete-song-from-playlist-wrapper p {
-  color: black;
+  color: #ecf0f1; /* Bright text color for contrast */
+  font-weight: bold; /* Bold text for emphasis */
+  text-align: center; /* Center alignment for text */
 }
