@@ -86,7 +86,7 @@
     font-size: 1em; /* Increase font size for the genre name */
 }
 
-/* Responsive styles for tablets (768px and above) */
+/* 
 @media only screen and (min-width: 768px) {
     .genres-page-wrapper {
        background-image: url("../assets/Fone2.jpg");
@@ -99,13 +99,13 @@
     }
 }
 
-/* Responsive styles for desktops (992px and above) */
+
 @media only screen and (min-width: 992px) {
     .genres-links-wrapper {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
     .genres-page-wrapper {
-        background-image: url("../assets/Foto3.webp");
+        background-image: url("../assets/Fone2.jpg");
         background-position: center;
         background-repeat:no-repeat;
         background-size: contain;
@@ -113,16 +113,42 @@
  
 }
 
-/* Responsive styles for larger screens (1200px and above) */
 @media only screen and (min-width: 1200px) {
     .genres-links-wrapper {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
     .genres-page-wrapper {
-        background-image: url("../assets/Piano.webp");
+        background-image: url("../assets/Fone2.jpg");
         background-position: center;
         background-repeat:no-repeat;
         background-size: contain;
-     } 
- 
+     }
+
+}
+ */
+
+ /* Responsive styles for tablets (768px and above) */
+@media only screen and (min-width: 768px) {
+    .genres-page-wrapper {
+        background-image: url("../assets/Fone2.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; /* Change to cover */
+    }
+    .genres-links-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Responsive styles for desktops (992px and above) */
+@media only screen and (min-width: 992px) {
+    .genres-links-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .genres-page-wrapper {
+        background-image: url("../assets/Fone2.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; /* Change to cover */
+    }
 }
