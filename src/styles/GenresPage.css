@@ -20,12 +20,13 @@
     border-radius: 10px; /* Border radius for rounded corners */
      /* Add padding to the genre box */
     text-align: center; /* Center the text inside the genre box */
-    background-color: wheat; /* Background color for the genre box */
+    background-color: #51637B; /* Background color for the genre box */
     transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
 .genre-box:hover {
-    background-color: #ccc; /* Change background color on hover */
+    background-color: #357abd; /* Change background color on hover */
+    color: white;
 }
 
 
@@ -34,7 +35,7 @@
 }
 
 .genre-box h3 a {
-    color: #213547; /* Text color for the genre name */
+    color: white; /* Text color for the genre name */
     text-decoration: none; /* Remove default link underline */
     font-size: 1em; /* Increase font size for the genre name */
 }
