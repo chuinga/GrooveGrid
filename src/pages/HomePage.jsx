@@ -5,8 +5,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/HomePage.css";
 // Import Images
-import djMixerImg from "../assets/hp-dj-mixer.jpg";
-import studioImg from "../assets/hp-studio.jpg";
+import djMixerImg from "../assets/hp-dj-mixer.png";
+import studioImg from "../assets/hp-studio.png";
 import gramophoneImg from "../assets/hp-gramophone.png";
 import backgroundImg from "../assets/hp-background.png";
 
