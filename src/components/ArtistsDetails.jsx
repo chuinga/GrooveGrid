@@ -181,111 +181,121 @@ const ArtistDetails = () => {
     if (!artist) return <div>Loading...</div>;
 
     return (
-        <div className='artists-details-wrapper'>
-            <h1>Artist Details</h1>
-            <h2>{artist.name}</h2>
-            <img src={artist.image} alt={`${artist.name} thumbnail`} />
-            <p>Genre: {artist.genre.name}</p>
-            <div className='albuns-and-buttons-wrapper'>
-                <h3>Albums:</h3>
-                <ul>
-                    {artist.albums.map((album) => (
-                        <li key={album._id}>
-                            <Link to={`/albums/${album._id}`}>
-                                {album.title}
-                            </Link>{' '}
-                            - Released:{' '}
-                            {new Date(album.releaseDate).toLocaleDateString()}
-                        </li>
-                    ))}
-                </ul>
-            </div>
+        <div className='main-wrapper'>
+            <div className='artists-details-wrapper'>
+                <div>
+                    <h1>Artist Details</h1>
+                    <h2>{artist.name}</h2>
+                    <img src={artist.image} alt={`${artist.name} thumbnail`} />
+                    <p>Genre: {artist.genre.name}</p>
+                    <div className='albuns-and-buttons-wrapper'>
+                        <h3>Albums:</h3>
+                        <ul>
+                            {artist.albums.map((album) => (
+                                <li key={album._id}>
+                                    <Link to={`/albums/${album._id}`}>
+                                        {album.title}
+                                    </Link>{' '}
+                                    - Released:{' '}
+                                    {new Date(
+                                        album.releaseDate
+                                    ).toLocaleDateString()}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
 
-            {user && (
-                <>
-                    {/* Button to open add album modal */}
-                    <button onClick={openAddAlbumModal}>Add New Album</button>
-                    <Modal
-                        isOpen={isAddAlbumModalOpen}
-                        onClose={closeAddAlbumModal}
-                    >
-                        {/* Add Album Form inside the Modal */}
-                        <form
-                            onSubmit={handleAddAlbum}
-                            className='add-album-form-wrapper'
+                {user && (
+                    <>
+                        {/* Button to open add album modal */}
+                        <button onClick={openAddAlbumModal}>
+                            Add New Album
+                        </button>
+                        <Modal
+                            isOpen={isAddAlbumModalOpen}
+                            onClose={closeAddAlbumModal}
                         >
-                            <input
-                                type='text'
-                                placeholder='Album Name'
-                                name='name'
-                                value={newAlbum.name}
-                                onChange={handleInputChange}
-                            />
-                            <input
-                                type='date'
-                                placeholder='Release Date'
-                                name='releaseDate'
-                                value={newAlbum.releaseDate}
-                                onChange={handleInputChange}
-                            />
-                            <input
-                                type='text'
-                                placeholder='Cover Image URL'
-                                name='coverImageUrl'
-                                value={newAlbum.coverImageUrl}
-                                onChange={handleInputChange}
-                            />
-                            {/* Genre dropdown field */}
-                            <label>
-                                Genre:
-                                <select
-                                    name='genre'
-                                    value={newAlbum.genre}
+                            {/* Add Album Form inside the Modal */}
+                            <form
+                                onSubmit={handleAddAlbum}
+                                className='add-album-form-wrapper'
+                            >
+                                <input
+                                    type='text'
+                                    placeholder='Album Name'
+                                    name='name'
+                                    value={newAlbum.name}
                                     onChange={handleInputChange}
-                                >
-                                    {genres.map((genre) => (
-                                        <option
-                                            value={genre._id}
-                                            key={genre._id}
-                                        >
-                                            {genre.name}
-                                        </option>
-                                    ))}
-                                </select>
-                            </label>
+                                />
+                                <input
+                                    type='date'
+                                    placeholder='Release Date'
+                                    name='releaseDate'
+                                    value={newAlbum.releaseDate}
+                                    onChange={handleInputChange}
+                                />
+                                <input
+                                    type='text'
+                                    placeholder='Cover Image URL'
+                                    name='coverImageUrl'
+                                    value={newAlbum.coverImageUrl}
+                                    onChange={handleInputChange}
+                                />
+                                {/* Genre dropdown field */}
+                                <label>
+                                    Genre:
+                                    <select
+                                        name='genre'
+                                        value={newAlbum.genre}
+                                        onChange={handleInputChange}
+                                    >
+                                        {genres.map((genre) => (
+                                            <option
+                                                value={genre._id}
+                                                key={genre._id}
+                                            >
+                                                {genre.name}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </label>
 
-                            <button type='submit'>Add Album</button>
-                        </form>
-                    </Modal>
+                                <button type='submit'>Add Album</button>
+                            </form>
+                        </Modal>
 
-                    {/* Button to open delete album modal */}
-                    <button onClick={openDeleteAlbumModal}>Delete Album</button>
-                    <Modal
-                        isOpen={isDeleteAlbumModalOpen}
-                        onClose={closeDeleteAlbumModal}
-                    >
-                        <h3>Delete an Album</h3>
-                        {/* List albums with an option to select for deletion */}
-                        {artist.albums.map((album) => (
-                            <div key={album._id}>
-                                <p>{album.title}</p>
-                                <button
-                                    onClick={() =>
-                                        setSelectedAlbumId(album._id)
-                                    }
-                                >
-                                    Select for Deletion
+                        {/* Button to open delete album modal */}
+                        <button onClick={openDeleteAlbumModal}>
+                            Delete Album
+                        </button>
+                        <Modal
+                            isOpen={isDeleteAlbumModalOpen}
+                            onClose={closeDeleteAlbumModal}
+                        >
+                            <h3>Delete an Album</h3>
+                            {/* List albums with an option to select for deletion */}
+                            {artist.albums.map((album) => (
+                                <div key={album._id}>
+                                    <p>{album.title}</p>
+                                    <button
+                                        onClick={() =>
+                                            setSelectedAlbumId(album._id)
+                                        }
+                                    >
+                                        Select for Deletion
+                                    </button>
+                                </div>
+                            ))}
+                            {selectedAlbumId && (
+                                <button onClick={handleDeleteAlbum}>
+                                    Confirm Delete
                                 </button>
-                            </div>
-                        ))}
-                        {selectedAlbumId && (
-                            <button onClick={handleDeleteAlbum}>
-                                Confirm Delete
-                            </button>
-                        )}
-                    </Modal>
-                </>
-            )}
+                            )}
+                        </Modal>
+                    </>
+                )}
+            </div>
         </div>
     );
 };
