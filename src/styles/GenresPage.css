@@ -1,50 +1,3 @@
-/*  .genres-page-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.genres-links-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.genres-list-wrapper {
-    min-height: 20em;
-}
-
-
-.genre-box {
-    border: 2px solid #333; 
-    border-radius: 10px; 
-    padding: 1em; 
-    text-align: center; 
-    background-color:  wheat 
-}
-
-
-
-@media only screen and (min-width: 768px) {
-    .genres-links-wrapper {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-
-@media only screen and (min-width: 992px) {
-    .genres-links-wrapper {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .genres-links-wrapper {
-        grid-template-columns: repeat(6, 1fr);
-    }
-} */
-
-/* Default styles for all screen sizes */
-
 
 .genres-page-wrapper {
     display: flex;
@@ -86,46 +39,7 @@
     font-size: 1em; /* Increase font size for the genre name */
 }
 
-/* 
-@media only screen and (min-width: 768px) {
-    .genres-page-wrapper {
-       background-image: url("../assets/Fone2.jpg");
-       background-position: center;
-       background-repeat:no-repeat;
-       background-size: contain;
-    } 
-    .genres-links-wrapper {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
 
-
-@media only screen and (min-width: 992px) {
-    .genres-links-wrapper {
-        grid-template-columns: repeat(4, 1fr);
-    }
-    .genres-page-wrapper {
-        background-image: url("../assets/Fone2.jpg");
-        background-position: center;
-        background-repeat:no-repeat;
-        background-size: contain;
-     } 
- 
-}
-
-@media only screen and (min-width: 1200px) {
-    .genres-links-wrapper {
-        grid-template-columns: repeat(5, 1fr);
-    }
-    .genres-page-wrapper {
-        background-image: url("../assets/Fone2.jpg");
-        background-position: center;
-        background-repeat:no-repeat;
-        background-size: contain;
-     }
-
-}
- */
 
  /* Responsive styles for tablets (768px and above) */
 @media only screen and (min-width: 768px) {
