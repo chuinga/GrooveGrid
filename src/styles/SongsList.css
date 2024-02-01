@@ -76,19 +76,43 @@
 }
 @media screen and (min-width: 601px) and (max-width: 1024px) {
   .songs-list-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Use 2 columns for a bit more density */
+    gap: 20px;
   }
   .song-title-and-artist {
-    font-size: medium;
-    justify-content: center;
+    font-size: larger; /* Increase font size for better readability */
+    padding: 0.8em; /* Adjust padding for aesthetics and usability */
   }
-  .song-title-and-artist:hover {
-    transform: translateY(-5px); /* Lift card on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+  .Add-to-playlist-buttons {
+    font-size: larger; /* Make text in buttons larger for readability */
+    padding: 0.7em 1em; /* Adjust padding for a better touch target */
   }
-  .songs-list-wrapper button {
-    font-size: small;
+  .search-bar {
+    width: 95%; /* Adjust width for better fit */
+    margin-bottom: 3em; /* More space below the search bar for clarity */
+    padding: 0.7em; /* Slightly larger padding for easier interaction */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .songs-list-wrapper {
+    grid-template-columns: repeat(2, 1fr); /* Display 2 items per line */
+    gap: 1em;
+  }
+  .song-title-and-artist {
+    font-size: small; /* Adjust font size for readability */
+    padding: 1em; /* Increase padding for better tap targets */
+  }
+  .Add-to-playlist-buttons {
+    font-size: medium; /* Increase font size for better readability */
+    padding: 0.8em; /* Increase padding for easier tapping */
+  }
+  .search-bar {
+    width: 90%; /* Reduce width for better alignment */
+    margin-bottom: 2em; /* Adjust space below the search bar */
+    padding: 0.8em; /* Increase padding for easier focus */
   }
 }
