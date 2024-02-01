@@ -220,7 +220,7 @@
     z-index: 1; /* Ensure dropdown content stacks on top */
   }
 }
-@media screen and (min-width: 390px) and (max-width: 844px) {
+@media screen and (min-width: 0px) and (max-width: 844px) {
   .navbar-main {
     flex-direction: column; /* Stack navbar items vertically */
     align-items: center; /* Center-align the stacked items */
