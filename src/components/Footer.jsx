@@ -11,13 +11,20 @@ import telegramIcon from '../assets/telegramIcon.png';
 import '../styles/Footer.css';
 
 const Footer = () => {
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth", // Smooth scroll behavior
+        });
+    };
+
     return (
         <div className='footer'>
             <div className='wrapper'>
                 <div className='footer-lists-wrapper'>
                     <ul className='footer-lists'>
                         <li>
-                            <Link to='/about'>About</Link>
+                            <Link to='/about' onClick={scrollToTop}>About</Link>
                         </li>
                         <li>
                             <Link to='https://support.spotify.com/us/article/contact-us/'>
@@ -87,6 +94,8 @@ const Footer = () => {
                     </li>
                 </ul>{' '}
             </div>
+            <button onClick={scrollToTop} className="back-to-top-button">
+            Back to Top</button>
             <p>
                 <Link to='https://github.com/chuinga/GrooveGrid'>
                     Visit our repository on Github
