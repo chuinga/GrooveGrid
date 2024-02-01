@@ -1,137 +1,137 @@
 .playlist-item {
-  width: 70vw;
-  max-width: 500px;
-  padding: 1em;
-  border: 1px solid red;
-  margin: 0 auto 2em;
-  border-radius: 50px;
-  box-shadow: -23px -23px 46px #2c0000, 23px 23px 46px #ff908b;
-  background: linear-gradient(79deg, rgb(53 46 53) 0%, #9d1918 100%);
-  color: white; /* Ensure text is white for readability */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px; /* More space between elements */
+    width: 70vw;
+    max-width: 500px;
+    padding: 1em;
+    border: 1px solid red;
+    margin: 0 auto 2em;
+    border-radius: 50px;
+    box-shadow: -23px -23px 46px #2c0000, 23px 23px 46px #ff908b;
+    background: linear-gradient(79deg, rgb(53 46 53) 0%, #9d1918 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .pl-name {
-  width: 100%; /* Use the full width */
-  padding: 20px;
-  margin: 10px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px; /* Increase gap for visual comfort */
+    width: 100%;
+    padding: 20px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .pl-title {
-  font-size: 2em; /* Make playlist name larger */
-  color: #ecf0f1; /* Use a consistent text color for better visibility */
-  margin-bottom: 0.5em; /* Less space below the playlist name */
+    font-size: 2em;
+    color: #ecf0f1;
+    margin-bottom: 0.5em;
 }
 .pl-name button,
 .create-playlist-button,
 .song-part button {
-  padding: 10px 20px;
-  width: auto; /* Adjust width automatically to content */
-  border: none;
-  border-radius: 10px; /* Rounded corners for buttons */
-  background-color: #51637b; /* Consistent button color */
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s; /* Smooth transition for hover effect */
-  font-size: 0.9em; /* Adjust font size for buttons */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    padding: 10px 20px;
+    width: auto;
+    border: none;
+    border-radius: 10px;
+    background-color: #51637b;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .song-part button:hover,
 .pl-name button:hover,
 .create-playlist-button:hover,
 .playlist-part button:hover {
-  background-color: #357abd; /* Lighten button color on hover */
-  transform: translateY(-2px);
+    background-color: #357abd;
+    transform: translateY(-2px);
 }
 .playlist-part {
-  display: flex;
-  flex-direction: column; /* Stack buttons vertically */
-  align-items: center; /* Center buttons horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .song-part {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 10px;
-  width: 100%; /* Make sure it fills the parent container */
-  justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
 }
 .song-part > div {
-  background: #2c0000; /* Darker background for song items */
-  padding: 10px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    background: #2c0000;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /* Styling for song title */
 .song-part > div > span {
-  flex: 1;
-  text-align: center;
+    flex: 1;
+    text-align: center;
 }
 .song-part > div > button {
-  color: #ecf0f1; /* Text color */
-  white-space: nowrap;
-  margin-left: 10px; /* Space before the delete button */
+    color: #ecf0f1;
+    white-space: nowrap;
+    margin-left: 10px;
 }
 .playlist-page-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 35em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 35em;
 }
 
 .playlist-page-wrapper h5 {
-  color: #ecf0f1; /* A bright shade for popping effect */
-  font-size: 2.5em; /* Larger font size */
-  font-weight: bold; /* Bolder font */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
-  margin-bottom: 20px;
-  letter-spacing: 0.05em; /* Slightly increased letter spacing */
+    color: #ecf0f1;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
 }
 
 .playlist-page-wrapper button {
-  padding: 10px 20px; /* Sufficient padding for clickable area */
-  background-color: #51637b;
-  color: white; /* Text color for readability */
-  border: none; /* Remove default border */
-  border-radius: 5px; /* Rounded corners for modern look */
-  font-size: 1em; /* Appropriate text size */
-  cursor: pointer; /* Cursor to indicate clickable */
-  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions for interactions */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  margin-bottom: 1.5em; /* Space below button */
+    padding: 10px 20px;
+    background-color: #51637b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1.5em;
 }
 
 /* Placeholder styling for uniform look across input fields */
 .create-playlist-wrapper ::placeholder,
 .edit-name-playlist-wrapper ::placeholder {
-  color: #bbb; /* Lighter text color for placeholders */
-  opacity: 1; /* Full opacity to ensure visibility */
+    color: #bbb;
+    opacity: 1;
 }
 
 .create-playlist-wrapper,
 .edit-name-playlist-wrapper,
 .delete-playlist-wrapper,
 .delete-song-from-playlist-wrapper {
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-  border-radius: 10px; /* Rounded corners */
-  padding: 3em; /* Uniform padding */
-  margin: 1em; /* Uniform margin */
-  color: white; /* Text color */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow for a subtle 3D effect */
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 3em;
+    margin: 1em;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Text styling inside wrappers */
 .delete-playlist-wrapper p,
 .delete-song-from-playlist-wrapper p {
-  color: #ecf0f1; /* Bright text color for contrast */
-  font-weight: bold; /* Bold text for emphasis */
-  text-align: center; /* Center alignment for text */
+    color: #ecf0f1;
+    font-weight: bold;
+    text-align: center;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const Modal = ({ isOpen, onClose, children }) => {
     if (!isOpen) return null;
 
@@ -5,7 +6,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         <div className='overlay'>
             <div className='modal'>
                 <button className='closeButton' onClick={onClose}>
-                    &times; 
+                    &times;
                 </button>
                 {children}
             </div>

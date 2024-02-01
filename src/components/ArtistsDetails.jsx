@@ -208,7 +208,6 @@ const ArtistDetails = () => {
 
                 {user && (
                     <>
-                        {/* Button to open add album modal */}
                         <button onClick={openAddAlbumModal}>
                             Add New Album
                         </button>
@@ -216,7 +215,6 @@ const ArtistDetails = () => {
                             isOpen={isAddAlbumModalOpen}
                             onClose={closeAddAlbumModal}
                         >
-                            {/* Add Album Form inside the Modal */}
                             <form
                                 onSubmit={handleAddAlbum}
                                 className='add-album-form-wrapper'
@@ -242,7 +240,7 @@ const ArtistDetails = () => {
                                     value={newAlbum.coverImageUrl}
                                     onChange={handleInputChange}
                                 />
-                                {/* Genre dropdown field */}
+
                                 <label>
                                     Genre:
                                     <select
@@ -265,7 +263,6 @@ const ArtistDetails = () => {
                             </form>
                         </Modal>
 
-                        {/* Button to open delete album modal */}
                         <button onClick={openDeleteAlbumModal}>
                             Delete Album
                         </button>
@@ -274,7 +271,7 @@ const ArtistDetails = () => {
                             onClose={closeDeleteAlbumModal}
                         >
                             <h3>Delete an Album</h3>
-                            {/* List albums with an option to select for deletion */}
+
                             {artist.albums.map((album) => (
                                 <div key={album._id}>
                                     <p>{album.title}</p>

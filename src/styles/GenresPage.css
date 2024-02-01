@@ -1,32 +1,32 @@
 .genres-page-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;  
+    justify-content: center;
     min-height: 35em;
-    color: #fff; 
-    padding: 2em;    
+    color: #fff;
+    padding: 2em;
 }
 
 .genres-links-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1em; 
+    gap: 1em;
 }
 
 .genre-box {
-    background-color: #51637b; /* Vibrant blue for a modern look */
-    color: white; /* White text for contrast */
-    border: none; /* Remove border for a flat design */
-    padding: 0.8em 1.2em; /* Generous padding for a larger touch target */
+    background-color: #51637b;
+    color: white;
+    border: none;
+    padding: 0.8em 1.2em;
     cursor: pointer;
     text-decoration: none;
     text-align: center;
-    white-space: nowrap; /* Prevents text from wrapping */
-    overflow: hidden; /* Prevents text overflow */
-    text-overflow: ellipsis; /* Adds ellipsis to overflowing text */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 16px;
-    border-radius: 0.4em; /* Softly rounded corners */
-    font-weight: bold; /* Make text bold */
+    border-radius: 0.4em;
+    font-weight: bold;
     display: flex;
     margin: 5% 20%;
     min-width: 50px;
@@ -34,31 +34,30 @@
     max-height: 50px;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effects */    
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .genre-box:hover {
-    background-color: #357abd; /* A darker shade of the button color for hover state */
-    transform: translateY(-2px); /* Slight raise effect */
+    background-color: #357abd;
+    transform: translateY(-2px);
 }
-
 
 .genres-list-wrapper {
     min-height: 20em;
 }
 
 .genre-box h3 a {
-    color: white; 
-    text-decoration: none; 
-    font-size: 1em; 
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
 }
- 
+
 @media only screen and (min-width: 768px) {
     .genres-page-wrapper {
-        background-image: url("../assets/Fone2.jpg");
+        background-image: url('../assets/Fone2.jpg');
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover; 
+        background-size: cover;
     }
     .genres-links-wrapper {
         grid-template-columns: repeat(3, 1fr);
@@ -70,9 +69,9 @@
         grid-template-columns: repeat(4, 1fr);
     }
     .genres-page-wrapper {
-        background-image: url("../assets/Fone2.jpg");
+        background-image: url('../assets/Fone2.jpg');
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover; 
+        background-size: cover;
     }
 }

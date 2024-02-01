@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 
 const CreateArtistForm = ({ onCreateArtist, genres }) => {
@@ -17,7 +18,7 @@ const CreateArtistForm = ({ onCreateArtist, genres }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onCreateArtist(artistData);
-        // Reset the form fields after successful creation
+
         setArtistData({
             name: '',
             genre: '',

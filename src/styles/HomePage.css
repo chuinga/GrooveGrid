@@ -1,147 +1,141 @@
 .title {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .title h1 {
-  margin: 0;
+    margin: 0;
 }
 
 .title p {
-  margin: 0;
+    margin: 0;
 }
 
-/* Style the Slider Container */
 .slick-slider {
-  position: relative; /* Add relative positioning to the slider container */
+    position: relative;
 }
 
 .slick-slide > div {
-  display: flex !important; /* Use flex to center the image */
-  justify-content: center;
-  align-items: center;
-  height: 70vh; /* Set a fixed height for each slide */
-  position: relative; /* Add relative positioning to each slide's container */
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    position: relative;
 }
 
-/* Style the images within the slides */
 .slick-slide img {
-  width: 100vw; /* Limit image width to be within the container */
-  max-height: 100%; /* Limit image height to be within the container */
-  object-fit: contain; /* This will make sure the image is fully visible */
+    width: 100vw;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-/* Style the text overlay */
 .text-overlay {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    transform: translate(-50%, -50%);
 }
 /* Top left */
 .text-overlay.top-left {
-  top: 10%;
-  right: 40%;
-  transform: translate(0, 0);
+    top: 10%;
+    right: 40%;
+    transform: translate(0, 0);
 }
 /* Top right */
 .text-overlay.top-right {
-  top: 10%;
-  right: 40%;
-  transform: translate(0, 0);
+    top: 10%;
+    right: 40%;
+    transform: translate(0, 0);
 }
 /* middle */
 .text-overlay.middle {
-  top: 10%;
-  right: 40%;
-  transform: translate(0, 0);
+    top: 10%;
+    right: 40%;
+    transform: translate(0, 0);
 }
 /* left */
 .text-overlay.left {
-  top: 10%;
-  right: 40%;
-  transform: translate(0, 0);
+    top: 10%;
+    right: 40%;
+    transform: translate(0, 0);
 }
 
 /* Style the text content */
 .text-overlay p {
-  font-size: 24px;
-  font-weight: bold;
+    font-size: 24px;
+    font-weight: bold;
 }
 .overlay-link {
-  color: #fff; /* Example: White text color */
-  text-decoration: none; /* No underline */
-  display: block; /* Block-level elements fill the overlay */
-  height: 100%; /* Full height of the overlay */
-  width: 100%; /* Full width of the overlay */
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    width: 100%;
 
-  box-sizing: border-box; /* Include padding in width and height */
+    box-sizing: border-box;
 }
 
 /* Adjust hover state as needed */
 .overlay-link:hover,
 .overlay-link:focus {
-  text-decoration: underline; /* Example: Underline on hover/focus */
-  color: #ccc; /* Lighter color on hover/focus */
+    text-decoration: underline;
+    color: #ccc;
 }
 /* Style the slick-dots */
 .slick-dots {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
 }
 
 @media screen and (max-width: 768px) {
-  .slick-slide > div,
-  .slick-slide img {
-    width: 100%;
-    height: auto;
-    padding-bottom: 40px;
-  }
-  .text-overlay {
-    font-size: 16px; /* Smaller font size for mobile */
-    padding: 5px; /* Less padding */
-    /* Adjust position if needed */
-    top: 50%; /* Example: Move it up a bit */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 37%;
-    box-sizing: border-box;
-    /* any additional styling for mobile */
-  }
-  .text-overlay.top-left {
-    top: 40%;
-    right: 50%;
-    transform: translate(-50%, -90%);
-  }
-  .text-overlay.top-right {
-    top: 40%;
-    right: 50%;
-    transform: translate(-90%, -50%);
-  }
-  .text-overlay.middle {
-    top: 40%;
-    right: 50%;
-    transform: translate(-10%, -50%);
-  }
-  .text-overlay.left {
-    top: 40%;
-    right: 50%;
-    transform: translate(+30%, -80%);
-  }
-  .overlay-link {
-    padding: 15px; /* Slightly larger padding for a larger clickable area */
-    font-size: 18px; /* Larger font size for better readability */
-    /* You may also adjust line-height for better text presentation */
-    line-height: 1.5;
-    /* Any additional styling for mobile */
-  }
+    .slick-slide > div,
+    .slick-slide img {
+        width: 100%;
+        height: auto;
+        padding-bottom: 40px;
+    }
+    .text-overlay {
+        font-size: 16px;
+        padding: 5px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 37%;
+        box-sizing: border-box;
+    }
+    .text-overlay.top-left {
+        top: 40%;
+        right: 50%;
+        transform: translate(-50%, -90%);
+    }
+    .text-overlay.top-right {
+        top: 40%;
+        right: 50%;
+        transform: translate(-90%, -50%);
+    }
+    .text-overlay.middle {
+        top: 40%;
+        right: 50%;
+        transform: translate(-10%, -50%);
+    }
+    .text-overlay.left {
+        top: 40%;
+        right: 50%;
+        transform: translate(+30%, -80%);
+    }
+    .overlay-link {
+        padding: 15px;
+        font-size: 18px;
+
+        line-height: 1.5;
+    }
 }
 
 /* Hover and focus states for larger screens */
 .overlay-link:hover,
 .overlay-link:focus {
-  text-decoration: underline; /* Underline on hover/focus */
-  color: #ccc; /* Lighter color on hover/focus */
+    text-decoration: underline;
+    color: #ccc;
 }

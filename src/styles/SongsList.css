@@ -1,118 +1,119 @@
 .songs-page-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2em;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    width: 100%;
 }
 .songs-list-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1em;
-  margin-top: 2em;
-  padding-left: 0;
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1em;
+    margin-top: 2em;
+    padding-left: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
 }
 .song-title-and-artist {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
-  border: 1px solid #ccc;
-  border-radius: 0.5em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
-  padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        79deg,
+        rgb(47, 45, 47) 0%,
+        rgb(208, 60, 50) 100%
+    );
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 0.5em;
 }
 
 .songs-wrapper img {
-  width: 100%;
-  height: auto;
-  border-bottom: 1px solid #ccc; /* Separate image from text */
-  margin-bottom: 1em; /* Space below image */
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1em;
 }
 .Add-to-playlist-buttons {
-  margin-top: 0.5em; /* Space above buttons */
-  padding: 0.5em; /* Padding inside buttons */
-  border: none;
-  border-radius: 0.4em;
-  background-color: #51637b; /* Match gradient end color */
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.2s; /* Smooth background color transition on hover */
+    margin-top: 0.5em;
+    padding: 0.5em;
+    border: none;
+    border-radius: 0.4em;
+    background-color: #51637b;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .Add-to-playlist-buttons:hover {
-  background-color: #357abd;
-  transform: translateY(-2px);
+    background-color: #357abd;
+    transform: translateY(-2px);
 }
 
 .song-title-and-artist:hover {
-  transform: translateY(-5px); /* Lift card on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 .search-bar {
-  margin-bottom: 4em; /* Add space below the search bar */
-  padding: 0.5em;
-  border: 1px solid #ccc;
-  border-radius: 0.4em;
-  width: 100%; /* Full width search bar */
-  max-width: 400px; /* Max width for larger screens */
+    margin-bottom: 4em;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 0.4em;
+    width: 100%;
+    max-width: 400px;
 }
 /* Success and Error Messages */
 .success-message,
 .error-message {
-  color: #28a745; /* Green for success */
-  margin-bottom: 1em;
+    color: #28a745;
+    margin-bottom: 1em;
 }
 
 .error-message {
-  color: #dc3545; /* Red for error */
+    color: #dc3545;
 }
 @media screen and (min-width: 601px) and (max-width: 1024px) {
-  .songs-list-wrapper {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* Use 2 columns for a bit more density */
-    gap: 20px;
-  }
-  .song-title-and-artist {
-    font-size: larger; /* Increase font size for better readability */
-    padding: 0.8em; /* Adjust padding for aesthetics and usability */
-  }
-  .Add-to-playlist-buttons {
-    font-size: larger; /* Make text in buttons larger for readability */
-    padding: 0.7em 1em; /* Adjust padding for a better touch target */
-  }
-  .search-bar {
-    width: 95%; /* Adjust width for better fit */
-    margin-bottom: 3em; /* More space below the search bar for clarity */
-    padding: 0.7em; /* Slightly larger padding for easier interaction */
-  }
+    .songs-list-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .song-title-and-artist {
+        font-size: larger;
+        padding: 0.8em;
+    }
+    .Add-to-playlist-buttons {
+        font-size: larger;
+        padding: 0.7em 1em;
+    }
+    .search-bar {
+        width: 95%;
+        margin-bottom: 3em;
+        padding: 0.7em;
+    }
 }
 
 @media screen and (max-width: 600px) {
-  .songs-list-wrapper {
-    grid-template-columns: repeat(2, 1fr); /* Display 2 items per line */
-    gap: 1em;
-  }
-  .song-title-and-artist {
-    font-size: small; /* Adjust font size for readability */
-    padding: 1em; /* Increase padding for better tap targets */
-  }
-  .Add-to-playlist-buttons {
-    font-size: medium; /* Increase font size for better readability */
-    padding: 0.8em; /* Increase padding for easier tapping */
-  }
-  .search-bar {
-    width: 90%; /* Reduce width for better alignment */
-    margin-bottom: 2em; /* Adjust space below the search bar */
-    padding: 0.8em; /* Increase padding for easier focus */
-  }
+    .songs-list-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+    }
+    .song-title-and-artist {
+        font-size: small;
+        padding: 1em;
+    }
+    .Add-to-playlist-buttons {
+        font-size: medium;
+        padding: 0.8em;
+    }
+    .search-bar {
+        width: 90%;
+        margin-bottom: 2em;
+        padding: 0.8em;
+    }
 }

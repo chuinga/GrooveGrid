@@ -8,12 +8,12 @@
 }
 
 .search-bar-albums {
-    margin-bottom: 1em; /* Add space below the search bar */
+    margin-bottom: 1em;
     padding: 0.5em;
     border: 1px solid #ccc;
     border-radius: 0.4em;
-    width: 100%; /* Full width search bar */
-    max-width: 400px; /* Max width for larger screens */
+    width: 100%;
+    max-width: 400px;
 }
 .image-album-wrapper {
     display: grid;
@@ -22,9 +22,9 @@
     gap: 1em;
 }
 .image-album-wrapper img {
-    width: 100%; /* Responsive image width */
-    height: auto; /* Maintain aspect ratio */
-    border-bottom: 1px solid #ccc; /* Border to separate image from title */
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
     object-fit: cover;
 }
 .image-album-wrapper > div {
@@ -33,55 +33,51 @@
         rgb(47, 45, 47) 0%,
         rgb(208, 60, 50) 100%
     );
-    border: 1px solid #ccc; /* Border for the card */
-    border-radius: 0.5em; /* Rounded corners for the card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-    overflow: hidden; /* Ensure overflow from child elements is contained */
-    transition: transform 0.2s, box-shadow 0.2s; /* Transition for hover effects */
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 .image-album-wrapper div {
-    padding: 0.5em; /* Padding within the card */
-    text-align: center; /* Center the title text */
+    padding: 0.5em;
+    text-align: center;
     margin-top: 1em;
     color: black;
 }
 /* Hover effect for album card */
 .image-album-wrapper > div:hover {
-    transform: translateY(-5px); /* Lift card on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 @media screen and (max-width: 600px) {
     .search-bar-albums {
         margin-bottom: 1em;
         padding: 0.8em;
-        max-width: 90%; /* Slightly reduce max width for better edge spacing */
+        max-width: 90%;
     }
     .image-album-wrapper {
-        grid-template-columns: 1fr; /* Stack images in a single column */
+        grid-template-columns: 1fr;
     }
     .image-album-wrapper > div {
         margin-top: 1em;
-        padding: 0.8em; /* Increase padding for better touch interaction */
+        padding: 0.8em;
     }
-    /* Adjust text sizes for better readability on small screens */
+
     .title-albums,
     .p-albums {
-        font-size: larger; /* Increase font size for titles and paragraphs */
+        font-size: larger;
     }
 }
 @media screen and (min-width: 601px) and (max-width: 1024px) {
     .search-bar-albums {
-        max-width: 80%; /* Adjust max width for better fit */
+        max-width: 80%;
     }
     .image-album-wrapper {
-        grid-template-columns: repeat(
-            2,
-            1fr
-        ); /* Display two images per row for more density */
-        gap: 2em; /* Increase gap for better spacing */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2em;
     }
     .image-album-wrapper > div {
-        padding: 0.8em; /* Adjust padding */
+        padding: 0.8em;
     }
-    /* Consider adjusting font sizes if necessary */
 }

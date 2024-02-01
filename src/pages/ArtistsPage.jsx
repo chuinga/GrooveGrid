@@ -162,7 +162,6 @@ const ArtistsPage = () => {
                     placeholder='Search artists...'
                 />
                 <div className='add-and-delete-buttons'>
-                    {/* Render CreateArtistForm only for logged-in users */}
                     {user && (
                         <button
                             onClick={() => setIsCreateArtistModalOpen(true)}
@@ -171,7 +170,6 @@ const ArtistsPage = () => {
                         </button>
                     )}
 
-                    {/* Create Artist Modal */}
                     <Modal
                         isOpen={isCreateArtistModalOpen}
                         onClose={() => setIsCreateArtistModalOpen(false)}
@@ -183,7 +181,6 @@ const ArtistsPage = () => {
                         />
                     </Modal>
 
-                    {/* Button to open delete artist modal */}
                     {user && (
                         <button
                             onClick={() => setIsDeleteArtistModalOpen(true)}
