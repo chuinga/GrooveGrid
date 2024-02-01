@@ -7,6 +7,7 @@ const SongsList = ({ songs, userPlaylists }) => {
   const { storedToken, user } = useContext(AuthContext);
   const { refreshPlaylist } = useContext(PlaylistsContext); // Use refreshPlaylist from context
   const [successMessage, setSuccessMessage] = useState("");
+  const [searchQuery, setSearchQuery] = useState(""); // Search Bar
   const handleAddToPlaylist = async (song, playlist) => {
     try {
       const baseUrl = import.meta.env.VITE_API_URL.endsWith("/")
@@ -43,13 +44,27 @@ const SongsList = ({ songs, userPlaylists }) => {
       console.error("Error adding song to playlist:", error);
     }
   };
+  // SEARCH BAR
+  const filteredSongs = songs.filter((song) => {
+    return (
+      song.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      song.artist?.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  });
   return (
     <div>
+      <input
+        type="text"
+        placeholder="Search songs or artists..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="search-bar" // Make sure to style this accordingly in your CSS
+      />
       {successMessage && (
         <div className="success-message">{successMessage}</div>
       )}
       <ul className="songs-list-wrapper">
-        {songs.map((song) => (
+        {filteredSongs.map((song) => (
           <li key={song._id} className="song-title-and-artist">
             {song.album && (
               <img
@@ -60,11 +75,12 @@ const SongsList = ({ songs, userPlaylists }) => {
             )}
             <span>{song.title}</span>
             <span>{song.artist?.name}</span>
-            <div className="Add-to-playlist-buttons">
+            <div>
               {userPlaylists.map((playlist) => (
                 <button
                   key={playlist._id}
                   onClick={() => handleAddToPlaylist(song, playlist)}
+                  className="Add-to-playlist-buttons"
                 >
                   Add to {playlist.name}
                 </button>
