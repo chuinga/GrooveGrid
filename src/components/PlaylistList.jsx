@@ -172,7 +172,7 @@ const PlaylistList = (props) => {
               />
             </Modal>
           ) : (
-            <div>
+            <div className="plContent">
               <h3>{playlist.name}</h3>
               <button onClick={() => handleEditPlaylist(playlist._id)}>
                 Edit Name of the Playlist

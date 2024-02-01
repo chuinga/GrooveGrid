@@ -1,15 +1,30 @@
-.playlist-item {
+.playlist-item {  
+    width: 70vw;
+    max-width: 500px;
     padding: 1em;
     border: 1px solid red;
-    margin: 0 2em 2em;
+    margin: 0 2em 2em; 
+    border-radius: 50px;
+    box-shadow: 0 8px 12px 0 rgb(44, 0, 0);
+    background: linear-gradient(79deg, rgb(53 46 53) 0%, rgb(157 25 24) 100%);
 }
 
-.playlist-page-wrapper {
+.plContent {
+}
+
+.playlist-page-wrapper {    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     min-height: 35em;
 }
 
 .playlist-page-wrapper h5 {
     color: antiquewhite;
+}
+
+.playlist-page-wrapper h3 {
+    font-size: 20px;
 }
 
 .playlist-page-wrapper button {
@@ -44,3 +59,4 @@
 .delete-song-from-playlist-wrapper p {
     color: black;
 }
+
