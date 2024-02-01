@@ -25,7 +25,7 @@
 
 /* Style the images within the slides */
 .slick-slide img {
-  max-width: 100%; /* Limit image width to be within the container */
+  width: 100vw; /* Limit image width to be within the container */
   max-height: 100%; /* Limit image height to be within the container */
   object-fit: contain; /* This will make sure the image is fully visible */
 }

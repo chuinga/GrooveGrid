@@ -18,7 +18,7 @@ function UserProfilePage() {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [loading, setLoading] = useState(true);
 
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
 
   useEffect(() => {
     const getUser = async () => {
@@ -86,6 +86,7 @@ function UserProfilePage() {
 
       const updatedUserProfile = await response.json();
       setUserProfile(updatedUserProfile);
+      setUser(updatedUserProfile);
       setModalVisible(false);
       setSuccessMessage("Successfully updated username!");
     } catch (error) {

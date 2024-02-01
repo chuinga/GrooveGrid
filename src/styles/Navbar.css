@@ -1,150 +1,276 @@
 /* Navbar */
 .navbar-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 1em;
-    margin-left: 0;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  margin-left: 0;
+  width: 100%;
 }
 
 .linksWrapper {
-    display: flex;
-    gap: 1em;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-profile-wrapper {
-    display: flex;
+  display: flex;
 }
 
-.signed-in-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+/* Base styles for buttons and links */
+.signed-in-buttons button,
+.sign-up,
+.sign-in,
+.signed-out-buttons button,
+.user-name-button {
+  background-color: #51637b; /* Vibrant blue for a modern look */
+  color: white; /* White text for contrast */
+  border: none; /* Remove border for a flat design */
+  padding: 0.8em 1.2em; /* Generous padding for a larger touch target */
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap; /* Prevents text from wrapping */
+  overflow: hidden; /* Prevents text overflow */
+  text-overflow: ellipsis; /* Adds ellipsis to overflowing text */
+  font-size: 16px;
+  border-radius: 0.4em; /* Softly rounded corners */
+  font-weight: bold; /* Make text bold */
+  display: flex;
+  margin-right: 50px;
+  min-width: 100px;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effects */
 }
 
-.signed-in-buttons button {
-    margin-top: 0.4em;
-    background-color: antiquewhite;
-    color: rgb(157 25 24);
-    border-radius: 0.5em;
-    border-color: antiquewhite;
-    margin-left: 0;
+/* Hover and focus effects for a slight interaction feedback */
+.signed-in-buttons button:hover,
+.signed-out-buttons a:hover,
+.signed-out-buttons button:hover,
+.user-name-button:hover {
+  background-color: #357abd; /* A darker shade of the button color for hover state */
+  transform: translateY(-2px); /* Slight raise effect */
 }
 
+/* Apply specific styles to align items in a row and manage spacing */
+.user-profile-wrapper,
+.signed-in-buttons,
 .signed-out-buttons {
-    display: flex;
-    flex-direction: column;
-    margin: 2px;
-    min-width: 4em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .logo {
-    height: 5em;
+  height: 5em;
 }
 
 .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-a {
-    font-size: small;
-    color: white;
-}
-
-span {
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .navbar-main {
-        gap: 3em;
-    }
-    .logo {
-        height: 7em;
-    }
-    a {
-        font-size: large;
-        color: white;
-    }
-    .linksWrapper {
-        gap: 2em;
-    }
-    .signed-in-buttons button {
-        padding: 1em 1.5em;
-    }
-}
-
-@media screen and (min-width: 1025px) and (max-width: 1440px) {
-}
-
-@media screen and (max-width: 1441px) {
-}
-
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-    .navbar-main {
-        gap: 2em;
-    }
-    .logo {
-        height: 7em;
-    }
-    a {
-        font-size: large;
-        color: white;
-    }
-    .linksWrapper {
-        gap: 2em;
-    }
-    .signed-in-buttons button {
-        padding: 1em 1.5em;
-    }
-}
-
-@media screen and (min-width: 1025px) and (max-width: 1440px) {
-}
-
-@media screen and (max-width: 1441px) {
-}
-
-/* Dropdown Menu Styles */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ff908b;
-    min-width: 120px;
-    z-index: 1;
-    opacity: 0; /* Initially hide the dropdown */
-    transition: opacity 0.9s ease-in-out; /* Add transition for smoother effect */
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 5px;
-    display: block;
-    text-decoration: none;
-}
-
-/* Show dropdown content on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 0.9; /* Show the dropdown with fade-in effect */
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 /* Style the genre link */
 .genre-link {
-    color: white;
-    cursor: pointer;
+  font-size: 2em; /* Adjust base font size */
+  color: white;
+  padding: 0.5em 0; /* Add vertical padding to links */
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s;
+}
+.genre-link:hover {
+  text-decoration: underline; /* Underline the genre link on hover */
+}
+/* Dropdown Menu Styles */
+.dropdown {
+  position: relative;
 }
 
-.genre-link:hover {
-    text-decoration: underline; /* Underline the genre link on hover */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ff908b;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  opacity: 0; /* Initially hide the dropdown */
+  transition: opacity 0.5s ease-in-out; /* Add transition for smoother effect */
+  border-radius: 4px;
+  margin-top: 0.5em;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 10px;
+  display: block;
+  text-decoration: none;
+  background-color: #e5948c;
+}
+.dropdown-content a:hover {
+  color: black;
+  background-color: #d87c71;
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+  border-bottom: 1px solid #ddd;
+  opacity: 0.9; /* Show the dropdown with fade-in effect */
+  background-color: #ff908b;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1; /* Show the dropdown */
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .navbar-main {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5em;
+  }
+  .logo {
+    height: 3em;
+    margin-right: 0.5em;
+  }
+  a {
+    font-size: large;
+    color: white;
+  }
+  .linksWrapper {
+    gap: 0.5em;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .user-profile-wrapper,
+  .signed-in-buttons,
+  .signed-out-buttons {
+    flex-direction: row; /* Keep user profile buttons in a row */
+    gap: 0.5em; /* Reduce gap */
+  }
+  .signed-in-buttons button,
+  .signed-out-buttons a {
+    padding: 0.5em; /* Reduce padding for buttons and links */
+    margin: 1; /* Remove margin */
+  }
+  a,
+  .genre-link {
+    font-size: 1em; /* Smaller font size for mobile */
+  }
+
+  .dropdown-content {
+    width: 100%; /* Adjust dropdown width for mobile screens */
+    display: none;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .navbar-main {
+    flex-direction: row; /* Ensure navbar is laid out in a row */
+    justify-content: space-between; /* Space out the logo and the navigation */
+    align-items: center; /* Vertically align items in the navbar */
+    padding: 0.5em 1em; /* Adjust padding */
+    gap: 1em; /* Reduce gap if necessary */
+  }
+
+  .logo {
+    height: 4em; /* Adjust the logo size for tablet screens */
+  }
+
+  a,
+  .genre-link {
+    font-size: 15px; /* Set the font size for links */
+    color: white;
+    padding: 0.5em; /* Add padding to links for larger clickable area */
+  }
+
+  .linksWrapper {
+    flex-grow: 1; /* Allow links wrapper to fill available space */
+    justify-content: flex-start; /* Align links to the start */
+    gap: 1em; /* Adjust gap between navigation links */
+    flex-wrap: wrap; /* Wrap items to the next line if there is not enough space */
+  }
+
+  .signed-in-buttons,
+  .signed-out-buttons {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Lay out buttons in a row */
+    gap: 0.5em; /* Adjust gap between buttons */
+  }
+
+  .signed-in-buttons button,
+  .signed-out-buttons a {
+    padding: 0.5em 1em; /* Adjust padding for buttons */
+    font-size: 0.9em; /* Adjust font size for buttons */
+  }
+
+  .dropdown-content {
+    display: block; /* Ensure dropdown content is visible */
+    position: absolute; /* Position it absolutely for dropdown effect */
+    background-color: #ff908b; /* Background color for dropdown content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for dropdown content */
+    border-radius: 0.25em; /* Slightly rounded corners for dropdown content */
+    z-index: 1; /* Ensure dropdown content stacks on top */
+  }
+}
+@media screen and (min-width: 390px) and (max-width: 844px) {
+  .navbar-main {
+    flex-direction: column; /* Stack navbar items vertically */
+    align-items: center; /* Center-align the stacked items */
+    padding: 0.5em; /* Reduce padding */
+    gap: 0.5em; /* Reduce gap between items */
+  }
+
+  .logo {
+    height: 4em; /* Adjust logo size */
+    margin-bottom: 0.5em; /* Add some space below the logo */
+  }
+
+  .linksWrapper {
+    width: 100%; /* Make link wrapper take full width */
+    justify-content: center; /* Center the links */
+    gap: 0.5em; /* Reduce gap between links */
+  }
+
+  .dropdown-content {
+    display: none; /* Initially hide dropdown content */
+    position: absolute; /* Position it absolutely */
+    left: 50%; /* Center horizontally */
+    transform: translateX(
+      -50%
+    ); /* Align the center of dropdown with its trigger */
+    background-color: #ff908b; /* Set background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+    border-radius: 5px; /* Round the corners */
+    z-index: 1; /* Stack above other content */
+    width: auto; /* Let it size according to content */
+  }
+
+  .genre-link,
+  .dropdown-content a {
+    font-size: 0.9em; /* Adjust font size for dropdown links */
+  }
+
+  .signed-in-buttons,
+  .signed-out-buttons {
+    flex-direction: row; /* Keep buttons in a row */
+    gap: 0.5em; /* Reduce gap between buttons */
+    align-items: center; /* Center-align buttons */
+  }
+
+  .signed-in-buttons button,
+  .signed-out-buttons a {
+    padding: 0.5em 1em; /* Adjust padding for buttons and links */
+    font-size: 0.9em; /* Adjust font size */
+  }
+
+  /* Add any additional styling you need for this viewport size */
 }
