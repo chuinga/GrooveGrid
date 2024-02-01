@@ -1,29 +1,137 @@
-.user-profile-page-container img {
-    width: 4em;
-    height: 4em;
+.user-profile-page-container {
+  width: 100%;
+  min-height: 76em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+}
+.profile-image {
+  width: 150px; /* Adjust size as needed */
+  height: 150px;
+  border-radius: 50%; /* Circular image */
+  margin-top: 5em;
+  margin-bottom: 1em;
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+  border: 3px solid #51637b; /* Border color similar to button color for consistency */
+}
+
+/* Profile Name */
+.profile-name {
+  font-size: 2em; /* Larger text for the profile name */
+  color: #333; /* Darker text color for contrast */
+  margin-bottom: 0.5em;
+}
+/* Update Button */
+.update-button {
+  background-color: #51637b;
+  color: white;
+  border: none;
+  border-radius: 0.4em;
+  padding: 0.8em 1.5em;
+  font-weight: bold;
+  margin-bottom: 1em; /* Space between button and modal/form */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.update-button:hover {
+  background-color: #357abd; /* A darker shade for hover state */
+  transform: translateY(-2px); /* Lift effect */
+}
+/* Modal Styles */
+.modal {
+  position: fixed; /* Fixed position to stay in view */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
+
+  padding: 8em; /* Increase padding for larger size */
+  border-radius: 0.5em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  z-index: 1000; /* Above all other content */
+  color: white;
+}
+/* Input Fields */
+.input-username {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ffffff;
+  border-radius: 0.4em;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+/* Buttons inside Modal */
+.update-username,
+.close {
+  background-color: #51637b;
+  color: white;
+  border: none;
+  border-radius: 0.4em;
+  padding: 0.8em 1.5em;
+  margin: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.update-username:hover,
+.close:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
+}
+/* Playlist Link */
+.playlist-button {
+  background-color: #51637b;
+  color: white;
+  text-decoration: none;
+  padding: 0.8em 1.5em;
+  border-radius: 0.4em;
+  margin-top: 2em;
+  display: inline-block; /* Aligns block elements like inline elements */
+}
+.playlist-button:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
+}
+/* Success and Error Messages */
+.success-message,
+.error-message {
+  color: #28a745; /* Green for success */
+  margin-bottom: 1em;
+}
+
+.error-message {
+  color: #dc3545; /* Red for error */
 }
 
 .user-profile-wrapper {
-    margin-right: 0.5em;
-}
-
-.user-profile-page-container {
-    width: 100%;
-    min-height: 30em;
+  margin-right: 0.5em;
 }
 
 .user-profile-page-container form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (min-width: 601px) and (max-width: 1024px) {
+  .user-profile-page-container {
+    padding: 2em;
+  }
+  .modal {
+    width: 80%; /* Modal takes up less space on larger screens */
+  }
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1440px) {
+  .user-profile-page-container {
+    padding: 3em;
+    max-width: 900px; /* Max width for readability */
+    margin: auto; /* Center the container */
+  }
 }
 
 @media screen and (max-width: 1441px) {
+  .user-profile-page-container {
+    padding: 4em;
+  }
 }

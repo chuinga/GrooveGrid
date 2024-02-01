@@ -10,7 +10,7 @@
 .linksWrapper {
   display: flex;
   gap: 1em;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -76,7 +76,7 @@
 
 /* Style the genre link */
 .genre-link {
-  font-size: 2em; /* Adjust base font size */
+  font-size: 1.5em; /* Adjust base font size */
   color: white;
   padding: 0.5em 0; /* Add vertical padding to links */
   cursor: pointer;

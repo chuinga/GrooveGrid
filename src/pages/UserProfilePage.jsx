@@ -109,12 +109,16 @@ function UserProfilePage() {
 
   return userProfile ? (
     <div className="user-profile-page-container">
-      <img src={ProfileIcon} alt="profile-photo" />
-      <h1>{userProfile.name}</h1>
+      <img src={ProfileIcon} alt="profile-photo" className="profile-image" />
+      <h1 className="profile-name">{userProfile.name}</h1>
 
-      {successMessage && <div>{successMessage}</div>}
+      {successMessage && (
+        <div className="success-message">{successMessage}</div>
+      )}
 
-      <button onClick={openModal}>Update Username</button>
+      <button onClick={openModal} className="update-button">
+        Update Username
+      </button>
 
       {modalVisible && (
         <div className="modal">
@@ -125,16 +129,23 @@ function UserProfilePage() {
                 type="text"
                 value={newUsername}
                 onChange={handleUsernameChange}
+                className="input-username"
               />
             </label>
-            <button type="submit">Update Username</button>
-            <button onClick={() => setModalVisible(false)}>Close</button>
+            <button type="submit" className="update-username">
+              Update Username
+            </button>
+            <button onClick={() => setModalVisible(false)} className="close">
+              Close
+            </button>
           </form>
         </div>
       )}
 
       <div>
-        <Link to="/playlists">Your Playlists</Link>
+        <Link to="/playlists" className="playlist-button">
+          Your Playlists
+        </Link>
       </div>
     </div>
   ) : null;
