@@ -18,9 +18,12 @@
 
 /* Profile Name */
 .profile-name {
-  font-size: 2em; /* Larger text for the profile name */
-  color: #333; /* Darker text color for contrast */
-  margin-bottom: 0.5em;
+  color: #ecf0f1; /* A bright shade for popping effect */
+  font-size: 2.5em; /* Larger font size */
+  font-weight: bold; /* Bolder font */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+  margin-bottom: 20px;
+  letter-spacing: 0.05em; /* Slightly increased letter spacing */
 }
 /* Update Button */
 .update-button {

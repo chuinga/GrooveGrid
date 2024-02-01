@@ -1,64 +1,130 @@
-.playlist-item {  
-    width: 70vw;
-    max-width: 500px;
-    padding: 1em;
-    border: 1px solid red;
-    margin: 0 2em 2em; 
-    border-radius: 50px;
-    box-shadow:  -23px -23px 46px #2c0000,
-             23px 23px 46px #FF908B;
-    /* box-shadow: 0 8px 12px 0 #2c0000; */
-    background: linear-gradient(79deg, rgb(53 46 53) 0%, #9d1918 100%);
+.playlist-item {
+  width: 70vw;
+  max-width: 500px;
+  padding: 1em;
+  border: 1px solid red;
+  margin: 0 auto 2em;
+  border-radius: 50px;
+  box-shadow: -23px -23px 46px #2c0000, 23px 23px 46px #ff908b;
+  background: linear-gradient(79deg, rgb(53 46 53) 0%, #9d1918 100%);
+  color: white; /* Ensure text is white for readability */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* More space between elements */
 }
 
-.plContent {
+.pl-name {
+  width: 100%; /* Use the full width */
+  padding: 20px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Increase gap for visual comfort */
 }
 
-.playlist-page-wrapper {    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 35em;
+.pl-title {
+  font-size: 2em; /* Make playlist name larger */
+  color: #ecf0f1; /* Use a consistent text color for better visibility */
+  margin-bottom: 0.5em; /* Less space below the playlist name */
+}
+.pl-name button,
+.create-playlist-button,
+.song-part button {
+  padding: 10px 20px;
+  width: auto; /* Adjust width automatically to content */
+  border: none;
+  border-radius: 10px; /* Rounded corners for buttons */
+  background-color: #51637b; /* Consistent button color */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s; /* Smooth transition for hover effect */
+  font-size: 0.9em; /* Adjust font size for buttons */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+.song-part button:hover,
+.pl-name button:hover,
+.create-playlist-button:hover,
+.playlist-part button:hover {
+  background-color: #357abd; /* Lighten button color on hover */
+  transform: translateY(-2px);
+}
+.playlist-part {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center buttons horizontally */
+}
+.song-part {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+  width: 100%; /* Make sure it fills the parent container */
+  justify-content: center;
+}
+.song-part > div {
+  background: #2c0000; /* Darker background for song items */
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Styling for song title */
+.song-part > div > span {
+  flex: 1;
+  text-align: center;
+}
+.song-part > div > button {
+  color: #ecf0f1; /* Text color */
+  white-space: nowrap;
+  margin-left: 10px; /* Space before the delete button */
+}
+.playlist-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 35em;
 }
 
 .playlist-page-wrapper h5 {
-    color: antiquewhite;
-}
-
-.playlist-page-wrapper h3 {
-    font-size: 20px;
+  color: #ecf0f1; /* A bright shade for popping effect */
+  font-size: 2.5em; /* Larger font size */
+  font-weight: bold; /* Bolder font */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+  margin-bottom: 20px;
+  letter-spacing: 0.05em; /* Slightly increased letter spacing */
 }
 
 .playlist-page-wrapper button {
-    margin-bottom: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 .create-playlist-wrapper {
-    padding: 3em;
+  padding: 3em;
 }
 
 .create-playlist-wrapper ::placeholder {
-    color: black;
+  color: black;
 }
 
 .edit-name-playlist-wrapper {
-    padding: 3em;
+  padding: 3em;
 }
 
 .edit-name-playlist-wrapper ::placeholder {
-    color: black;
+  color: black;
 }
 
 .delete-playlist-wrapper {
-    padding: 3em;
+  padding: 3em;
 }
 .delete-playlist-wrapper p {
-    color: black;
+  color: black;
 }
 .delete-song-from-playlist-wrapper {
-    padding: 3em;
+  padding: 3em;
 }
 .delete-song-from-playlist-wrapper p {
-    color: black;
+  color: black;
 }
-
