@@ -5,8 +5,10 @@
     border: 1px solid red;
     margin: 0 2em 2em; 
     border-radius: 50px;
-    box-shadow: 0 8px 12px 0 rgb(44, 0, 0);
-    background: linear-gradient(79deg, rgb(53 46 53) 0%, rgb(157 25 24) 100%);
+    box-shadow:  -23px -23px 46px #2c0000,
+             23px 23px 46px #FF908B;
+    /* box-shadow: 0 8px 12px 0 #2c0000; */
+    background: linear-gradient(79deg, rgb(53 46 53) 0%, #9d1918 100%);
 }
 
 .plContent {
