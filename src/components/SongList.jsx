@@ -1,13 +1,12 @@
-
 import { useState, useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
-import { PlaylistsContext } from '../context/Playlists.context'; 
+import { PlaylistsContext } from '../context/Playlists.context';
 import '../styles/SongsList.css';
 
 const SongsList = ({ songs, userPlaylists }) => {
     const { storedToken, user } = useContext(AuthContext);
     const { refreshPlaylist } = useContext(PlaylistsContext); // Use refreshPlaylist from context
-    const [successMessage, setSuccessMessage] = useState(''); 
+    const [successMessage, setSuccessMessage] = useState('');
     const handleAddToPlaylist = async (song, playlist) => {
         try {
             const baseUrl = import.meta.env.VITE_API_URL.endsWith('/')
@@ -60,7 +59,7 @@ const SongsList = ({ songs, userPlaylists }) => {
                             />
                         )}
                         <span>{song.title}</span>
-                        <span>{song.artist.name}</span>
+                        <span>{song.artist?.name}</span>
                         <div className='Add-to-playlist-buttons'>
                             {userPlaylists.map((playlist) => (
                                 <button

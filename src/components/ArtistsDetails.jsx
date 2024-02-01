@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import Modal from './ModalComponent'; // Import Modal Component
 
+import '../styles/ArtistsPage.css';
+
 const ArtistDetails = () => {
     const { artistId } = useParams();
     const [artist, setArtist] = useState(null);
@@ -184,7 +186,7 @@ const ArtistDetails = () => {
             <h2>{artist.name}</h2>
             <img src={artist.image} alt={`${artist.name} thumbnail`} />
             <p>Genre: {artist.genre.name}</p>
-            <div>
+            <div className='albuns-and-buttons-wrapper'>
                 <h3>Albums:</h3>
                 <ul>
                     {artist.albums.map((album) => (
@@ -208,7 +210,10 @@ const ArtistDetails = () => {
                         onClose={closeAddAlbumModal}
                     >
                         {/* Add Album Form inside the Modal */}
-                        <form onSubmit={handleAddAlbum}>
+                        <form
+                            onSubmit={handleAddAlbum}
+                            className='add-album-form-wrapper'
+                        >
                             <input
                                 type='text'
                                 placeholder='Album Name'
