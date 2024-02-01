@@ -13,6 +13,10 @@
     margin-bottom: 1em;
 }
 
+.artists-wrapper a {
+    color: antiquewhite;
+}
+
 .search-bar-and-buttons {
     display: flex;
     flex-direction: column;
@@ -49,15 +53,33 @@
     background-color: antiquewhite;
 }
 
+.modal ::placeholder {
+    color: black;
+}
+
+.modal p {
+    color: black;
+}
+
+.modal button {
+    background-color: antiquewhite;
+    color: rgb(152, 19, 19);
+    border-radius: 1em;
+    padding: 1em;
+    margin: 0;
+}
+
 .closeButton {
     color: black;
     position: absolute;
-    top: -35px;
-    right: -50px;
+    top: -20px;
+    right: -20px;
     background: transparent;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+    padding: 0;
+    margin: 0;
 }
 
 .create-artist-form-wrapper {
@@ -95,6 +117,35 @@
     height: 20em;
 }
 
+.artists-details-wrapper h3 {
+    color: antiquewhite;
+}
+
+.artists-details-wrapper ul {
+    list-style: none;
+}
+
+.artists-details-wrapper button {
+    background-color: #51637b;
+    color: white;
+    border: none;
+    border-radius: 0.4em;
+    padding: 0.8em 1.5em;
+    margin: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-album-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-album-form-wrapper input {
+    margin: 0.3em;
+}
+
 @media screen and (min-width: 601px) and (max-width: 1024px) {
     .artists-wrapper {
         display: grid;
@@ -102,5 +153,33 @@
         justify-items: center;
         align-items: center;
         gap: 10px;
+    }
+    .artists-details-wrapper {
+        min-height: 55em;
+    }
+    .artists-wrapper img {
+        width: 8em;
+        height: 8em;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+    .artists-wrapper {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .artists-wrapper img {
+        width: 9em;
+        height: 9em;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .artists-wrapper {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .artists-wrapper img {
+        width: 10em;
+        height: 10em;
     }
 }

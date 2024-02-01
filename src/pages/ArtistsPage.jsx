@@ -194,30 +194,35 @@ const ArtistsPage = () => {
                 </div>
             </div>
 
-            {/* Delete Artist Modal */}
-            <Modal
-                isOpen={isDeleteArtistModalOpen}
-                onClose={() => setIsDeleteArtistModalOpen(false)}
-            >
-                <h3>Delete an Artist</h3>
-                <input
-                    type='text'
-                    value={deleteArtistSearch}
-                    onChange={(e) => setDeleteArtistSearch(e.target.value)}
-                    placeholder='Search artist to delete...'
-                />
-                {filteredArtistsForDeletion.map((artist) => (
-                    <div key={artist._id}>
-                        <p>{artist.name}</p>
-                        <button onClick={() => setSelectedArtistId(artist._id)}>
-                            Select for Deletion
+            <div>
+                <Modal
+                    isOpen={isDeleteArtistModalOpen}
+                    onClose={() => setIsDeleteArtistModalOpen(false)}
+                >
+                    <h3>Delete</h3>
+                    <input
+                        type='text'
+                        value={deleteArtistSearch}
+                        onChange={(e) => setDeleteArtistSearch(e.target.value)}
+                        placeholder='Search artist to delete...'
+                    />
+                    {filteredArtistsForDeletion.map((artist) => (
+                        <div key={artist._id}>
+                            <p>{artist.name}</p>
+                            <button
+                                onClick={() => setSelectedArtistId(artist._id)}
+                            >
+                                Select for Deletion
+                            </button>
+                        </div>
+                    ))}
+                    {selectedArtistId && (
+                        <button onClick={handleDeleteArtist}>
+                            Confirm Delete
                         </button>
-                    </div>
-                ))}
-                {selectedArtistId && (
-                    <button onClick={handleDeleteArtist}>Confirm Delete</button>
-                )}
-            </Modal>
+                    )}
+                </Modal>
+            </div>
 
             <ArtistList artists={filteredArtists} />
         </div>
