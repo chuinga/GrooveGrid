@@ -116,9 +116,58 @@
 @media screen and (min-width: 601px) and (max-width: 1024px) {
   .user-profile-page-container {
     padding: 2em;
+    margin-left: -50px;
+  }
+  .profile-image {
+    width: 120px; /* Slightly smaller image for tablets */
+    height: 120px;
   }
   .modal {
-    width: 80%; /* Modal takes up less space on larger screens */
+    width: 60%; /* Modal takes up less space on tablet screens */
+    padding: 4em; /* Adjust padding for the size of the modal */
+  }
+}
+/* Media query for phones */
+@media screen and (max-width: 600px) {
+  .user-profile-page-container {
+    padding: 1em;
+    margin-left: -50px;
+  }
+
+  .profile-image {
+    width: 100px; /* Smaller image for phones */
+    height: 100px;
+  }
+
+  .profile-name {
+    font-size: 1.5em; /* Adjust font size for smaller screens */
+  }
+
+  .update-button,
+  .playlist-button {
+    padding: 0.6em 1em; /* Smaller padding for buttons on phones */
+    font-size: 0.9em; /* Smaller font size for buttons */
+  }
+
+  .modal {
+    width: 90%; /* Modal takes up more space on phone screens */
+    padding: 2em; /* Less padding in the modal for phone screens */
+  }
+
+  .input-username,
+  .update-username,
+  .close {
+    padding: 0.5em; /* Adjust padding for input fields and buttons in the modal */
+  }
+
+  /* Since the modal is almost full-width on phones, you might want to adjust form elements */
+  .user-profile-page-container form {
+    width: 100%; /* Full-width form on smaller screens */
+  }
+
+  .success-message,
+  .error-message {
+    font-size: 0.9em; /* Smaller font size for messages */
   }
 }
 

@@ -1,17 +1,51 @@
 .albums-page-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+  width: 100%;
 }
-.image-album-wrapper img {
-    width: 6em;
-    height: 6em;
+.title-albums {
+}
+.p-albums {
+}
+.search-bar-albums {
+  margin-bottom: 1em; /* Add space below the search bar */
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 0.4em;
+  width: 100%; /* Full width search bar */
+  max-width: 400px; /* Max width for larger screens */
 }
 .image-album-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 2em;
-    gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 2em;
+  gap: 1em;
+}
+.image-album-wrapper img {
+  width: 100%; /* Responsive image width */
+  height: auto; /* Maintain aspect ratio */
+  border-bottom: 1px solid #ccc; /* Border to separate image from title */
+  object-fit: cover;
+}
+.image-album-wrapper > div {
+  background-color: white; /* Card background */
+  border: 1px solid #ccc; /* Border for the card */
+  border-radius: 0.5em; /* Rounded corners for the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  overflow: hidden; /* Ensure overflow from child elements is contained */
+  transition: transform 0.2s, box-shadow 0.2s; /* Transition for hover effects */
+}
+.image-album-wrapper div {
+  padding: 0.5em; /* Padding within the card */
+  text-align: center; /* Center the title text */
+  margin-top: 1em;
+  color: black;
+}
+/* Hover effect for album card */
+.image-album-wrapper > div:hover {
+  transform: translateY(-5px); /* Lift card on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
 }
