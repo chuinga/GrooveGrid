@@ -2,11 +2,16 @@
     display: flex;
     flex-direction: column;
     width: 70%;
-    background: antiquewhite;
-    border-radius: 1em;
+    max-width: 500px;
     align-items: center;
     justify-content: center;
     padding-bottom: 1em;
+    border: 1px solid red;
+    margin: 0 2em 2em; 
+    border-radius: 50px;
+    box-shadow:  -23px -23px 46px #2c0000,
+             23px 23px 46px #FF908B;
+    background: linear-gradient(79deg, rgb(53 46 53) 0%, #9d1918 100%);
 }
 
 .login-page-wrapper {
@@ -21,7 +26,7 @@
 
 .signup-label {
     width: 100%;
-    color: black;
+    color: rgb(255, 255, 255);
     padding: 0.5em;
 }
 
