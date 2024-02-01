@@ -1,65 +1,74 @@
-
 .genre-details-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  min-height: 55em;
 }
 
 .genre-details-text {
-    max-width: 600px;
-    width: 70%;
-    padding: 20px;
-    background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
-    border: 1px solid #ccc; 
-    border-radius: 0.5em; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    color: white;
+  max-width: 600px;
+  width: 70%;
+  padding: 20px;
+  background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  color: white;
 }
 
 .genre-details-text h1 {
-    
-    color: white; 
+  color: white;
 }
 
 .genre-examples-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .artist-box {
-    flex: 0 1 calc(33.333% - 10px);
-    padding: 10px;
-    background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
-    border: 1px solid #ccc; 
-    border-radius: 0.5em; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Adjust the min size as needed */
+  gap: 10px;
+  justify-content: center;
+  align-items: stretch;
+  padding: 20px; /* Increased padding for a larger clickable area */
+  background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 5px; /* Optional: Add a bit of margin between boxes */
+  cursor: pointer; /* Makes it clear the box is clickable */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition for transform and background color */
 }
 
 .artist-box h2 {
-    color: white;
+  color: white;
 }
 
-.artist-box:hover {
-    background-color:  #357abd; 
-    
+.artist-box:hover,
+.artist-box:focus {
+  transform: scale(1.05); /* Slightly enlarges the box on hover/focus */
+  background-color: #357abd; /* Changes background color on hover/focus */
+  outline: none; /* Removes the outline to clean up focus appearance */
 }
 
 @media only screen and (max-width: 390px) {
-    .genre-details-text,
-    .genre-examples-wrapper {
-        padding: 15px;
-    }
+  .genre-details-text,
+  .genre-examples-wrapper {
+    padding: 15px;
+  }
 
-    .artist-box {
-        padding: 8px;
-        flex: 0 1 calc(50% - 8px);
-    }
+  .artist-box {
+    padding: 8px;
+    flex: 0 1 calc(50% - 8px);
+  }
 }

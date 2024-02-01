@@ -30,29 +30,36 @@ const GenreDetails = () => {
 
   if (!genre) return <div>Loading...</div>;
 
-
   return (
     <div className="genre-details-wrapper">
       <div className="genre-details-text">
         <h1>Genre: {genre && genre.genre}</h1>
-        {genre && <p> <b> Description: </b> {genre.description}</p>}
+        {genre && (
+          <p>
+            {" "}
+            <b> Description: </b> {genre.description}
+          </p>
+        )}
       </div>
       <div className="genre-examples-wrapper">
         {genre &&
           genre.artists.map((artist) => (
-            <div key={artist._id} className="artist-box">
-              <h2
-                onClick={() => navigateToArtist(artist._id)}
-                style={{ cursor: "pointer" }}
-              >
-                {artist.name}
-              </h2>
+            <div
+              key={artist._id}
+              className="artist-box"
+              onClick={() => navigateToArtist(artist._id)}
+              tabIndex="0" // Makes the div focusable
+              onKeyDown={(e) =>
+                e.key === "Enter" && navigateToArtist(artist._id)
+              } // Allows navigation with keyboard
+              style={{ cursor: "pointer" }}
+            >
+              <h2>{artist.name}</h2>
             </div>
           ))}
       </div>
     </div>
-  ); 
-
-}  
+  );
+};
 
 export default GenreDetails;
