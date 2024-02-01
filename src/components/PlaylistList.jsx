@@ -147,7 +147,9 @@ const PlaylistList = (props) => {
     <div>
       {successMessage && <div>{successMessage}</div>}
 
-      <button onClick={handleCreatePlaylist}>Create Playlist</button>
+      <button onClick={handleCreatePlaylist} className="create-playlist-button">
+        Create Playlist
+      </button>
 
       <Modal isOpen={showCreateModal} onClose={handleCloseModal}>
         <CreatePlaylist
@@ -172,31 +174,30 @@ const PlaylistList = (props) => {
               />
             </Modal>
           ) : (
-            <div className="plContent">
-              <h3>{playlist.name}</h3>
+            <div className="pl-name">
+              <h3 className="pl-title">{playlist.name}</h3>
               <button onClick={() => handleEditPlaylist(playlist._id)}>
                 Edit Name of the Playlist
               </button>
-              <div>
+              <div className="playlist-part">
                 <button onClick={() => handleDeletePlaylist(playlist._id)}>
                   Delete Playlist
                 </button>
-
-                <div>
-                  {/* Add a button for each song to open the delete modal */}
-                  {playlist.songs?.map((song) => (
-                    <div key={song._id}>
-                      <span>{song.title}</span>
-                      <button
-                        onClick={() =>
-                          openDeleteSongModal(song._id, playlist._id)
-                        }
-                      >
-                        Delete Song
-                      </button>
-                    </div>
-                  ))}
-                </div>
+              </div>
+              <div className="song-part">
+                {/* Add a button for each song to open the delete modal */}
+                {playlist.songs?.map((song) => (
+                  <div key={song._id}>
+                    <span>{song.title}</span>
+                    <button
+                      onClick={() =>
+                        openDeleteSongModal(song._id, playlist._id)
+                      }
+                    >
+                      Delete Song
+                    </button>
+                  </div>
+                ))}
               </div>
             </div>
           )}
