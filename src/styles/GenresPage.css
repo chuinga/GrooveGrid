@@ -1,4 +1,5 @@
 
+
 .genres-page-wrapper {
     display: flex;
     flex-direction: column;
@@ -16,16 +17,15 @@
 }
 
 .genre-box {
-    border: 2px solid #333; /* Border color and thickness */
-    border-radius: 10px; /* Border radius for rounded corners */
-     /* Add padding to the genre box */
-    text-align: center; /* Center the text inside the genre box */
-    background-color: #51637B; /* Background color for the genre box */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    border: 2px solid #333; 
+    
+    text-align: center; 
+    background-color: #51637B; 
+    transition: background-color 0.3s; 
 }
 
 .genre-box:hover {
-    background-color: #357abd; /* Change background color on hover */
+    background-color: #357abd;
     color: white;
 }
 
@@ -35,27 +35,27 @@
 }
 
 .genre-box h3 a {
-    color: white; /* Text color for the genre name */
-    text-decoration: none; /* Remove default link underline */
-    font-size: 1em; /* Increase font size for the genre name */
+    color: white; 
+    text-decoration: none; 
+    font-size: 1em; 
 }
 
 
 
- /* Responsive styles for tablets (768px and above) */
+ 
 @media only screen and (min-width: 768px) {
     .genres-page-wrapper {
         background-image: url("../assets/Fone2.jpg");
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover; /* Change to cover */
+        background-size: cover; 
     }
     .genres-links-wrapper {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Responsive styles for desktops (992px and above) */
+
 @media only screen and (min-width: 992px) {
     .genres-links-wrapper {
         grid-template-columns: repeat(4, 1fr);
@@ -64,6 +64,6 @@
         background-image: url("../assets/Fone2.jpg");
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover; /* Change to cover */
+        background-size: cover; 
     }
 }
