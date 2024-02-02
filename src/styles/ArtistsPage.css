@@ -56,6 +56,55 @@
   transform: translateY(-2px);
 }
 
+.artist-details-title {
+  color: #ecf0f1;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.artist-details-artist {
+  color: #ecf0f1;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.artist-details-image {
+}
+.artist-details-genre {
+  color: #ecf0f1;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.artist-details-albums {
+  color: #ecf0f1;
+  font-size: 1.5em; /* Matching the size of .artist-details-genre */
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.artist-details-link a, /* Target the anchor tag within the .artist-details-link class */
+.artist-details-link a:visited {
+  /* Also style visited links */
+  color: #ffffff; /* White color for the link */
+  font-size: 1.5em; /* Matching the size */
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s; /* Smooth transition for color change */
+  text-decoration: none; /* Remove underline from links */
+}
+.artist-details-link a:hover {
+  color: #357abd; /* Color changes on hover */
+  text-decoration: underline; /* Optionally, add underline on hover for clarity */
+}
+
 .artists-wrapper a {
   color: antiquewhite;
 }
@@ -295,11 +344,25 @@
 }
 
 .artists-details-wrapper h3 {
-  color: antiquewhite;
+  color: #ecf0f1;
+  font-size: 1.5em; /* Matching the size of .artist-details-genre */
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
 }
 
 .artists-details-wrapper ul {
   list-style: none;
+  color: #ffffff; /* White color for the link */
+  font-size: 1.5em; /* Matching the size */
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s; /* Smooth transition for color change */
+  text-decoration: none;
+}
+.artists-details-wrapper ul {
+  color: aliceblue; /* Color changes on hover */
 }
 
 .artists-details-wrapper button {
