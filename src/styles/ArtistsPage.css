@@ -107,7 +107,7 @@
         rgb(208, 60, 50) 100%
     );
     padding: 1em; /* Adjusted for more reasonable padding */
-    max-height: 70vh; /* Maximum height of the modal */
+    max-height: 65vh; /* Maximum height of the modal */
     overflow-y: auto; /* Enables scrolling within the modal */
     border-radius: 0.5em;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -116,23 +116,6 @@
     width: auto; /* Or a specific width, depending on your design */
 }
 
-
-/* .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(
-        79deg,
-        rgb(47, 45, 47) 0%,
-        rgb(208, 60, 50) 100%
-    );
-    padding: 8em;
-    border-radius: 0.5em;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    color: white;
-} */
 
 .modal ::placeholder {
     color: black;
