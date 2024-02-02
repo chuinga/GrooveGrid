@@ -212,7 +212,7 @@ const AlbumDetails = () => {
         <h3 className="song-list-title">Songs in this Album:</h3>
         {album.songs &&
           album.songs.map((song) => (
-            <div key={song._id} className="song-name">
+            <div key={song._id} className="song-name-title">
               <Link to={`/songs/${song._id}`}>
                 <p>- {song.title}</p>
               </Link>
