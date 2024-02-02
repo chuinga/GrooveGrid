@@ -102,10 +102,7 @@ function AboutUs() {
                         just a hobby it's a lifestyle that keeps me grounded and
                         energized. Outside the realm of technology, I find
                         solace in composing music, blending melodies and
-                        harmonies to create captivating soundscapes. Whether
-                        it's tinkering on the piano or experimenting with
-                        digital music production tools, music is my ultimate
-                        form of expression.
+                        harmonies to create captivating soundscapes. 
                     </p>
                     <div className='about-links'>
                         <Link to='https://github.com/chuinga'>
