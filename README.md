@@ -1,6 +1,6 @@
 # **GrooveGrid**
 
-<img src='(image.png)'>
+<img src='./src/assets/Logo1.png'>
 
 ## Introduction
 
