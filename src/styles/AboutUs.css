@@ -12,6 +12,10 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 0.5em;
+  box-shadow: inset -20px -20px 16px 7px rgb(0 0 0 / 33%);
 }
 
 .about-image-container {
@@ -31,6 +35,7 @@
   width: 100%;
   font-size: 18px; 
   color: wheat;
+  margin-right: 1.5%;
 }
 
 .about-links {
