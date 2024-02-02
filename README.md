@@ -52,6 +52,21 @@ As we continue to improve **GrooveGrid**, here are some ideas for future enhance
 -   **User Feedback System**: Implementing a user feedback mechanism for bug reports, scoring and feature requests.
 -   **Community Voting**: Allowing users to vote on proposed features, helping prioritize development efforts.
 
+## Technologies Used
+
+**GrooveGrid** is a web application that leverages a combination of modern technologies and tools to provide a seamless and informative experience for users. Below is a list of the key technologies involved in our project:
+
+### Frontend
+
+-   **React**: The frontend of **GrooveGrid** is built using React, a powerful JavaScript library for building dynamic and responsive user interfaces. React's component-based architecture allows for modular and efficient UI development.
+-   **React Router**: We use React Router for navigation and routing within the single-page application, ensuring smooth transitions between different sections and hero comparisons.
+-   **CSS3 and HTML5**: These standard web technologies are employed for styling and structuring the web pages, resulting in an attractive and user-friendly interface.
+
+### Backend API
+
+-   **Node.js**: Node.js, a runtime built on Chrome's V8 JavaScript engine, enables server-side JavaScript execution. Known for its scalability and efficiency, Node.js empowers developers to build high-performance, real-time applications with ease.
+-   **Mongo DB**: MongoDB, a NoSQL database, embraces a flexible document-oriented approach. It offers seamless scalability and efficient handling of unstructured data, making it a preferred choice for modern, dynamic applications.
+
 ## Project Structure
 
 Our GrooveGrid application is meticulously organized for optimal development workflow and maintenance. Below is a detailed outline of the project's structure:
