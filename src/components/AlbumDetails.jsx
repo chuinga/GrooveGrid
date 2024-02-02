@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import { Link } from "react-router-dom";
 // Import Modal
 import Modal from "./ModalComponent";
 // Import Styling
@@ -212,7 +213,9 @@ const AlbumDetails = () => {
         {album.songs &&
           album.songs.map((song) => (
             <div key={song._id} className="song-name">
-              <p>- {song.title}</p>
+              <Link to={`/songs/${song._id}`}>
+                <p>- {song.title}</p>
+              </Link>
             </div>
           ))}
       </div>
