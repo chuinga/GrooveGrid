@@ -76,11 +76,30 @@
 
 .song-list {
   color: #ecf0f1;
-  font-size: 1em;
+  font-size: 18px;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  margin-bottom: 20px;
   letter-spacing: 0.05em;
+}
+.song-name-title {
+  font-size: 18px; /* Example size, adjust as needed */
+  font-weight: bold; /* Makes the title stand out */
+  color: #ecf0f1; /* Dark color for better readability */
+  margin-right: 10px; /* Adds spacing between the title and the artist name */
+  text-decoration: none; /* Removes underline from links */
+}
+.song-name-title a, /* Target the anchor tag directly for hover effect */
+.song-name-title a:visited {
+  /* Ensure visited links also have no text decoration */
+  color: #ecf0f1; /* Maintain text color consistency */
+  text-decoration: none; /* Remove text decoration for links */
+}
+
+.song-name-title a:hover,
+.song-name-title a:focus {
+  /* Add text decoration on hover and focus for accessibility */
+  text-decoration: underline; /* This will be visible on hover */
+  color: #357abd; /* Optional: change color on hover if desired */
 }
 /* Buttons and modal */
 .input-bar {
