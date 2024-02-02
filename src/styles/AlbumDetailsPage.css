@@ -1,0 +1,112 @@
+.album-detail-page {
+  width: 100%;
+  min-height: 76em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+}
+.album-detail-card {
+}
+.album-title {
+  color: #ecf0f1;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.album-artist-title {
+  color: #ecf0f1;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.album-release-date {
+  color: #ecf0f1;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.album-genre {
+  color: #ecf0f1;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.album-image {
+}
+.album-description {
+  color: #ecf0f1;
+  font-size: 1em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.song-list-title {
+  color: #ecf0f1;
+  font-size: 1em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.song-list {
+  color: #ecf0f1;
+  font-size: 1em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+/* Buttons and modal */
+.input-bar {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ffffff;
+  border-radius: 0.4em;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+.edit-album-button,
+.submit-button,
+.add-song-button,
+.submit-song-button,
+.delete-song-button,
+.confrim-delete-button {
+  background-color: #51637b;
+  color: white;
+  border: none;
+  border-radius: 0.4em;
+  padding: 0.8em 1.5em;
+  margin: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.edit-album-button:hover,
+.submit-button:hover,
+.add-song-button:hover,
+.submit-song-button:hover,
+.delete-song-button:hover,
+.confrim-delete-button:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
+  padding: 8em;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  color: white;
+}

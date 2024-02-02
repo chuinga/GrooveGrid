@@ -7,9 +7,9 @@ const PlaylistPage = () => {
 
   return (
     <div className="playlist-page-wrapper">
-      <h5>Playlists</h5>
+      <h5 className="title-playlist">Playlists</h5>
       {!isLoading ? (
-        <PlaylistList playlists={playlists} /> 
+        <PlaylistList playlists={playlists} />
       ) : (
         <div>LOADING...</div>
       )}

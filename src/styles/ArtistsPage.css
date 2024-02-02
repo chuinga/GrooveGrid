@@ -1,210 +1,274 @@
 .artists-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1em;
-    margin-top: 2em;
-    padding-left: 0;
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    margin-bottom: 3em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1em;
+  margin-top: 2em;
+  padding-left: 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 3em;
 }
 
 .artists-wrapper img {
-    width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 1em;
-    object-fit: cover;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1em;
+  object-fit: cover;
 }
 
 .add-and-delete-buttons {
-    margin-bottom: 2em;
+  margin-bottom: 2em;
+}
+.title-artists {
+  color: #ecf0f1;
+  font-size: 3em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.p-artists {
+  color: #ecf0f1;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.add-button,
+.delete-button {
+  background-color: #51637b;
+  color: white;
+  border: none;
+  border-radius: 0.4em;
+  padding: 0.8em 1.5em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-right: 10px;
+}
+.add-button:hover,
+.delete-button:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
 }
 
 .artists-wrapper a {
-    color: antiquewhite;
+  color: antiquewhite;
 }
 
 .search-bar-and-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-bar-and-buttons button {
-    background-color: #51637b;
-    color: white;
-    border: none;
-    border-radius: 0.4em;
-    padding: 0.8em 1.5em;
-    font-weight: bold;
-    margin-right: 1em;
-    margin-top: 1em;
+  background-color: #51637b;
+  color: white;
+  border: none;
+  border-radius: 0.4em;
+  padding: 0.8em 1.5em;
+  font-weight: bold;
+  margin-right: 1em;
+  margin-top: 1em;
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input-bar {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ffffff;
+  border-radius: 0.4em;
+  padding: 0.5em;
+  margin-bottom: 1em;
 }
 
 .modal {
-    max-height: 80%;
-    overflow-y: auto;
-    border-radius: 8px;
-    position: relative;
-    background-color: antiquewhite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
+  padding: 8em;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  color: white;
 }
 
 .modal ::placeholder {
-    color: black;
+  color: black;
 }
 
 .modal p {
-    color: black;
+  color: black;
 }
 
 .modal button {
-    background-color: antiquewhite;
-    color: rgb(152, 19, 19);
-    border-radius: 1em;
-    padding: 1em;
-    margin: 0;
+  background-color: #51637b;
+  color: white;
+  border: none;
+  border-radius: 0.4em;
+  padding: 0.8em 1.5em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-right: 10px;
 }
 
 .closeButton {
-    color: black;
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
+  color: black;
+  position: absolute;
+  top: 0px;
+  right: -10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  margin: auto;
+
+  justify-content: center;
+  text-align: center;
+}
+.closeButton:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
 }
 
 .create-artist-form-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: transparent;
-    padding: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  padding: 3em;
 }
 .create-artist-form-wrapper label {
-    color: antiquewhite;
+  color: antiquewhite;
 }
 
 .create-artist-form-wrapper input {
-    margin-bottom: 1em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ffffff;
+  border-radius: 0.4em;
+  padding: 0.5em;
+  margin-bottom: 1em;
 }
 
 .create-artist-form-wrapper button {
-    background-color: antiquewhite;
-    color: rgb(152, 19, 19);
-    border-radius: 1em;
-    padding: 1em;
+  background-color: #51637b;
+  color: white;
+  border: none;
+  border-radius: 0.4em;
+  padding: 0.8em 1.5em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-right: 10px;
+}
+.create-artist-form-wrapper button:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
 }
 
 .create-artist-form-wrapper select {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .artists-details-wrapper {
-    min-height: 45em;
+  min-height: 45em;
 }
 
 .artists-details-wrapper img {
-    width: 20em;
-    height: 20em;
+  width: 20em;
+  height: 20em;
 }
 
 .artists-cards-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(
-        79deg,
-        rgb(47, 45, 47) 0%,
-        rgb(208, 60, 50) 100%
-    );
-    border: 1px solid #ccc;
-    border-radius: 0.5em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-    padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 0.5em;
 }
 
 .artists-cards-wrapper a {
-    width: 100%;
-    height: auto;
-    margin-bottom: 1em;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1em;
 }
 
 .main-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .artists-details-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 0.5em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(
-        79deg,
-        rgb(47, 45, 47) 0%,
-        rgb(208, 60, 50) 100%
-    );
-    margin-bottom: 4em;
-    margin-top: 4em;
-    width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
+  margin-bottom: 4em;
+  margin-top: 4em;
+  width: 60%;
 }
 
 .artists-details-image-and-title {
-    width: 100%;
+  width: 100%;
 }
 
 .artists-details-wrapper h3 {
-    color: antiquewhite;
+  color: antiquewhite;
 }
 
 .artists-details-wrapper ul {
-    list-style: none;
+  list-style: none;
 }
 
 .artists-details-wrapper button {
-    background-color: #51637b;
-    color: white;
-    border: none;
-    border-radius: 0.4em;
-    padding: 0.8em 1.5em;
-    margin: 0.5em;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+  background-color: #51637b;
+  color: white;
+  border: none;
+  border-radius: 0.4em;
+  padding: 0.8em 1.5em;
+  margin: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .add-album-form-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .add-album-form-wrapper input {
-    margin: 0.3em;
+  margin: 0.3em;
 }
