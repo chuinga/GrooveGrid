@@ -1,192 +1,189 @@
 .user-profile-page-container {
-    width: 100%;
-    min-height: 76em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2em;
+  width: 100%;
+  min-height: 76em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
 }
 .profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-top: 5em;
-    margin-bottom: 1em;
-    object-fit: cover;
-    border: 3px solid #51637b;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 5em;
+  margin-bottom: 1em;
+  object-fit: cover;
+  border: 3px solid #51637b;
 }
 
 /* Profile Name */
 .profile-name {
-    color: #ecf0f1;
-    font-size: 2.5em;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
-    letter-spacing: 0.05em;
+  color: #ecf0f1;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
 }
 /* Update Button */
 .update-button {
-    background-color: #51637b;
-    color: white;
-    border: none;
-    border-radius: 0.4em;
-    padding: 0.8em 1.5em;
-    font-weight: bold;
-    margin-bottom: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+  background-color: #51637b;
+  color: white;
+  border: none;
+  border-radius: 0.4em;
+  padding: 0.8em 1.5em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 .update-button:hover {
-    background-color: #357abd;
-    transform: translateY(-2px);
+  background-color: #357abd;
+  transform: translateY(-2px);
 }
 /* Modal Styles */
 .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(
-        79deg,
-        rgb(47, 45, 47) 0%,
-        rgb(208, 60, 50) 100%
-    );
-    padding: 8em;
-    border-radius: 0.5em;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
+  padding: 8em;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  color: white;
+  width: 500px;
 }
 /* Input Fields */
 .input-username {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid #ffffff;
-    border-radius: 0.4em;
-    padding: 0.5em;
-    margin-bottom: 1em;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ffffff;
+  border-radius: 0.4em;
+  padding: 0.5em;
+  margin-bottom: 1em;
 }
 /* Buttons inside Modal */
 .update-username,
 .close {
-    background-color: #51637b;
-    color: white;
-    border: none;
-    border-radius: 0.4em;
-    padding: 0.8em 1.5em;
-    margin: 0.5em;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+  background-color: #51637b;
+  color: white;
+  border: none;
+  border-radius: 0.4em;
+  padding: 0.8em 1.5em;
+  margin: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .update-username:hover,
 .close:hover {
-    background-color: #357abd;
-    transform: translateY(-2px);
+  background-color: #357abd;
+  transform: translateY(-2px);
 }
 /* Playlist Link */
 .playlist-button {
-    background-color: #51637b;
-    color: white;
-    text-decoration: none;
-    padding: 0.8em 1.5em;
-    border-radius: 0.4em;
-    margin-top: 2em;
-    display: inline-block;
+  background-color: #51637b;
+  color: white;
+  text-decoration: none;
+  padding: 0.8em 1.5em;
+  border-radius: 0.4em;
+  margin-top: 2em;
+  display: inline-block;
 }
 .playlist-button:hover {
-    background-color: #357abd;
-    transform: translateY(-2px);
+  background-color: #357abd;
+  transform: translateY(-2px);
 }
 /* Success and Error Messages */
 .success-message,
 .error-message {
-    color: #28a745;
-    margin-bottom: 1em;
+  color: #28a745;
+  margin-bottom: 1em;
 }
 
 .error-message {
-    color: #dc3545;
+  color: #dc3545;
 }
 
 .user-profile-wrapper {
-    margin-right: 0.5em;
+  margin-right: 0.5em;
 }
 
 .user-profile-page-container form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (min-width: 601px) and (max-width: 1024px) {
-    .user-profile-page-container {
-        padding: 2em;
-        margin-left: -50px;
-    }
-    .profile-image {
-        width: 120px;
-        height: 120px;
-    }
-    .modal {
-        width: 60%;
-        padding: 4em;
-    }
+  .user-profile-page-container {
+    padding: 2em;
+    margin-left: -50px;
+  }
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+  .modal {
+    width: 60%;
+    padding: 4em;
+  }
 }
 /* Media query for phones */
 @media screen and (max-width: 600px) {
-    .user-profile-page-container {
-        padding: 1em;
-        margin-left: -50px;
-    }
+  .user-profile-page-container {
+    padding: 1em;
+    margin-left: -50px;
+  }
 
-    .profile-image {
-        width: 100px;
-        height: 100px;
-    }
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
 
-    .profile-name {
-        font-size: 1.5em;
-    }
+  .profile-name {
+    font-size: 1.5em;
+  }
 
-    .update-button,
-    .playlist-button {
-        padding: 0.6em 1em;
-        font-size: 0.9em;
-    }
+  .update-button,
+  .playlist-button {
+    padding: 0.6em 1em;
+    font-size: 0.9em;
+  }
 
-    .modal {
-        width: 90%;
-        padding: 2em;
-    }
+  .modal {
+    width: 90%;
+    padding: 2em;
+  }
 
-    .input-username,
-    .update-username,
-    .close {
-        padding: 0.5em;
-    }
+  .input-username,
+  .update-username,
+  .close {
+    padding: 0.5em;
+  }
 
-    .user-profile-page-container form {
-        width: 100%;
-    }
+  .user-profile-page-container form {
+    width: 100%;
+  }
 
-    .success-message,
-    .error-message {
-        font-size: 0.9em;
-    }
+  .success-message,
+  .error-message {
+    font-size: 0.9em;
+  }
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1440px) {
-    .user-profile-page-container {
-        padding: 3em;
-        max-width: 900px; /* Max width for readability */
-        margin: auto; /* Center the container */
-    }
+  .user-profile-page-container {
+    padding: 3em;
+    max-width: 900px; /* Max width for readability */
+    margin: auto; /* Center the container */
+  }
 }
 
 @media screen and (max-width: 1441px) {
-    .user-profile-page-container {
-        padding: 4em;
-    }
+  .user-profile-page-container {
+    padding: 4em;
+  }
 }
