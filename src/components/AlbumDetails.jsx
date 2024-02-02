@@ -208,11 +208,11 @@ const AlbumDetails = () => {
         <p className="album-description">Description: {album.description}</p>
       </div>
       <div className="song-list">
-        <h3 className="song-list-title">Songs in this Album</h3>
+        <h3 className="song-list-title">Songs in this Album:</h3>
         {album.songs &&
           album.songs.map((song) => (
             <div key={song._id} className="song-name">
-              <p>{song.title}</p>
+              <p>- {song.title}</p>
             </div>
           ))}
       </div>
@@ -298,10 +298,10 @@ const AlbumDetails = () => {
                 key={song._id}
                 style={{
                   backgroundColor:
-                    selectedSongId === song._id ? "#f0f0f0" : "transparent",
+                    selectedSongId === song._id ? "#853531" : "transparent",
                 }}
               >
-                <p>{song.title}</p>
+                <p className="song-title">{song.title}</p>
                 <button
                   onClick={() => handleSelectSongForDeletion(song._id)}
                   className="confrim-delete-button"

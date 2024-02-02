@@ -7,6 +7,13 @@
   padding: 2em;
 }
 .album-detail-card {
+  background: linear-gradient(79deg, rgb(47, 45, 47) 0%, rgb(208, 60, 50) 100%);
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 30px;
 }
 .album-title {
   color: #ecf0f1;
@@ -41,23 +48,32 @@
   letter-spacing: 0.05em;
 }
 .album-image {
+  width: 300px;
+  height: 300px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .album-description {
   color: #ecf0f1;
   font-size: 1em;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  margin-bottom: 20px;
+  margin: 20px;
   letter-spacing: 0.05em;
 }
 .song-list-title {
   color: #ecf0f1;
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
   letter-spacing: 0.05em;
 }
+
 .song-list {
   color: #ecf0f1;
   font-size: 1em;
