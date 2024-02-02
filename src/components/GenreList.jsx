@@ -6,14 +6,15 @@ const GenreList = ({ genres }) => {
     return (
         <div className='genres-links-wrapper'>
             {genres.map((genre) => (
-                <div key={genre._id} className='genre-box'>
-                    <h3>
-                        <Link to={`/genres/${genre._id}`}>{genre.name}</Link>
-                    </h3>
-                </div>
+                <Link to={`/genres/${genre._id}`}>
+                    <div key={genre._id} className='genre-box'>                    
+                        <h3>{genre.name}</h3>                    
+                    </div>
+                </Link>
             ))}
         </div>
     );
 };
+
 
 export default GenreList;
