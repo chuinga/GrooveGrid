@@ -43,7 +43,6 @@
     padding: 0.5em;
     text-align: center;
     margin-top: 1em;
-    color: black;
 }
 /* Hover effect for album card */
 .image-album-wrapper > div:hover {
