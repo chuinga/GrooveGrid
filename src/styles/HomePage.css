@@ -28,20 +28,20 @@
     top: -10%;
     right: 50%;
     transform: translate(50%, 50%);
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    color: aliceblue; /* White text color */
-    padding: 20px; /* Padding around the text */
-    width: auto; /* Adjust width as needed */
-    max-width: 600px; /* Maximum width */
+    background-color: rgba(0, 0, 0, 0.5);
+    color: aliceblue;
+    padding: 20px;
+    width: auto;
+    max-width: 600px;
 }
 .text-overlay.top-left .home-page-title {
-    font-size: 30px; /* Larger font size for the title */
-    font-weight: bold; /* Bold font weight */
-    margin-bottom: 10px; /* Space between the title and the subtitle */
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 .text-overlay.top-left .home-page-p {
-    font-size: 16px; /* Subtitle font size */
-    line-height: 1.4; /* Line height for better readability */
+    font-size: 16px;
+    line-height: 1.4;
 }
 /* Top right */
 .text-overlay.top-right {
@@ -86,24 +86,23 @@
 /* Custom arrow styles */
 .slick-prev,
 .slick-next {
-    z-index: 1; /* Ensure arrows are above other content */
-    /* Add more styles as needed */
+    z-index: 1;
 }
 
 /* Example: Change size, position, etc. */
 .slick-prev:before,
 .slick-next:before {
-    font-size: 30px; /* Adjust arrow size */
-    opacity: 1; /* Make sure arrows are visible */
-    color: aliceblue; /* Arrow color */
+    font-size: 30px;
+    opacity: 1;
+    color: aliceblue;
 }
 
 /* Adjust positions if needed */
 .slick-prev {
-    left: 25px; /* Distance from the left edge */
+    left: 25px;
 }
 .slick-next {
-    right: 25px; /* Distance from the right edge */
+    right: 25px;
 }
 
 @media screen and (max-width: 768px) {
