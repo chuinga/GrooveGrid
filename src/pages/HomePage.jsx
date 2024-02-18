@@ -92,7 +92,7 @@ const HomePage = () => {
                 </div>
                 <div>
                     <div className='image-container'>
-                        <img src={djMixerImg} alt='DJ Mixer' />
+                        <img src={djMixerImg} alt='DJ-Mixer' />
                         <div className='text-overlay left'>
                             <Link to='/Songs' className='overlay-link'>
                                 <p>Explore the Songs here!</p>
